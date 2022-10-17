@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl0a0cjknmcs8"]
+
+[ext_resource type="Script" path="res://prefabs/thurible_smoke/thurible_smoke.gd" id="1_p8eum"]
+[ext_resource type="Texture2D" uid="uid://dlhpmdlp6v1qg" path="res://textures/thurible_smoke.png" id="2_u2shn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p5rsf"]
+radius = 42.0476
+
+[node name="thurible_smoke" type="Node2D"]
+script = ExtResource("1_p8eum")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("2_u2shn")
+
+[node name="collision_detector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="collision_detector"]
+shape = SubResource("CircleShape2D_p5rsf")
+
+[connection signal="area_entered" from="collision_detector" to="." method="_on_collision_detector_area_entered"]

@@ -4,6 +4,7 @@ extends Node2D
 
 @onready var click_handler: Area2D = %click_handler
 @onready var tool_asset: Sprite2D = %tool_asset
+@onready var tool_frame: Node2D = %tool_frame
 
 @export var _tool_texture: Texture:
 	set(value):
@@ -26,6 +27,10 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	click_handler.input_event.connect(_handle_click)
+	MessageBus.state_entered.connect(func(state):
+		print("state entered")
+		tool_frame.modulate = Color.SKY_BLUE if state == _associated_state else Color.WHITE
+	)
 	_update_tool_asset()
 
 func _update_tool_asset():

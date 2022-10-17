@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://di8viifxj7dh6"]
+[gd_scene load_steps=17 format=3 uid="uid://di8viifxj7dh6"]
 
 [ext_resource type="PackedScene" uid="uid://dajucj1rg5jlu" path="res://prefabs/tool_handle/tool_handle.tscn" id="1_lkw5s"]
 [ext_resource type="Script" path="res://scripts/state_management/state_machine.gd" id="1_rstyf"]
@@ -6,10 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://igggnfhpwe22" path="res://textures/needle.png" id="2_a4dei"]
 [ext_resource type="PackedScene" uid="uid://njrrapejymsx" path="res://prefabs/pin/pin.tscn" id="3_k7ahx"]
 [ext_resource type="Script" path="res://scripts/state_management/knife_state.gd" id="4_ov75w"]
+[ext_resource type="Script" path="res://scripts/state_management/no_tool_state.gd" id="5_b0yfi"]
 [ext_resource type="PackedScene" uid="uid://c3ooia7jreokc" path="res://prefabs/soul_jar/soul_jar.tscn" id="5_vd52m"]
+[ext_resource type="Script" path="res://scripts/state_management/thurible_state.gd" id="6_0uwd2"]
 [ext_resource type="Texture2D" uid="uid://cv182d1q15aby" path="res://textures/knife.png" id="6_5lsyk"]
 [ext_resource type="PackedScene" uid="uid://bn4m5kpawwy8m" path="res://prefabs/spirit/spirit.tscn" id="6_i004f"]
 [ext_resource type="Texture2D" uid="uid://bdw6fqxsfhl81" path="res://textures/thurible.png" id="7_0q1gh"]
+[ext_resource type="PackedScene" uid="uid://bl0a0cjknmcs8" path="res://prefabs/thurible_smoke/thurible_smoke.tscn" id="7_2b5v1"]
 [ext_resource type="Texture2D" uid="uid://cxj1p4tiwjn6b" path="res://textures/spirit.png" id="8_7i20c"]
 [ext_resource type="Script" path="res://prefabs/tool_handle/spirit_indicator.gd" id="9_iknfk"]
 
@@ -20,7 +23,7 @@ size = Vector2(996, 653)
 
 [node name="tools_state" type="Node2D" parent="." node_paths=PackedStringArray("current_state", "interaction_area")]
 script = ExtResource("1_rstyf")
-current_state = NodePath("blue_pin_state")
+current_state = NodePath("no_tool_state")
 interaction_area = NodePath("../Area2d")
 
 [node name="blue_pin_state" type="Node2D" parent="tools_state"]
@@ -37,6 +40,13 @@ pin_color = Color(0.901961, 0.321569, 0.180392, 1)
 
 [node name="knife_state" type="Node2D" parent="tools_state"]
 script = ExtResource("4_ov75w")
+
+[node name="no_tool_state" type="Node2D" parent="tools_state"]
+script = ExtResource("5_b0yfi")
+
+[node name="thurible_state" type="Node2D" parent="tools_state"]
+script = ExtResource("6_0uwd2")
+smoke_prefab = ExtResource("7_2b5v1")
 
 [node name="soul_jar" parent="." instance=ExtResource("5_vd52m")]
 position = Vector2(60, 44)
@@ -60,7 +70,7 @@ position = Vector2(-2, 306)
 _tool_texture = ExtResource("7_0q1gh")
 _tool_color = Color(0.290196, 0, 0.160784, 1)
 _tool_scale = Vector2(0.7, 0.7)
-_associated_state = NodePath("../tools_state/blue_pin_state")
+_associated_state = NodePath("../tools_state/thurible_state")
 
 [node name="blue_pin_handle" parent="." node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
 position = Vector2(-2, 439)

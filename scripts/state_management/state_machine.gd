@@ -26,3 +26,4 @@ func set_state(new_state):
 		current_state.on_exit()
 		current_state = new_state
 		current_state.on_enter()
+		MessageBus.state_entered.emit(current_state)
