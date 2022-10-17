@@ -36,3 +36,7 @@ config/name="trauma spirit"
 run/main_scene="res://scenes/interactions_test.tscn"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
 config/icon="res://icon.svg"
+
+[autoload]
+
+MessageBus="*res://globals/message_bus.gd"

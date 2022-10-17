@@ -28,3 +28,13 @@ texture_repeat = 1
 material = SubResource("ShaderMaterial_oruvu")
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_uhn8b")
+
+[node name="click_handler" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -29.0
+offset_top = -34.0
+offset_right = 33.0
+offset_bottom = 34.0
+
+[connection signal="gui_input" from="click_handler" to="." method="_on_click_handler_gui_input"]

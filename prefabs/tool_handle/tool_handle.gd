@@ -38,7 +38,6 @@ func _handle_click(_viewport, event: InputEvent, _shape_idx):
 	var mouse_event = event as InputEventMouseButton
 	if mouse_event and mouse_event.is_pressed():
 		if _associated_state.is_usable:
-			print("clicked tool")
 			_associated_state.start()
 		else:
 			print("tool not available")
