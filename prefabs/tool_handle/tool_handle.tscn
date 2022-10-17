@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dajucj1rg5jlu"]
+
+[ext_resource type="Script" path="res://prefabs/tool_handle/tool_handle.gd" id="1_r8i2x"]
+[ext_resource type="Texture2D" uid="uid://bpv1o8k11p2b" path="res://textures/square.png" id="1_y61v6"]
+[ext_resource type="Texture2D" uid="uid://bpdhy8sl1vfme" path="res://textures/circle.png" id="2_erkv2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jp8g"]
+size = Vector2(153, 129)
+
+[node name="tool_handle" type="Node2D"]
+script = ExtResource("1_r8i2x")
+_tool_color = Color(1, 1, 1, 1)
+_tool_scale = Vector2(1, 1)
+
+[node name="graphic_parent" type="Node2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="square_handle" type="Sprite2D" parent="graphic_parent"]
+position = Vector2(88, 3)
+scale = Vector2(0.679688, 1)
+texture = ExtResource("1_y61v6")
+
+[node name="cicular_outcropping" type="Sprite2D" parent="graphic_parent"]
+position = Vector2(176.5, 3.5)
+scale = Vector2(1.01953, 1.00391)
+texture = ExtResource("2_erkv2")
+
+[node name="circular_inlay" type="Sprite2D" parent="graphic_parent"]
+modulate = Color(0.87451, 0.87451, 0.87451, 1)
+position = Vector2(173, 3)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_erkv2")
+
+[node name="tool_asset" type="Sprite2D" parent="graphic_parent"]
+unique_name_in_owner = true
+position = Vector2(180, 0)
+
+[node name="click_handler" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="click_handler"]
+position = Vector2(76.5, 1.5)
+shape = SubResource("RectangleShape2D_0jp8g")
