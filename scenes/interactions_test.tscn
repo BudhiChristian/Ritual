@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://di8viifxj7dh6"]
+[gd_scene load_steps=18 format=3 uid="uid://di8viifxj7dh6"]
 
 [ext_resource type="PackedScene" uid="uid://dajucj1rg5jlu" path="res://prefabs/tool_handle/tool_handle.tscn" id="1_lkw5s"]
 [ext_resource type="Script" path="res://scripts/state_management/state_machine.gd" id="1_rstyf"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bl0a0cjknmcs8" path="res://prefabs/thurible_smoke/thurible_smoke.tscn" id="7_2b5v1"]
 [ext_resource type="Texture2D" uid="uid://cxj1p4tiwjn6b" path="res://textures/spirit.png" id="8_7i20c"]
 [ext_resource type="Script" path="res://prefabs/tool_handle/spirit_indicator.gd" id="9_iknfk"]
+[ext_resource type="Script" path="res://scripts/operating_area.gd" id="15_k8qkb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hr5hb"]
 size = Vector2(996, 653)
@@ -88,6 +89,7 @@ _associated_state = NodePath("../tools_state/red_pin_state")
 
 [node name="Area2d" type="Area2D" parent="."]
 position = Vector2(144, 6)
+script = ExtResource("15_k8qkb")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
 position = Vector2(509, 319.5)

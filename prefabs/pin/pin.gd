@@ -1,6 +1,12 @@
 extends Node2D
 
 var _is_dragging = false
+var is_exhausted = false:
+	set(value):
+		is_exhausted = value
+		modulate = Color(modulate, 0.7) if is_exhausted else Color(modulate, 1) 
+
+var is_outside_operating_area = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,6 +29,19 @@ func _on_pin_head_gui_input(event: InputEvent) -> void:
 				_is_dragging = true
 			else:
 				_is_dragging = false
+				if is_exhausted and is_outside_operating_area:
+					MessageBus.pin_removed.emit(self)
+					queue_free()
 	var mouse_motion_event = (event as InputEventMouseMotion)
 	if mouse_motion_event and _is_dragging:
 		position += (mouse_motion_event.relative * global_scale)
+
+
+func _on_collision_checker_area_exited(area: Area2D) -> void:
+	if area == OperatingArea.area:
+		is_outside_operating_area = true
+
+
+func _on_collision_checker_area_entered(area: Area2D) -> void:
+	if area == OperatingArea.area:
+		is_outside_operating_area = false

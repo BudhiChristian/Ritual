@@ -28,6 +28,8 @@ func _process(delta: float) -> void:
 		queue_free()
 	
 func _exit_tree() -> void:
+	for pin in triangle_points:
+		pin.is_exhausted = true
 	remove_from_group("triangles")
 
 func _draw():

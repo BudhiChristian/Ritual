@@ -40,6 +40,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 MessageBus="*res://globals/message_bus.gd"
+OperatingArea="*res://globals/operating_area.gd"
 
 [layer_names]
 
