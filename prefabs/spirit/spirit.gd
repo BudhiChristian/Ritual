@@ -18,8 +18,9 @@ var is_exposed = false:
 func _process(delta: float) -> void:
 	var is_in_a_triangle = false
 	for triangle in get_tree().get_nodes_in_group("triangles"):
-		if Geometry2D.is_point_in_polygon(position, triangle.vector_points):
-			is_in_a_triangle = true
+		if triangle.is_active:
+			if Geometry2D.is_point_in_polygon(position, triangle.vector_points):
+				is_in_a_triangle = true
 			
 	is_capturable = is_in_a_triangle
 	is_exposed = is_in_a_triangle
