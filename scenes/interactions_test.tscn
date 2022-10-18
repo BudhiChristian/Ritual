@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://di8viifxj7dh6"]
+[gd_scene load_steps=19 format=3 uid="uid://di8viifxj7dh6"]
 
 [ext_resource type="PackedScene" uid="uid://dajucj1rg5jlu" path="res://prefabs/tool_handle/tool_handle.tscn" id="1_lkw5s"]
 [ext_resource type="Script" path="res://scripts/state_management/state_machine.gd" id="1_rstyf"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cxj1p4tiwjn6b" path="res://textures/spirit.png" id="8_7i20c"]
 [ext_resource type="Script" path="res://prefabs/tool_handle/spirit_indicator.gd" id="9_iknfk"]
 [ext_resource type="Script" path="res://scripts/operating_area.gd" id="15_k8qkb"]
+[ext_resource type="Script" path="res://scripts/state_management/spirit_state.gd" id="17_g68nj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hr5hb"]
 size = Vector2(996, 653)
@@ -95,10 +96,8 @@ script = ExtResource("15_k8qkb")
 position = Vector2(509, 319.5)
 shape = SubResource("RectangleShape2D_hr5hb")
 
-[node name="spirit2" parent="." instance=ExtResource("6_i004f")]
-position = Vector2(521, 377)
-
-[node name="spirit" parent="." instance=ExtResource("6_i004f")]
-position = Vector2(943, 153)
+[node name="spirit_spawner" type="Node2D" parent="."]
+script = ExtResource("17_g68nj")
+spirit_prefab = ExtResource("6_i004f")
 
 [connection signal="input_event" from="Area2d" to="tools_state" method="_on_interaction_area_input"]

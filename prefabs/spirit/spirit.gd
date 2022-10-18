@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var click_handler: Control = %click_handler
 
+var spirit_color: Color = Color.PURPLE
 var is_capturable = false
 
 var is_captured = false:
@@ -24,7 +25,7 @@ func _process(delta: float) -> void:
 			
 	is_capturable = is_in_a_triangle
 	is_exposed = is_in_a_triangle
-	modulate = Color.FOREST_GREEN if is_in_a_triangle else Color.PURPLE
+	modulate = Color.FOREST_GREEN if is_in_a_triangle else spirit_color
 
 
 # TODO: we should disable the click handler if the ghost is not visible,
