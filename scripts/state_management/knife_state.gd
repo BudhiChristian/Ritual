@@ -4,7 +4,6 @@ var held_spirit = null:
 	set(value):
 		held_spirit = value
 		MessageBus.set_spirit_stored.emit(value != null)
-var spirits_in_jar = []
 
 func handle_spirit_clicked(spirit:Node2D):
 	if held_spirit == null:
@@ -13,7 +12,7 @@ func handle_spirit_clicked(spirit:Node2D):
 	
 func handle_soul_jar_clicked():
 	if held_spirit != null:
-		spirits_in_jar.append(held_spirit)
+		MessageBus.put_spirit_in_jar.emit(held_spirit)
 		held_spirit = null
 
 func on_exit():
