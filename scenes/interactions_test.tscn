@@ -23,87 +23,92 @@ size = Vector2(996, 653)
 
 [node name="interactions_test" type="Node2D"]
 
-[node name="tools_state" type="Node2D" parent="." node_paths=PackedStringArray("current_state", "interaction_area")]
+[node name="pausable_area" type="Node" parent="."]
+process_mode = 1
+
+[node name="tools_state" type="Node2D" parent="pausable_area" node_paths=PackedStringArray("current_state", "interaction_area")]
 script = ExtResource("1_rstyf")
 current_state = NodePath("no_tool_state")
 interaction_area = NodePath("../Area2d")
 
-[node name="blue_pin_state" type="Node2D" parent="tools_state"]
+[node name="blue_pin_state" type="Node2D" parent="pausable_area/tools_state"]
 script = ExtResource("2_5vang")
 state_name = "blue"
 pin_prefab = ExtResource("3_k7ahx")
 pin_color = Color(0.196078, 0.223529, 1, 1)
 
-[node name="red_pin_state" type="Node2D" parent="tools_state"]
+[node name="red_pin_state" type="Node2D" parent="pausable_area/tools_state"]
 script = ExtResource("2_5vang")
 state_name = "red"
 pin_prefab = ExtResource("3_k7ahx")
 pin_color = Color(0.901961, 0.321569, 0.180392, 1)
 
-[node name="knife_state" type="Node2D" parent="tools_state"]
+[node name="knife_state" type="Node2D" parent="pausable_area/tools_state"]
 script = ExtResource("4_ov75w")
 
-[node name="no_tool_state" type="Node2D" parent="tools_state"]
+[node name="no_tool_state" type="Node2D" parent="pausable_area/tools_state"]
 script = ExtResource("5_b0yfi")
 
-[node name="thurible_state" type="Node2D" parent="tools_state"]
+[node name="thurible_state" type="Node2D" parent="pausable_area/tools_state"]
 script = ExtResource("6_0uwd2")
 smoke_prefab = ExtResource("7_2b5v1")
 
-[node name="soul_jar" parent="." instance=ExtResource("5_vd52m")]
+[node name="soul_jar" parent="pausable_area" instance=ExtResource("5_vd52m")]
 position = Vector2(60, 44)
 
-[node name="knife_handle" parent="." node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
+[node name="knife_handle" parent="pausable_area" node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
 position = Vector2(-2, 172)
 _tool_texture = ExtResource("6_5lsyk")
 _tool_color = Color(0.290196, 0, 0.160784, 1)
 _tool_scale = Vector2(0.7, 0.7)
 _associated_state = NodePath("../tools_state/knife_state")
 
-[node name="spirit_indicator" type="Sprite2D" parent="knife_handle"]
+[node name="spirit_indicator" type="Sprite2D" parent="pausable_area/knife_handle"]
 visible = false
 position = Vector2(119, 31)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("8_7i20c")
 script = ExtResource("9_iknfk")
 
-[node name="thurible_handle" parent="." node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
+[node name="thurible_handle" parent="pausable_area" node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
 position = Vector2(-2, 306)
 _tool_texture = ExtResource("7_0q1gh")
 _tool_color = Color(0.290196, 0, 0.160784, 1)
 _tool_scale = Vector2(0.7, 0.7)
 _associated_state = NodePath("../tools_state/thurible_state")
 
-[node name="blue_pin_handle" parent="." node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
+[node name="blue_pin_handle" parent="pausable_area" node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
 position = Vector2(-2, 439)
 _tool_texture = ExtResource("2_a4dei")
 _tool_color = Color(0.196078, 0.223529, 1, 1)
 _tool_scale = Vector2(0.7, 0.7)
 _associated_state = NodePath("../tools_state/blue_pin_state")
 
-[node name="red_pin_handle" parent="." node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
+[node name="red_pin_handle" parent="pausable_area" node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
 position = Vector2(0, 573)
 _tool_texture = ExtResource("2_a4dei")
 _tool_color = Color(0.901961, 0.321569, 0.180392, 1)
 _tool_scale = Vector2(0.7, 0.7)
 _associated_state = NodePath("../tools_state/red_pin_state")
 
-[node name="Area2d" type="Area2D" parent="."]
+[node name="Area2d" type="Area2D" parent="pausable_area"]
 position = Vector2(144, 6)
 script = ExtResource("15_k8qkb")
 
-[node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
+[node name="CollisionShape2d" type="CollisionShape2D" parent="pausable_area/Area2d"]
 position = Vector2(509, 319.5)
 shape = SubResource("RectangleShape2D_hr5hb")
 
-[node name="spirit_spawner" type="Node2D" parent="."]
+[node name="spirit_spawner" type="Node2D" parent="pausable_area"]
 script = ExtResource("17_g68nj")
 spirit_prefab = ExtResource("6_i004f")
 
-[node name="spawn_area" type="Polygon2D" parent="spirit_spawner"]
+[node name="spawn_area" type="Polygon2D" parent="pausable_area/spirit_spawner"]
 position = Vector2(-624, -717)
 scale = Vector2(1.41564, 1.65234)
 color = Color(1, 1, 1, 0.121569)
 polygon = PackedVector2Array(764.32, 543.47, 832.84, 485.371, 961.404, 481.74, 1044.76, 526.526, 1050.41, 703.244, 1008.98, 765.598, 968.012, 762.572, 947.526, 726.26, 861.346, 718.392, 850.044, 766.203, 815.43, 765.598, 761.038, 712.946)
 
-[connection signal="input_event" from="Area2d" to="tools_state" method="_on_interaction_area_input"]
+[node name="dialogic" type="Node" parent="."]
+
+[connection signal="input_event" from="pausable_area/Area2d" to="pausable_area/tools_state" method="_on_interaction_area_input"]
