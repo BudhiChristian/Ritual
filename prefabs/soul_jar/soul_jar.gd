@@ -25,6 +25,9 @@ func _mark_captured(spirit: Node) -> void:
 		if held_spirits.size() < 3:
 			# setup escape indicatore
 			var spirit_indicator = spirit_indicators[held_spirits.size() - 1] as Node2D
+			spirit_indicator.rotation = -0.1 * PI
+			var tween = create_tween()
+			tween.tween_property(spirit_indicator, "rotation",0, 1).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 			var escape_indicator = SoulJarEscape.new(spirit_indicator.global_position, spirit)
 			spirit_statuses.append(escape_indicator)
 			get_tree().current_scene.add_child(escape_indicator)
