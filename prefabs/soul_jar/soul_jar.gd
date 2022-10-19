@@ -17,7 +17,6 @@ func _process(delta):
 		var spirit = held_spirits[i] if held_spirits.size() > i else null
 		spirit_indicator.visible = spirit != null
 		spirit_indicator.modulate = Color.GRAY if spirit == null else spirit.spirit_color
-		draw_arc(spirit_indicator.position, 100, 0, 360, 100, Color.PURPLE, 10)
 	
 func _mark_captured(spirit: Node) -> void:
 	if held_spirits.is_empty() or held_spirits[0].spirit_color == spirit.spirit_color:
@@ -49,7 +48,7 @@ func _on_click_handler_input_event(viewport: Node, event: InputEvent, shape_idx:
 func _on_click_handler_mouse_entered():
 	var tween = create_tween()
 	tween.tween_property(get_node("jar"), "rotation", 0.1 * PI, 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN_OUT)
-	#get_node("jar").rotation = 0.2 * PI
+
 func _on_click_handler_mouse_exited():
 	var tween = create_tween()
 	tween.tween_property(get_node("jar"), "rotation", 0, 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
