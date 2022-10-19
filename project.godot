@@ -14,6 +14,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://scripts/state_management/base_state.gd"
 }, {
+"base": "Node2D",
+"class": &"SoulJarEscape",
+"language": &"GDScript",
+"path": "res://prefabs/soul_jar/soul_jar_escape.gd"
+}, {
 "base": "Node",
 "class": &"StateMachine",
 "language": &"GDScript",
@@ -26,6 +31,7 @@ _global_script_classes=[{
 }]
 _global_script_class_icons={
 "BaseState": "",
+"SoulJarEscape": "",
 "StateMachine": "",
 "TriangleManager": ""
 }

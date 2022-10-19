@@ -28,13 +28,13 @@ shape = SubResource("RectangleShape2D_qcx2q")
 [node name="indicator_holder" type="Node2D" parent="."]
 
 [node name="spirit_1" type="Sprite2D" parent="indicator_holder"]
-position = Vector2(49, 78)
-scale = Vector2(0.15, 0.15)
+position = Vector2(53, 81)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_alxu0")
 
 [node name="spirit_2" type="Sprite2D" parent="indicator_holder"]
-position = Vector2(68, 27)
-scale = Vector2(0.15, 0.15)
+position = Vector2(69, 30)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_alxu0")
 
 [connection signal="input_event" from="click_handler" to="." method="_on_click_handler_input_event"]

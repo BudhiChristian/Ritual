@@ -1,9 +1,7 @@
 extends Node2D
 
-@export var spirit_indicators:Array
-
+var spirit_indicators: Array
 var held_spirits: Array = []
-var jar_color: Color = Color.GRAY
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,20 +11,27 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	spirit_indicators[0].visible = held_spirits.size() > 0
-	spirit_indicators[1].visible = held_spirits.size() > 1
-	for spirit_indicator in spirit_indicators:
-		spirit_indicator.modulate = Color.GRAY if held_spirits.is_empty() else jar_color
+	for i in range(spirit_indicators.size()):
+		var spirit_indicator = spirit_indicators[i]
+		var spirit = held_spirits[i] if held_spirits.size() > i else null
+		spirit_indicator.visible = spirit != null
+		spirit_indicator.modulate = Color.GRAY if spirit == null else spirit.spirit_color
+		draw_arc(spirit_indicator.position, 100, 0, 360, 100, Color.PURPLE, 10)
 	
 func _mark_captured(spirit: Node) -> void:
-	if held_spirits.is_empty() or jar_color == spirit.spirit_color:
-		jar_color = spirit.spirit_color
+	if held_spirits.is_empty() or held_spirits[0].spirit_color == spirit.spirit_color:
 		spirit.is_jarred = true
 		held_spirits.append(spirit)
+		if held_spirits.size() < 3:
+			var spirit_indicator = spirit_indicators[held_spirits.size() - 1] as Node2D
+			var escape_indicator = SoulJarEscape.new(spirit_indicator.global_position, spirit)
+			get_tree().current_scene.add_child(escape_indicator)
+		
 	# we could add some process instead of automatically doing this
 	if held_spirits.size() >= 3:
 		MessageBus.exorcise_spirits_in_jar.emit(held_spirits)
 		held_spirits = []
+		# TODO free escape indidicators
 
 func _spirit_escape(spirit: Node) -> void:
 	held_spirits = held_spirits.filter(func(held): return held != spirit)
