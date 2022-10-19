@@ -23,6 +23,7 @@ func _mark_captured(spirit: Node) -> void:
 		spirit.is_jarred = true
 		held_spirits.append(spirit)
 		if held_spirits.size() < 3:
+			# setup escape indicatore
 			var spirit_indicator = spirit_indicators[held_spirits.size() - 1] as Node2D
 			var escape_indicator = SoulJarEscape.new(spirit_indicator.global_position, spirit)
 			get_tree().current_scene.add_child(escape_indicator)
@@ -31,7 +32,6 @@ func _mark_captured(spirit: Node) -> void:
 	if held_spirits.size() >= 3:
 		MessageBus.exorcise_spirits_in_jar.emit(held_spirits)
 		held_spirits = []
-		# TODO free escape indidicators
 
 func _spirit_escape(spirit: Node) -> void:
 	held_spirits = held_spirits.filter(func(held): return held != spirit)

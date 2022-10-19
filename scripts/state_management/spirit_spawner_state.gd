@@ -58,6 +58,8 @@ func _spawn_spirit(color: Color, debug_color: Color, position: Vector2) -> void:
 	
 func _release_spirits(spirits: Array) -> void:
 	spirit_instances = spirit_instances.filter(func(p): return p not in spirits)
+	for spirit in spirits:
+		spirit.queue_free()
 	
 func _get_random_position() -> Vector2:
 	# pick a random number and find the closest weight
