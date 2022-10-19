@@ -39,10 +39,11 @@ func _on_click_handler_gui_input(event: InputEvent) -> void:
 					
 func _update_node_visibility():
 	var is_node_visible = is_exposed and !is_captured
-	visible = is_node_visible
+	visible = true # is_node_visible
 	var pm = Node.PROCESS_MODE_INHERIT if is_node_visible else Node.PROCESS_MODE_DISABLED
 	click_handler.process_mode = pm
-	thurible_collider.process_mode = pm
+	thurible_collider.monitoring = !is_captured
+	thurible_collider.monitorable = !is_captured
 
 # TODO: When captured start timer for escape
 func _spirit_escapes():
