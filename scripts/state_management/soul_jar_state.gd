@@ -15,7 +15,7 @@ func _ready():
 func _process(delta):
 	spirit_indicators[0].visible = held_spirits.size() > 0
 	spirit_indicators[1].visible = held_spirits.size() > 1
-	#self.modulate = Color.GRAY if held_spirits.is_empty() else jar_color
+	self.modulate = Color.GRAY if held_spirits.is_empty() else jar_color
 	
 func _mark_captured(spirit: Node) -> void:
 	if held_spirits.is_empty() or jar_color == spirit.spirit_color:
