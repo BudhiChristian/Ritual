@@ -31,7 +31,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_alxu0")
 
 [node name="spirit_2" type="Sprite2D" parent="indicator_holder"]
-position = Vector2(80, 17)
+position = Vector2(80, 11)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_alxu0")
 
