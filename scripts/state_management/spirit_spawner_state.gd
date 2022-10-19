@@ -2,7 +2,7 @@ extends Node
 
 @export var spirit_prefab:PackedScene
 
-var spirit_instances:Array = []
+var spirit_instances: Array = []
 
 # triangles that spritis can spawn
 var spawn_areas: Array = []
@@ -13,6 +13,10 @@ var spawn_weights: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Connect listeners
+	MessageBus.exorcise_spirits_in_jar.connect(_release_spirits)
+	
+	# Calculate spawn areas
 	# extract polygon of spawn area and split into triangles
 	var spawn_area = (get_node("spawn_area") as Polygon2D)
 	var spawn_area_polygon = spawn_area.polygon
@@ -36,20 +40,24 @@ func _process(delta):
 	# TODO just an example... we would want to call spawn_spirit_trio from some
 	# level logic
 	if len(spirit_instances) < 1:
-		spawn_spirit_trio(Color.PURPLE, Color.PLUM)
+		spawn_spirit_trio(Color.ORANGE_RED, Color.ORANGE)
 	
 func spawn_spirit_trio(color: Color, found_color: Color) -> void:
 	for i in 3:
-		spawn_spirit(color, found_color, _get_random_position())
+		_spawn_spirit(color, found_color, _get_random_position())
 
-func spawn_spirit(color: Color, found_color: Color, position: Vector2) -> void:
+func _spawn_spirit(color: Color, found_color: Color, position: Vector2) -> void:
 	var new_spirit = spirit_prefab.instantiate() as Node2D
 	new_spirit.position = position
 	new_spirit.spirit_color = color
 	new_spirit.spirit_color_found = found_color
+	new_spirit.visible = false
 	get_tree().current_scene.add_child(new_spirit)
 	spirit_instances.append(new_spirit)
 	return new_spirit
+	
+func _release_spirits(spirits: Array) -> void:
+	spirit_instances = spirit_instances.filter(func(p): return p not in spirits)
 	
 func _get_random_position() -> Vector2:
 	# pick a random number and find the closest weight
