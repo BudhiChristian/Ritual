@@ -2,6 +2,7 @@ extends Node2D
 
 var spirit_indicators: Array
 var held_spirits: Array = []
+var spirit_statuses: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,15 +27,20 @@ func _mark_captured(spirit: Node) -> void:
 			# setup escape indicatore
 			var spirit_indicator = spirit_indicators[held_spirits.size() - 1] as Node2D
 			var escape_indicator = SoulJarEscape.new(spirit_indicator.global_position, spirit)
+			spirit_statuses.append(escape_indicator)
 			get_tree().current_scene.add_child(escape_indicator)
 		
 	# we could add some process instead of automatically doing this
 	if held_spirits.size() >= 3:
 		MessageBus.exorcise_spirits_in_jar.emit(held_spirits)
 		held_spirits = []
+		spirit_statuses = []
 
 func _spirit_escape(spirit: Node) -> void:
 	held_spirits = held_spirits.filter(func(held): return held != spirit)
+	spirit_statuses = spirit_statuses.filter(func(status): return status.spirit != spirit)
+	for i in range(spirit_statuses.size()):
+		spirit_statuses[i].center = spirit_indicators[i].global_position
 
 func _on_click_handler_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == 1 and event.is_pressed():
