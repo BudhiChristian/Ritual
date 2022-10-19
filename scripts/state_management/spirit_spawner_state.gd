@@ -42,15 +42,15 @@ func _process(delta):
 	if len(spirit_instances) < 1:
 		spawn_spirit_trio(Color.ORANGE_RED, Color.ORANGE)
 	
-func spawn_spirit_trio(color: Color, found_color: Color) -> void:
+func spawn_spirit_trio(color: Color, debug_color: Color) -> void:
 	for i in 3:
-		_spawn_spirit(color, found_color, _get_random_position())
+		_spawn_spirit(color, debug_color, _get_random_position())
 
-func _spawn_spirit(color: Color, found_color: Color, position: Vector2) -> void:
+func _spawn_spirit(color: Color, debug_color: Color, position: Vector2) -> void:
 	var new_spirit = spirit_prefab.instantiate() as Node2D
 	new_spirit.position = position
 	new_spirit.spirit_color = color
-	new_spirit.spirit_color_found = found_color
+	new_spirit.spirit_color_debug = debug_color
 	new_spirit.visible = false
 	get_tree().current_scene.add_child(new_spirit)
 	spirit_instances.append(new_spirit)

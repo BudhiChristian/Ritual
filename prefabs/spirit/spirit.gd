@@ -3,7 +3,7 @@ extends Node2D
 @onready var thurible_collider: Area2D = %thurible_collider
 
 var spirit_color: Color = Color.PURPLE
-var spirit_color_found: Color = Color.PLUM
+var spirit_color_debug: Color = Color.PLUM
 
 var is_capturable = false
 
@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 	is_capturable = is_in_a_triangle
 	is_exposed = is_in_a_triangle
 	# TODO some other indicator, 2 colors is confusing (Metal Geal exclamation?)
-	modulate = spirit_color_found if is_in_a_triangle else spirit_color
+	modulate = spirit_color if is_in_a_triangle else spirit_color_debug
 
 
 # TODO: we should disable the click handler if the ghost is not visible,
