@@ -57,11 +57,17 @@ position = Vector2(60, 44)
 [node name="soul_jar_state" type="Node2D" parent="soul_jar"]
 script = ExtResource("9_fdykf")
 
-[node name="spirit_count" type="RichTextLabel" parent="soul_jar/soul_jar_state"]
-offset_left = 51.0
-offset_top = -1.0
-offset_right = 151.0
-offset_bottom = 39.0
+[node name="spirit_indicator_1" type="Sprite2D" parent="soul_jar/soul_jar_state"]
+visible = false
+position = Vector2(50, 44)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_7i20c")
+
+[node name="spirit_indicator_2" type="Sprite2D" parent="soul_jar/soul_jar_state"]
+visible = false
+position = Vector2(51, 7)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_7i20c")
 
 [node name="knife_handle" parent="." node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
 position = Vector2(-2, 172)
@@ -103,7 +109,7 @@ position = Vector2(144, 6)
 script = ExtResource("15_k8qkb")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
-position = Vector2(509, 319.5)
+position = Vector2(501, 319)
 shape = SubResource("RectangleShape2D_hr5hb")
 debug_color = Color(0, 0.6, 0.701961, 0.376471)
 
