@@ -1,12 +1,9 @@
 extends BaseState
 
-@export var spirit_spawner: Node
-
 var held_spirit = null:
 	set(value):
 		held_spirit = value
 		MessageBus.set_spirit_stored.emit(value != null)
-var spirits_in_jar = []
 
 func handle_spirit_clicked(spirit:Node2D):
 	if held_spirit == null:
