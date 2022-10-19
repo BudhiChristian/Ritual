@@ -4,11 +4,31 @@ extends Node
 
 var spirit_instances:Array = []
 
+# triangles that spritis can spawn
+var spawn_areas: Array = []
+# accumulated average in ascending order (last is the the complete total areas)
+var spawn_weights: Array = []
+
 # we could make these fit within the target depending on what the object is
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	# extract polygon of spawn area and split into triangles
+	var spawn_area = (get_node("spawn_area") as Polygon2D)
+	var spawn_area_polygon = spawn_area.polygon
+	var triangles = Geometry2D.triangulate_polygon(spawn_area_polygon)
+	# instantiate accumulated spawn weights
+	spawn_weights.resize(triangles.size()/3)
+	spawn_weights[-1] = 0
+	# for each group of three
+	for i in range(triangles.size()/3):
+		# place on global coordinates
+		var a = spawn_area.to_global(spawn_area_polygon[triangles[3 * i]])
+		var b = spawn_area.to_global(spawn_area_polygon[triangles[3 * i + 1]])
+		var c = spawn_area.to_global(spawn_area_polygon[triangles[3 * i + 2]])
+		# accumulate spawn weights and append to spawn areas list
+		spawn_weights[i] = spawn_weights[i - 1] + _triangle_area(a, b, c)
+		spawn_areas.append([a, b, c])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,7 +40,6 @@ func _process(delta):
 	
 func spawn_spirit_trio(color: Color, found_color: Color) -> void:
 	for i in 3:
-		# TODO: Some logic for making these not spawn so close to each other
 		spawn_spirit(color, found_color, _get_random_position())
 
 func spawn_spirit(color: Color, found_color: Color, position: Vector2) -> void:
@@ -33,10 +52,17 @@ func spawn_spirit(color: Color, found_color: Color, position: Vector2) -> void:
 	return new_spirit
 	
 func _get_random_position() -> Vector2:
-	# TODO: make play area fit to host
-	var play_area_size = get_viewport().get_visible_rect().size
-	# TODO: make these not "magic numbers"
-	# play area start is (180, 0) adding 50 to allow room for needle
-	var random_x = randf_range(230, play_area_size.x-50)
-	var random_y = randf_range(50, play_area_size.y-50)
-	return Vector2(random_x, random_y)
+	# pick a random number and find the closest weight
+	var random_number = spawn_weights[-1] * randf()
+	var spawn_index = spawn_weights.bsearch(random_number)
+	# fetch triangle corresponding with weight
+	var spawn = spawn_areas[spawn_index]
+	# get a random point in the triangle
+	return _random_triangle_point(spawn[0], spawn[1], spawn[2])
+	
+# found these on the internet
+func _triangle_area(a: Vector2, b: Vector2, c: Vector2) -> float:
+	return 0.5 * abs((c.x - a.x) * (b.y - a.y) - (b.x - a.x) * (c.y - a.y))
+
+func _random_triangle_point(a: Vector2, b: Vector2, c: Vector2) -> Vector2:
+	return a + sqrt(randf()) * (-a + b + randf() * (c - b))
