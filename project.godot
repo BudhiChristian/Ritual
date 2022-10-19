@@ -42,6 +42,7 @@ config/icon="res://icon.svg"
 MessageBus="*res://globals/message_bus.gd"
 OperatingArea="*res://globals/operating_area.gd"
 Dialogic="*res://addons/dialogic/Other/DialogicGameHandler.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [dialogic]
 
@@ -66,7 +67,7 @@ editor_mode="text"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [input]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://di8viifxj7dh6"]
+[gd_scene load_steps=20 format=3 uid="uid://di8viifxj7dh6"]
 
 [ext_resource type="PackedScene" uid="uid://dajucj1rg5jlu" path="res://prefabs/tool_handle/tool_handle.tscn" id="1_lkw5s"]
 [ext_resource type="Script" path="res://scripts/state_management/state_machine.gd" id="1_rstyf"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://prefabs/tool_handle/spirit_indicator.gd" id="9_iknfk"]
 [ext_resource type="Script" path="res://scripts/operating_area.gd" id="15_k8qkb"]
 [ext_resource type="Script" path="res://scripts/state_management/spirit_state.gd" id="17_g68nj"]
+[ext_resource type="Script" path="res://scripts/ritual_dialog.gd" id="18_ipjmq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hr5hb"]
 size = Vector2(996, 653)
@@ -109,6 +110,38 @@ scale = Vector2(1.41564, 1.65234)
 color = Color(1, 1, 1, 0.121569)
 polygon = PackedVector2Array(764.32, 543.47, 832.84, 485.371, 961.404, 481.74, 1044.76, 526.526, 1050.41, 703.244, 1008.98, 765.598, 968.012, 762.572, 947.526, 726.26, 861.346, 718.392, 850.044, 766.203, 815.43, 765.598, 761.038, 712.946)
 
-[node name="dialogic" type="Node" parent="."]
+[node name="dialogic" type="Node" parent="." node_paths=PackedStringArray("timer_label")]
+process_mode = 3
+script = ExtResource("18_ipjmq")
+timer_label = NodePath("Control/Label")
+
+[node name="Control" type="Control" parent="dialogic"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 158.0
+offset_top = 550.0
+offset_right = 1153.0
+offset_bottom = 651.0
+
+[node name="Panel" type="Panel" parent="dialogic/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="dialogic/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Button" type="Button" parent="dialogic/Control"]
+layout_mode = 0
+offset_top = 43.0
+offset_right = 152.0
+offset_bottom = 74.0
+text = "toggle ritual pause"
 
 [connection signal="input_event" from="pausable_area/Area2d" to="pausable_area/tools_state" method="_on_interaction_area_input"]
+[connection signal="pressed" from="dialogic/Control/Button" to="dialogic" method="toggle_ritual_pause"]
