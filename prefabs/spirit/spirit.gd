@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 
 	is_capturable = is_in_a_triangle
 	is_exposed = is_in_a_triangle
-	# TODO some other indicator, 2 colors is confusing (Metal Geal exclamation?)
+
 	modulate = spirit_color if is_in_a_triangle else spirit_color_debug
 	
 	if is_jarred:
@@ -58,7 +58,6 @@ func _update_node_visibility():
 	thurible_collider.monitoring = !is_captured
 	thurible_collider.monitorable = !is_captured
 
-# TODO: When captured start timer for escape
 func _spirit_escapes():
 	self.is_capturable = false
 	self.is_captured = false
