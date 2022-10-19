@@ -5,6 +5,8 @@ var held_spirit = null:
 		held_spirit = value
 		MessageBus.set_spirit_stored.emit(value != null)
 
+# TODO: It might be kinda neat if the red pins had a wide area but a short active time,
+# and the blue pins had the opposite
 func handle_spirit_clicked(spirit:Node2D):
 	if held_spirit == null:
 		spirit.is_captured = true
