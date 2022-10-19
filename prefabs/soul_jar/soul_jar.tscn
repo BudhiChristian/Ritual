@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bpdnm55pq5hue" path="res://textures/soul jar2.png" id="2_b13ap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qcx2q"]
-size = Vector2(68, 95)
+size = Vector2(310.98, 473.282)
 
 [node name="soul_jar" type="Node2D"]
 script = ExtResource("1_ugt1d")
@@ -12,15 +12,16 @@ script = ExtResource("1_ugt1d")
 [node name="sprite" type="Sprite2D" parent="."]
 position = Vector2(-10, 1)
 rotation = 0.349066
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_b13ap")
 
 [node name="click_handler" type="Area2D" parent="."]
 position = Vector2(-1, -2)
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="click_handler"]
-position = Vector2(-9, 3.5)
+position = Vector2(-10.8195, 8.67568)
 rotation = 0.349066
+scale = Vector2(0.4, 0.4)
 shape = SubResource("RectangleShape2D_qcx2q")
 
 [connection signal="input_event" from="click_handler" to="." method="_on_click_handler_input_event"]
