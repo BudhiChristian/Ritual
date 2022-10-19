@@ -28,10 +28,12 @@ func _process(delta: float) -> void:
 
 
 func _on_collision_detector_area_entered(area: Area2D) -> void:
+	var node = area.get_parent()
+	var spirit_color = node.spirit_color
 	var tween = create_tween()
-	tween.tween_property(self, "modulate:r", Color.PURPLE.r, 0.3)
+	tween.tween_property(self, "modulate:r", spirit_color.r, 0.3)
 	tween.parallel()
-	tween.tween_property(self, "modulate:g", Color.PURPLE.g, 0.3)
+	tween.tween_property(self, "modulate:g", spirit_color.g, 0.3)
 	tween.parallel()
-	tween.tween_property(self, "modulate:b", Color.PURPLE.b, 0.3)
+	tween.tween_property(self, "modulate:b", spirit_color.b, 0.3)
 	pass # Replace with function body.
