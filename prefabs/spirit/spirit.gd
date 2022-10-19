@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var click_handler: Control = %click_handler
+@onready var thurible_collider: Area2D = %thurible_collider
 
 var spirit_color: Color = Color.PURPLE
 var spirit_color_found: Color = Color.PLUM
@@ -43,4 +44,6 @@ func _on_click_handler_gui_input(event: InputEvent) -> void:
 func _update_node_visibility():
 	var is_node_visible = is_exposed and !is_captured
 	visible = is_node_visible
-	click_handler.process_mode = Node.PROCESS_MODE_INHERIT if is_node_visible else Node.PROCESS_MODE_DISABLED
+	var pm = Node.PROCESS_MODE_INHERIT if is_node_visible else Node.PROCESS_MODE_DISABLED
+	click_handler.process_mode = pm
+	thurible_collider.process_mode = pm

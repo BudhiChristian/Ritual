@@ -95,7 +95,6 @@ script = ExtResource("15_k8qkb")
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
 position = Vector2(509, 319.5)
 shape = SubResource("RectangleShape2D_hr5hb")
-debug_color = Color(0, 0.6, 0.701961, 0.376471)
 
 [node name="spirit_spawner" type="Node2D" parent="."]
 script = ExtResource("17_g68nj")
@@ -105,6 +104,6 @@ spirit_prefab = ExtResource("6_i004f")
 position = Vector2(-624, -717)
 scale = Vector2(1.41564, 1.65234)
 color = Color(1, 1, 1, 0.121569)
-polygon = PackedVector2Array(764.32, 543.47, 832.84, 485.371, 961.404, 481.74, 1036.99, 533.182, 1050.41, 703.244, 1008.98, 765.598, 968.012, 762.572, 947.526, 726.26, 861.346, 718.392, 850.044, 766.203, 815.43, 765.598, 761.038, 712.946)
+polygon = PackedVector2Array(764.32, 543.47, 832.84, 485.371, 961.404, 481.74, 1044.76, 526.526, 1050.41, 703.244, 1008.98, 765.598, 968.012, 762.572, 947.526, 726.26, 861.346, 718.392, 850.044, 766.203, 815.43, 765.598, 761.038, 712.946)
 
 [connection signal="input_event" from="Area2d" to="tools_state" method="_on_interaction_area_input"]
