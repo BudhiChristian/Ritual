@@ -58,6 +58,21 @@ smoke_prefab = ExtResource("7_2b5v1")
 [node name="soul_jar" parent="pausable_area" instance=ExtResource("5_vd52m")]
 position = Vector2(76, 52)
 
+[node name="soul_jar" type="Node2D" parent="pausable_area/soul_jar"]
+position = Vector2(-76, -52)
+script = ExtResource("9_fdykf")
+spirit_indicators = [null]
+
+[node name="spirit_indicator_1" type="Sprite2D" parent="pausable_area/soul_jar/soul_jar"]
+position = Vector2(122, 91)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_7i20c")
+
+[node name="spirit_indicator_2" type="Sprite2D" parent="pausable_area/soul_jar/soul_jar"]
+position = Vector2(122, 61)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_7i20c")
+
 [node name="knife_handle" parent="pausable_area" node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
 position = Vector2(-2, 172)
 _tool_texture = ExtResource("6_5lsyk")
@@ -110,20 +125,6 @@ position = Vector2(-624, -717)
 scale = Vector2(1.41564, 1.65234)
 color = Color(1, 1, 1, 0.121569)
 polygon = PackedVector2Array(764.32, 543.47, 832.84, 485.371, 961.404, 481.74, 1044.76, 526.526, 1050.41, 703.244, 1008.98, 765.598, 968.012, 762.572, 947.526, 726.26, 861.346, 718.392, 850.044, 766.203, 815.43, 765.598, 761.038, 712.946)
-
-[node name="soul_jar" type="Node2D" parent="."]
-script = ExtResource("9_fdykf")
-spirit_indicators = [null]
-
-[node name="spirit_indicator_1" type="Sprite2D" parent="soul_jar"]
-position = Vector2(109, 96)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("8_7i20c")
-
-[node name="spirit_indicator_2" type="Sprite2D" parent="soul_jar"]
-position = Vector2(110, 66)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("8_7i20c")
 
 [node name="dialogic" type="Node" parent="." node_paths=PackedStringArray("timer_label")]
 process_mode = 3
