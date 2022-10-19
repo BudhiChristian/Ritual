@@ -5,14 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://cxj1p4tiwjn6b" path="res://textures/spirit.png" id="3_alxu0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qcx2q"]
-size = Vector2(310.98, 473.282)
+size = Vector2(335, 473.282)
 
 [node name="soul_jar" type="Node2D"]
 script = ExtResource("1_ugt1d")
 
 [node name="jar" type="Sprite2D" parent="."]
 position = Vector2(-10, 1)
-rotation = 0.349066
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_b13ap")
 
@@ -20,21 +19,22 @@ texture = ExtResource("2_b13ap")
 position = Vector2(-1, -2)
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="click_handler"]
-position = Vector2(-10.8195, 8.67568)
-rotation = 0.349066
+position = Vector2(-10, 8)
 scale = Vector2(0.4, 0.4)
 shape = SubResource("RectangleShape2D_qcx2q")
 
 [node name="indicator_holder" type="Node2D" parent="."]
 
 [node name="spirit_1" type="Sprite2D" parent="indicator_holder"]
-position = Vector2(53, 81)
+position = Vector2(79, 64)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_alxu0")
 
 [node name="spirit_2" type="Sprite2D" parent="indicator_holder"]
-position = Vector2(69, 30)
+position = Vector2(80, 17)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_alxu0")
 
 [connection signal="input_event" from="click_handler" to="." method="_on_click_handler_input_event"]
+[connection signal="mouse_entered" from="click_handler" to="." method="_on_click_handler_mouse_entered"]
+[connection signal="mouse_exited" from="click_handler" to="." method="_on_click_handler_mouse_exited"]

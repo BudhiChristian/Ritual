@@ -39,3 +39,11 @@ func _spirit_escape(spirit: Node) -> void:
 func _on_click_handler_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == 1 and event.is_pressed():
 		MessageBus.soul_jar_clicked.emit()
+		
+func _on_click_handler_mouse_entered():
+	var tween = create_tween()
+	tween.tween_property(get_node("jar"), "rotation", 0.1 * PI, 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN_OUT)
+	#get_node("jar").rotation = 0.2 * PI
+func _on_click_handler_mouse_exited():
+	var tween = create_tween()
+	tween.tween_property(get_node("jar"), "rotation", 0, 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
