@@ -56,7 +56,8 @@ script = ExtResource("6_0uwd2")
 smoke_prefab = ExtResource("7_2b5v1")
 
 [node name="soul_jar" parent="pausable_area" instance=ExtResource("5_vd52m")]
-position = Vector2(76, 52)
+position = Vector2(100, 95)
+scale = Vector2(1.8, 1.8)
 
 [node name="soul_jar" type="Node2D" parent="pausable_area/soul_jar"]
 position = Vector2(-76, -52)
@@ -64,17 +65,18 @@ script = ExtResource("9_fdykf")
 spirit_indicators = [null]
 
 [node name="spirit_indicator_1" type="Sprite2D" parent="pausable_area/soul_jar/soul_jar"]
-position = Vector2(122, 91)
+position = Vector2(112.556, 91)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("8_7i20c")
 
 [node name="spirit_indicator_2" type="Sprite2D" parent="pausable_area/soul_jar/soul_jar"]
-position = Vector2(122, 61)
+position = Vector2(113.667, 61)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("8_7i20c")
 
 [node name="knife_handle" parent="pausable_area" node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
-position = Vector2(-2, 172)
+position = Vector2(1.19209e-07, 253)
+scale = Vector2(0.8, 0.8)
 _tool_texture = ExtResource("6_5lsyk")
 _tool_color = Color(0.290196, 0, 0.160784, 1)
 _tool_scale = Vector2(0.7, 0.7)
@@ -88,21 +90,24 @@ texture = ExtResource("8_7i20c")
 script = ExtResource("9_iknfk")
 
 [node name="thurible_handle" parent="pausable_area" node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
-position = Vector2(-2, 306)
+position = Vector2(1.19209e-07, 359)
+scale = Vector2(0.8, 0.8)
 _tool_texture = ExtResource("7_0q1gh")
 _tool_color = Color(0.290196, 0, 0.160784, 1)
 _tool_scale = Vector2(0.7, 0.7)
 _associated_state = NodePath("../tools_state/thurible_state")
 
 [node name="blue_pin_handle" parent="pausable_area" node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
-position = Vector2(-2, 439)
+position = Vector2(-7.10543e-15, 465)
+scale = Vector2(0.8, 0.8)
 _tool_texture = ExtResource("2_a4dei")
 _tool_color = Color(0.196078, 0.223529, 1, 1)
 _tool_scale = Vector2(0.7, 0.7)
 _associated_state = NodePath("../tools_state/blue_pin_state")
 
 [node name="red_pin_handle" parent="pausable_area" node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
-position = Vector2(0, 573)
+position = Vector2(-1, 571)
+scale = Vector2(0.8, 0.8)
 _tool_texture = ExtResource("2_a4dei")
 _tool_color = Color(0.901961, 0.321569, 0.180392, 1)
 _tool_scale = Vector2(0.7, 0.7)
