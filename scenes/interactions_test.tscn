@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c00v5jpwdeiol"]
+[gd_scene load_steps=23 format=3 uid="uid://bbybe6tr8pqsp"]
 
 [ext_resource type="PackedScene" uid="uid://bskq3yd4rancs" path="res://prefabs/spirit_host/spirit_host.tscn" id="1_6rnas"]
 [ext_resource type="PackedScene" uid="uid://dajucj1rg5jlu" path="res://prefabs/tool_handle/tool_handle.tscn" id="1_lkw5s"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://scripts/state_management/pin_state.gd" id="2_5vang"]
 [ext_resource type="Texture2D" uid="uid://igggnfhpwe22" path="res://textures/needle.png" id="2_a4dei"]
 [ext_resource type="PackedScene" uid="uid://njrrapejymsx" path="res://prefabs/pin/pin.tscn" id="3_k7ahx"]
+[ext_resource type="Script" path="res://scripts/spirit_spawner.gd" id="3_oorg0"]
+[ext_resource type="PackedScene" uid="uid://bn4m5kpawwy8m" path="res://prefabs/spirit/spirit.tscn" id="4_kdyc8"]
 [ext_resource type="Script" path="res://scripts/state_management/knife_state.gd" id="4_ov75w"]
 [ext_resource type="Script" path="res://scripts/state_management/no_tool_state.gd" id="5_b0yfi"]
 [ext_resource type="PackedScene" uid="uid://c3ooia7jreokc" path="res://prefabs/soul_jar/soul_jar.tscn" id="5_vd52m"]
@@ -15,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://bl0a0cjknmcs8" path="res://prefabs/thurible_smoke/thurible_smoke.tscn" id="7_2b5v1"]
 [ext_resource type="Texture2D" uid="uid://cxj1p4tiwjn6b" path="res://textures/spirit.png" id="8_7i20c"]
 [ext_resource type="Script" path="res://prefabs/tool_handle/spirit_indicator.gd" id="9_iknfk"]
-[ext_resource type="PackedScene" uid="uid://yowf7mypya7x" path="res://prefabs/spirit_spawner/spirit_spawner.tscn" id="9_kppwp"]
 [ext_resource type="Script" path="res://scripts/operating_area.gd" id="15_k8qkb"]
 [ext_resource type="Script" path="res://ritual_dialogues/00_tutorial/00_tutorial.gd" id="19_5246u"]
 [ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/Background_WIP.png" id="19_omnay"]
@@ -41,6 +42,15 @@ ignore_texture_size = true
 process_mode = 1
 
 [node name="spirit_host" parent="pausable_area" instance=ExtResource("1_6rnas")]
+aliments = [Color(0.67451, 0.356863, 0.207843, 1), Color(0.352941, 0.407843, 0.184314, 1)]
+
+[node name="spawn_area" type="Polygon2D" parent="pausable_area/spirit_host"]
+position = Vector2(-622, -839)
+scale = Vector2(1.41564, 1.65234)
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(700.037, 643.33, 719.109, 657.855, 784.098, 605.807, 834.958, 589.467, 900.653, 554.365, 895.002, 581.599, 968.467, 594.309, 1008.02, 630.621, 1016.5, 714.139, 981.888, 761.95, 933.853, 772.238, 892.176, 773.448, 878.754, 788.578, 839.196, 758.924, 806.702, 729.874, 752.31, 734.716, 708.513, 710.507, 681.67, 676.616, 674.607, 645.751)
+script = ExtResource("3_oorg0")
+spirit_prefab = ExtResource("4_kdyc8")
 
 [node name="host_sprite" type="Sprite2D" parent="pausable_area/spirit_host"]
 modulate = Color(0.360784, 0.141176, 0.54902, 1)
@@ -49,17 +59,6 @@ rotation = 1.5708
 scale = Vector2(2, 2)
 z_index = -2
 texture = ExtResource("8_7i20c")
-
-[node name="troubled_area" type="Polygon2D" parent="pausable_area/spirit_host"]
-position = Vector2(-622, -839)
-scale = Vector2(1.41564, 1.65234)
-color = Color(1, 1, 1, 0)
-polygon = PackedVector2Array(700.037, 643.33, 719.109, 657.855, 784.098, 605.807, 834.958, 589.467, 900.653, 554.365, 895.002, 581.599, 968.467, 594.309, 1008.02, 630.621, 1016.5, 714.139, 981.888, 761.95, 933.853, 772.238, 892.176, 773.448, 878.754, 788.578, 839.196, 758.924, 806.702, 729.874, 752.31, 734.716, 708.513, 710.507, 681.67, 676.616, 674.607, 645.751)
-
-[node name="spirit_spawner" parent="pausable_area/spirit_host/troubled_area" node_paths=PackedStringArray("spawn_guides") instance=ExtResource("9_kppwp")]
-position = Vector2(518.493, 456.323)
-scale = Vector2(0.706394, 0.605202)
-spawn_guides = NodePath("..")
 
 [node name="soul_jar" parent="pausable_area" instance=ExtResource("5_vd52m")]
 position = Vector2(91.9999, 100)

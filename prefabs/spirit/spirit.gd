@@ -2,8 +2,12 @@ extends Node2D
 @onready var click_handler: Control = %click_handler
 @onready var thurible_collider: Area2D = %thurible_collider
 
-var spirit_color: Color = Color.PURPLE
-var spirit_color_debug: Color = Color.PLUM
+
+var spirit_color_debug: Color = Color(Color.PURPLE, 05)
+var spirit_color: Color = Color.PURPLE:
+	set(value):
+		spirit_color = value
+		spirit_color_debug = Color(value, 0.5)
 var max_jarred_time: float = 60 # seconds
 
 var jarred_time: float = 0
@@ -32,7 +36,7 @@ func _process(delta: float) -> void:
 	var is_in_a_triangle = pin_groups.any(func(group): return group.is_active && Geometry2D.is_point_in_polygon(position, group.vector_points))
 
 	is_capturable = is_in_a_triangle
-	is_exposed = is_in_a_triangle
+	is_exposed = true
 	if !was_exposed and is_exposed:
 		MessageBus.spirit_revealed.emit()
 	# TODO some other indicator, 2 colors is confusing (Metal Geal exclamation?)
@@ -42,7 +46,7 @@ func _process(delta: float) -> void:
 	if is_jarred:
 		jarred_time += delta
 		if jarred_time > max_jarred_time:
-			_spirit_escapes()
+			spirit_escapes()
 
 
 # TODO: we should disable the click handler if the ghost is not visible,
@@ -62,7 +66,7 @@ func _update_node_visibility():
 	thurible_collider.monitoring = !is_captured
 	thurible_collider.monitorable = !is_captured
 
-func _spirit_escapes():
+func spirit_escapes():
 	self.is_capturable = false
 	self.is_captured = false
 	self.is_exposed = false
