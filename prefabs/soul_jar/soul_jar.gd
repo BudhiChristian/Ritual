@@ -37,6 +37,9 @@ func _mark_captured(spirit: Node) -> void:
 			spirit_statuses.append(escape_indicator)
 			get_tree().current_scene.add_child(escape_indicator)
 		jar_sprite.texture = partially_filled_jar_texture
+		jar_sprite.material.set_shader_parameter("red", spirit.spirit_color.r)
+		jar_sprite.material.set_shader_parameter("green", spirit.spirit_color.g)
+		jar_sprite.material.set_shader_parameter("blue", spirit.spirit_color.b)
 		
 	# we could add some process instead of automatically doing this
 	if held_spirits.size() >= 3:
