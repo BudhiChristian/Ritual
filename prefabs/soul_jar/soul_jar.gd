@@ -1,12 +1,17 @@
 extends Node2D
 
+@export var empty_jar_texture: CompressedTexture2D
+@export var partially_filled_jar_texture: CompressedTexture2D
+
 var spirit_indicators: Array
 var held_spirits: Array = []
 var spirit_statuses: Array = []
+var jar_sprite: Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	spirit_indicators = get_node("indicator_holder").get_children()
+	jar_sprite = get_node("jar")
 	MessageBus.put_spirit_in_jar.connect(_mark_captured)
 	MessageBus.spirit_escapes_jar.connect(_spirit_escape)
 
@@ -31,18 +36,22 @@ func _mark_captured(spirit: Node) -> void:
 			var escape_indicator = SoulJarEscape.new(spirit_indicator.global_position, spirit)
 			spirit_statuses.append(escape_indicator)
 			get_tree().current_scene.add_child(escape_indicator)
+		jar_sprite.texture = partially_filled_jar_texture
 		
 	# we could add some process instead of automatically doing this
 	if held_spirits.size() >= 3:
 		MessageBus.exorcise_spirits_in_jar.emit(held_spirits)
 		held_spirits = []
 		spirit_statuses = []
+		jar_sprite.texture = empty_jar_texture
 
 func _spirit_escape(spirit: Node) -> void:
 	held_spirits = held_spirits.filter(func(held): return held != spirit)
 	spirit_statuses = spirit_statuses.filter(func(status): return status.spirit != spirit)
 	for i in range(spirit_statuses.size()):
 		spirit_statuses[i].center = spirit_indicators[i].global_position
+	if held_spirits.is_empty():
+		jar_sprite.texture = empty_jar_texture
 
 func _on_click_handler_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == 1 and event.is_pressed():

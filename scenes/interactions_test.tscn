@@ -56,14 +56,16 @@ smoke_prefab = ExtResource("7_2b5v1")
 [node name="soul_jar" parent="pausable_area" instance=ExtResource("5_vd52m")]
 position = Vector2(92, 100)
 
-[node name="spirit_spawner" parent="pausable_area" node_paths=PackedStringArray("spawn_guides") instance=ExtResource("9_kppwp")]
-spawn_guides = NodePath("spawn_area")
-
-[node name="spawn_area" type="Polygon2D" parent="pausable_area/spirit_spawner"]
+[node name="spawn_area" type="Polygon2D" parent="pausable_area"]
 position = Vector2(-675, -750)
 scale = Vector2(1.41564, 1.65234)
 color = Color(1, 1, 1, 0.121569)
 polygon = PackedVector2Array(764.32, 543.47, 832.84, 485.371, 961.404, 481.74, 1044.76, 526.526, 1050.41, 703.244, 1008.98, 765.598, 968.012, 762.572, 947.526, 726.26, 861.346, 718.392, 850.044, 766.203, 815.43, 765.598, 761.038, 712.946)
+
+[node name="spirit_spawner" parent="pausable_area/spawn_area" node_paths=PackedStringArray("spawn_guides") instance=ExtResource("9_kppwp")]
+position = Vector2(476.816, 453.902)
+scale = Vector2(0.706394, 0.605202)
+spawn_guides = NodePath("..")
 
 [node name="tool_kit" type="Node2D" parent="pausable_area"]
 
@@ -128,7 +130,6 @@ offset_right = 1153.0
 offset_bottom = 651.0
 
 [node name="Panel" type="Panel" parent="dialogic/Control"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -136,12 +137,10 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="dialogic/Control"]
-layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="Button" type="Button" parent="dialogic/Control"]
-layout_mode = 0
 offset_top = 43.0
 offset_right = 152.0
 offset_bottom = 74.0

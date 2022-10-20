@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3ooia7jreokc"]
+[gd_scene load_steps=6 format=3 uid="uid://c3ooia7jreokc"]
 
 [ext_resource type="Script" path="res://prefabs/soul_jar/soul_jar.gd" id="1_ugt1d"]
 [ext_resource type="Texture2D" uid="uid://bpkknpbgt63xn" path="res://textures/Soul_Jar_Empty.png" id="2_3fgec"]
+[ext_resource type="Texture2D" uid="uid://b0anvgb62lv5f" path="res://textures/Soul_Jar_Partial_Fill.png" id="3_1onta"]
 [ext_resource type="Texture2D" uid="uid://cxj1p4tiwjn6b" path="res://textures/spirit.png" id="3_alxu0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qcx2q"]
@@ -9,6 +10,8 @@ size = Vector2(335, 473.282)
 
 [node name="soul_jar" type="Node2D"]
 script = ExtResource("1_ugt1d")
+empty_jar_texture = ExtResource("2_3fgec")
+partially_filled_jar_texture = ExtResource("3_1onta")
 
 [node name="jar" type="Sprite2D" parent="."]
 position = Vector2(-10, 1)
