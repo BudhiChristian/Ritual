@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://yowf7mypya7x"]
+
+[ext_resource type="Script" path="res://prefabs/spirit_spawner/spirit_spawner.gd" id="1_if1s6"]
+[ext_resource type="PackedScene" uid="uid://bn4m5kpawwy8m" path="res://prefabs/spirit/spirit.tscn" id="2_782gb"]
+
+[node name="spirit_spawner" type="Node2D" node_paths=PackedStringArray("spawn_guides")]
+script = ExtResource("1_if1s6")
+spirit_prefab = ExtResource("2_782gb")
+spawn_guides = NodePath("../patient/troubled_area")

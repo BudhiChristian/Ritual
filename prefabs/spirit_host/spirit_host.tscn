@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bskq3yd4rancs"]
+
+[ext_resource type="Script" path="res://prefabs/spirit_host/spirit_host.gd" id="1_vyije"]
+[ext_resource type="Texture2D" uid="uid://bpv1o8k11p2b" path="res://textures/square.png" id="2_rkqrr"]
+
+[node name="spirit_host" type="Node2D"]
+script = ExtResource("1_vyije")
+
+[node name="health_bar" type="Node2D" parent="."]
+
+[node name="border" type="Sprite2D" parent="health_bar"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1123.13, 270)
+scale = Vector2(0.141602, 2.04492)
+texture = ExtResource("2_rkqrr")
+
+[node name="base" type="Sprite2D" parent="health_bar"]
+modulate = Color(0.694118, 0.713726, 0.764706, 1)
+position = Vector2(1123.5, 269)
+scale = Vector2(0.0976563, 2)
+texture = ExtResource("2_rkqrr")
+
+[node name="fill" type="Sprite2D" parent="health_bar"]
+modulate = Color(0.596078, 0.192157, 0.184314, 1)
+position = Vector2(1123.5, 269)
+scale = Vector2(0.098, 2)
+texture = ExtResource("2_rkqrr")

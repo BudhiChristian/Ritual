@@ -4,6 +4,14 @@ extends Node2D
 
 var spirit_color: Color = Color.PURPLE
 var spirit_color_debug: Color = Color.PLUM
+var max_jarred_time: float = 60 # seconds
+
+var jarred_time: float = 0
+var is_jarred = false:
+	set(value):
+		is_jarred = value
+		jarred_time = 0
+
 
 var is_capturable = false
 
@@ -28,7 +36,13 @@ func _process(delta: float) -> void:
 	if !was_exposed and is_exposed:
 		MessageBus.spirit_revealed.emit()
 	# TODO some other indicator, 2 colors is confusing (Metal Geal exclamation?)
+
 	modulate = spirit_color if is_in_a_triangle else spirit_color_debug
+	
+	if is_jarred:
+		jarred_time += delta
+		if jarred_time > max_jarred_time:
+			_spirit_escapes()
 
 
 # TODO: we should disable the click handler if the ghost is not visible,
@@ -48,9 +62,9 @@ func _update_node_visibility():
 	thurible_collider.monitoring = !is_captured
 	thurible_collider.monitorable = !is_captured
 
-# TODO: When captured start timer for escape
 func _spirit_escapes():
 	self.is_capturable = false
 	self.is_captured = false
 	self.is_exposed = false
+	self.is_jarred = false
 	MessageBus.spirit_escapes_jar.emit(self)

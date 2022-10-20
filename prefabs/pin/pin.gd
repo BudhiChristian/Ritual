@@ -8,8 +8,14 @@ var is_exhausted = false:
 
 var is_outside_operating_area = false
 
+var is_set_complete = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var tween = create_tween()
+	tween.tween_property(self, "rotation", -0.05 * PI, 0.05)
+	tween.tween_property(self, "rotation", 0.05 * PI, 0.1)
+	tween.tween_property(self, "rotation", 0 * PI, 0.05)
 	pass # Replace with function body.
 
 
@@ -29,11 +35,16 @@ func _on_pin_head_gui_input(event: InputEvent) -> void:
 				_is_dragging = true
 			else:
 				_is_dragging = false
-				if is_exhausted and is_outside_operating_area:
+				if is_outside_operating_area:
 					MessageBus.pin_removed.emit(self)
 					queue_free()
+		elif mouse_button_event.button_index == 2:
+			# right click !
+			MessageBus.pin_removed.emit(self)
+			queue_free()
+				
 	var mouse_motion_event = (event as InputEventMouseMotion)
-	if mouse_motion_event and _is_dragging:
+	if mouse_motion_event and _is_dragging and (is_exhausted || !is_set_complete):
 		position += (mouse_motion_event.relative * global_scale)
 
 
