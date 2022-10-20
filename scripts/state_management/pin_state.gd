@@ -33,7 +33,7 @@ func handle_input(event:InputEvent):
 						pin.is_set_complete = true
 
 func _remove_pin(pin):
-	if triangle_manager != null:
+	if triangle_manager != null && pin in pin_instances:
 		# if we removed a pin while exposing ghosts
 		triangle_manager.queue_free()
 		triangle_manager = null
