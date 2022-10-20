@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://6kydjr64tn2m"]
+[gd_scene load_steps=21 format=3 uid="uid://6kydjr64tn2m"]
 
 [ext_resource type="PackedScene" uid="uid://bskq3yd4rancs" path="res://prefabs/spirit_host/spirit_host.tscn" id="1_6rnas"]
 [ext_resource type="PackedScene" uid="uid://dajucj1rg5jlu" path="res://prefabs/tool_handle/tool_handle.tscn" id="1_lkw5s"]
@@ -18,11 +18,20 @@
 [ext_resource type="PackedScene" uid="uid://yowf7mypya7x" path="res://prefabs/spirit_spawner/spirit_spawner.tscn" id="9_kppwp"]
 [ext_resource type="Script" path="res://scripts/operating_area.gd" id="15_k8qkb"]
 [ext_resource type="Script" path="res://scripts/ritual_dialog.gd" id="18_ipjmq"]
+[ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/Background_WIP.png" id="19_omnay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hr5hb"]
 size = Vector2(996, 653)
 
 [node name="interactions_test" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -69.0
+offset_right = 4907.0
+offset_bottom = 2608.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("19_omnay")
+ignore_texture_size = true
 
 [node name="pausable_area" type="Node" parent="."]
 process_mode = 1
@@ -42,7 +51,6 @@ spawn_guides = NodePath("..")
 
 [node name="soul_jar" parent="pausable_area" instance=ExtResource("5_vd52m")]
 position = Vector2(91.9999, 100)
-scale = Vector2(1, 1)
 
 [node name="tools_state" type="Node2D" parent="pausable_area" node_paths=PackedStringArray("current_state", "interaction_area")]
 script = ExtResource("1_rstyf")
@@ -134,6 +142,7 @@ offset_right = 1153.0
 offset_bottom = 651.0
 
 [node name="Panel" type="Panel" parent="dialogic/Control"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -141,10 +150,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="dialogic/Control"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="Button" type="Button" parent="dialogic/Control"]
+layout_mode = 0
 offset_top = 43.0
 offset_right = 152.0
 offset_bottom = 74.0
