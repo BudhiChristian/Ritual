@@ -1,7 +1,6 @@
 extends Node
 
 @export var spirit_prefab: PackedScene
-#@export var spawn_guides: Polygon2D
 
 var spirit_instances: Array = []
 

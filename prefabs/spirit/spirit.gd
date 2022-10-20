@@ -3,7 +3,7 @@ extends Node2D
 @onready var thurible_collider: Area2D = %thurible_collider
 
 
-var spirit_color_debug: Color = Color(Color.PURPLE, 05)
+var spirit_color_debug: Color = Color(Color.PURPLE, 0.5)
 var spirit_color: Color = Color.PURPLE:
 	set(value):
 		spirit_color = value
@@ -46,7 +46,7 @@ func _process(delta: float) -> void:
 	if is_jarred:
 		jarred_time += delta
 		if jarred_time > max_jarred_time:
-			spirit_escapes()
+			_spirit_escapes()
 
 
 # TODO: we should disable the click handler if the ghost is not visible,
@@ -66,7 +66,7 @@ func _update_node_visibility():
 	thurible_collider.monitoring = !is_captured
 	thurible_collider.monitorable = !is_captured
 
-func spirit_escapes():
+func _spirit_escapes():
 	self.is_capturable = false
 	self.is_captured = false
 	self.is_exposed = false

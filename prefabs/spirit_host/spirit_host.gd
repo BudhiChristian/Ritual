@@ -29,12 +29,9 @@ func _process(delta):
 
 func _on_exorcise_spirits_in_jar(spirits: Array):
 	total_spirits -= spirits.size()
-	print("total spirits: ", total_spirits)
 	
 func _on_put_spirit_in_jar(spirit):
 	spirits_in_body -= 1
-	print("spirits in body: ", spirits_in_body)
 	
 func _on_spirit_escapes_jar(spirit):
 	spirits_in_body += 1
-	print("spirits in body: ", spirits_in_body)
