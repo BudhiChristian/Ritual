@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://6kydjr64tn2m"]
+[gd_scene load_steps=21 format=3 uid="uid://c00v5jpwdeiol"]
 
 [ext_resource type="PackedScene" uid="uid://bskq3yd4rancs" path="res://prefabs/spirit_host/spirit_host.tscn" id="1_6rnas"]
 [ext_resource type="PackedScene" uid="uid://dajucj1rg5jlu" path="res://prefabs/tool_handle/tool_handle.tscn" id="1_lkw5s"]
@@ -17,7 +17,8 @@
 [ext_resource type="Script" path="res://prefabs/tool_handle/spirit_indicator.gd" id="9_iknfk"]
 [ext_resource type="PackedScene" uid="uid://yowf7mypya7x" path="res://prefabs/spirit_spawner/spirit_spawner.tscn" id="9_kppwp"]
 [ext_resource type="Script" path="res://scripts/operating_area.gd" id="15_k8qkb"]
-[ext_resource type="Script" path="res://scripts/ritual_dialog.gd" id="18_ipjmq"]
+[ext_resource type="Script" path="res://ritual_dialogues/00_tutorial/00_tutorial.gd" id="19_5246u"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="20_s212j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hr5hb"]
 size = Vector2(996, 653)
@@ -42,7 +43,6 @@ spawn_guides = NodePath("..")
 
 [node name="soul_jar" parent="pausable_area" instance=ExtResource("5_vd52m")]
 position = Vector2(91.9999, 100)
-scale = Vector2(1, 1)
 
 [node name="tools_state" type="Node2D" parent="pausable_area" node_paths=PackedStringArray("current_state", "interaction_area")]
 script = ExtResource("1_rstyf")
@@ -120,12 +120,11 @@ script = ExtResource("15_k8qkb")
 position = Vector2(509, 319.5)
 shape = SubResource("RectangleShape2D_hr5hb")
 
-[node name="dialogic" type="Node" parent="." node_paths=PackedStringArray("timer_label")]
+[node name="dialog_parent" type="Node" parent="."]
 process_mode = 3
-script = ExtResource("18_ipjmq")
-timer_label = NodePath("Control/Label")
+script = ExtResource("19_5246u")
 
-[node name="Control" type="Control" parent="dialogic"]
+[node name="UI_parent" type="Control" parent="dialog_parent"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 158.0
@@ -133,22 +132,18 @@ offset_top = 550.0
 offset_right = 1153.0
 offset_bottom = 651.0
 
-[node name="Panel" type="Panel" parent="dialogic/Control"]
+[node name="Panel" type="Panel" parent="dialog_parent/UI_parent"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="dialogic/Control"]
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="Button" type="Button" parent="dialogic/Control"]
-offset_top = 43.0
-offset_right = 152.0
-offset_bottom = 74.0
-text = "toggle ritual pause"
+[node name="Label" type="RichTextLabel" parent="dialog_parent/UI_parent"]
+layout_mode = 0
+offset_right = 996.0
+offset_bottom = 99.0
+script = ExtResource("20_s212j")
 
 [connection signal="input_event" from="pausable_area/Area2d" to="pausable_area/tools_state" method="_on_interaction_area_input"]
-[connection signal="pressed" from="dialogic/Control/Button" to="dialogic" method="toggle_ritual_pause"]
