@@ -19,11 +19,14 @@ var is_exposed = false:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var was_exposed = is_exposed
 	var pin_groups = get_tree().get_nodes_in_group("triangles")
 	var is_in_a_triangle = pin_groups.any(func(group): return group.is_active && Geometry2D.is_point_in_polygon(position, group.vector_points))
 
 	is_capturable = is_in_a_triangle
 	is_exposed = is_in_a_triangle
+	if !was_exposed and is_exposed:
+		MessageBus.spirit_revealed.emit()
 	# TODO some other indicator, 2 colors is confusing (Metal Geal exclamation?)
 	modulate = spirit_color if is_in_a_triangle else spirit_color_debug
 

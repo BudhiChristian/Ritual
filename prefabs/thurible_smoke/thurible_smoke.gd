@@ -36,4 +36,5 @@ func _on_collision_detector_area_entered(area: Area2D) -> void:
 	tween.tween_property(self, "modulate:g", spirit_color.g, 0.3)
 	tween.parallel()
 	tween.tween_property(self, "modulate:b", spirit_color.b, 0.3)
+	tween.tween_callback(func(): MessageBus.thurible_smoke_changed.emit(spirit_color))
 	pass # Replace with function body.

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://73jm5qjy52vq"]
 
 [ext_resource type="Script" path="res://addons/dialogue_manager/example_balloon/example_balloon.gd" id="1_4u26j"]
-[ext_resource type="PackedScene" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d24i"]
 content_margin_left = 40.0
@@ -63,7 +63,7 @@ offset_top = 33.0
 offset_right = 1112.0
 offset_bottom = 56.0
 grow_horizontal = 1
-text = "Dialogue"
+text = "Foo Bar Baz"
 
 [node name="Responses" type="VBoxContainer" parent="Balloon/Margin/VBox"]
 offset_top = 66.0

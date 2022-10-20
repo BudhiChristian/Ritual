@@ -2,6 +2,9 @@ extends Node
 
 signal state_entered(state)
 
+signal thurible_smoke_changed(color)
+signal spirit_revealed()
+
 # knife actions
 signal spirit_clicked(spirit)
 signal soul_jar_clicked()
