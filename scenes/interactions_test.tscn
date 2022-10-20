@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c00v5jpwdeiol"]
+[gd_scene load_steps=22 format=3 uid="uid://c00v5jpwdeiol"]
 
 [ext_resource type="PackedScene" uid="uid://bskq3yd4rancs" path="res://prefabs/spirit_host/spirit_host.tscn" id="1_6rnas"]
 [ext_resource type="PackedScene" uid="uid://dajucj1rg5jlu" path="res://prefabs/tool_handle/tool_handle.tscn" id="1_lkw5s"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://yowf7mypya7x" path="res://prefabs/spirit_spawner/spirit_spawner.tscn" id="9_kppwp"]
 [ext_resource type="Script" path="res://scripts/operating_area.gd" id="15_k8qkb"]
 [ext_resource type="Script" path="res://ritual_dialogues/00_tutorial/00_tutorial.gd" id="19_5246u"]
+[ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/Background_WIP.png" id="19_omnay"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="20_s212j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hr5hb"]
@@ -25,16 +26,35 @@ size = Vector2(996, 653)
 
 [node name="interactions_test" type="Node2D"]
 
+[node name="background" type="Node2D" parent="."]
+z_index = -2
+
+[node name="Background" type="TextureRect" parent="background"]
+offset_left = -69.0
+offset_right = 4907.0
+offset_bottom = 2608.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("19_omnay")
+ignore_texture_size = true
+
 [node name="pausable_area" type="Node" parent="."]
 process_mode = 1
 
 [node name="spirit_host" parent="pausable_area" instance=ExtResource("1_6rnas")]
 
+[node name="host_sprite" type="Sprite2D" parent="pausable_area/spirit_host"]
+modulate = Color(0.360784, 0.141176, 0.54902, 1)
+position = Vector2(572.48, 255.923)
+rotation = 1.5708
+scale = Vector2(2, 2)
+z_index = -2
+texture = ExtResource("8_7i20c")
+
 [node name="troubled_area" type="Polygon2D" parent="pausable_area/spirit_host"]
-position = Vector2(-622, -753)
+position = Vector2(-622, -839)
 scale = Vector2(1.41564, 1.65234)
-color = Color(1, 1, 1, 0.14902)
-polygon = PackedVector2Array(764.32, 543.47, 832.84, 485.371, 961.404, 481.74, 1044.76, 526.526, 1050.41, 703.244, 1008.98, 765.598, 968.012, 762.572, 947.526, 726.26, 861.346, 718.392, 850.044, 766.203, 815.43, 765.598, 761.038, 712.946)
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(700.037, 643.33, 719.109, 657.855, 784.098, 605.807, 834.958, 589.467, 900.653, 554.365, 895.002, 581.599, 968.467, 594.309, 1008.02, 630.621, 1016.5, 714.139, 981.888, 761.95, 933.853, 772.238, 892.176, 773.448, 878.754, 788.578, 839.196, 758.924, 806.702, 729.874, 752.31, 734.716, 708.513, 710.507, 681.67, 676.616, 674.607, 645.751)
 
 [node name="spirit_spawner" parent="pausable_area/spirit_host/troubled_area" node_paths=PackedStringArray("spawn_guides") instance=ExtResource("9_kppwp")]
 position = Vector2(518.493, 456.323)
