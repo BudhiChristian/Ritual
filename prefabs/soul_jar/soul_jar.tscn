@@ -37,11 +37,13 @@ shape = SubResource("RectangleShape2D_qcx2q")
 [node name="indicator_holder" type="Node2D" parent="."]
 
 [node name="spirit_1" type="Sprite2D" parent="indicator_holder"]
+visible = false
 position = Vector2(79, 64)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_alxu0")
 
 [node name="spirit_2" type="Sprite2D" parent="indicator_holder"]
+visible = false
 position = Vector2(80, 11)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_alxu0")

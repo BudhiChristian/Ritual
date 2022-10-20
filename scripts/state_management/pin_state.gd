@@ -26,7 +26,7 @@ func handle_input(event:InputEvent):
 				if all_pins_placed and all_pins_active:
 					# form triangle
 					triangle_manager = TriangleManager.new(pin_instances)
-					triangle_manager.z_index = -10
+					triangle_manager.z_index = -1
 					get_tree().current_scene.add_child(triangle_manager)
 					# lock pins in place
 					for pin in pin_instances:
