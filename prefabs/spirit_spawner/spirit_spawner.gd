@@ -1,6 +1,7 @@
 extends Node
 
-@export var spirit_prefab:PackedScene
+@export var spirit_prefab: PackedScene
+@export var spawn_guides: Polygon2D
 
 var spirit_instances: Array = []
 
@@ -18,8 +19,7 @@ func _ready():
 	
 	# Calculate spawn areas
 	# extract polygon of spawn area and split into triangles
-	var spawn_area = (get_node("spawn_area") as Polygon2D)
-	var spawn_area_polygon = spawn_area.polygon
+	var spawn_area_polygon = spawn_guides.polygon
 	var triangles = Geometry2D.triangulate_polygon(spawn_area_polygon)
 	# instantiate accumulated spawn weights
 	spawn_weights.resize(triangles.size()/3)
@@ -27,9 +27,9 @@ func _ready():
 	# for each group of three
 	for i in range(triangles.size()/3):
 		# place on global coordinates
-		var a = spawn_area.to_global(spawn_area_polygon[triangles[3 * i]])
-		var b = spawn_area.to_global(spawn_area_polygon[triangles[3 * i + 1]])
-		var c = spawn_area.to_global(spawn_area_polygon[triangles[3 * i + 2]])
+		var a = spawn_guides.to_global(spawn_area_polygon[triangles[3 * i]])
+		var b = spawn_guides.to_global(spawn_area_polygon[triangles[3 * i + 1]])
+		var c = spawn_guides.to_global(spawn_area_polygon[triangles[3 * i + 2]])
 		# accumulate spawn weights and append to spawn areas list
 		spawn_weights[i] = spawn_weights[i - 1] + _triangle_area(a, b, c)
 		spawn_areas.append([a, b, c])

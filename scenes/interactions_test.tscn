@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://6kydjr64tn2m"]
+[gd_scene load_steps=19 format=3 uid="uid://6kydjr64tn2m"]
 
 [ext_resource type="PackedScene" uid="uid://dajucj1rg5jlu" path="res://prefabs/tool_handle/tool_handle.tscn" id="1_lkw5s"]
 [ext_resource type="Script" path="res://scripts/state_management/state_machine.gd" id="1_rstyf"]
@@ -10,13 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://c3ooia7jreokc" path="res://prefabs/soul_jar/soul_jar.tscn" id="5_vd52m"]
 [ext_resource type="Script" path="res://scripts/state_management/thurible_state.gd" id="6_0uwd2"]
 [ext_resource type="Texture2D" uid="uid://cv182d1q15aby" path="res://textures/knife.png" id="6_5lsyk"]
-[ext_resource type="PackedScene" uid="uid://bn4m5kpawwy8m" path="res://prefabs/spirit/spirit.tscn" id="6_i004f"]
 [ext_resource type="Texture2D" uid="uid://bdw6fqxsfhl81" path="res://textures/thurible.png" id="7_0q1gh"]
 [ext_resource type="PackedScene" uid="uid://bl0a0cjknmcs8" path="res://prefabs/thurible_smoke/thurible_smoke.tscn" id="7_2b5v1"]
 [ext_resource type="Texture2D" uid="uid://cxj1p4tiwjn6b" path="res://textures/spirit.png" id="8_7i20c"]
 [ext_resource type="Script" path="res://prefabs/tool_handle/spirit_indicator.gd" id="9_iknfk"]
+[ext_resource type="PackedScene" uid="uid://yowf7mypya7x" path="res://prefabs/spirit_spawner/spirit_spawner.tscn" id="9_kppwp"]
 [ext_resource type="Script" path="res://scripts/operating_area.gd" id="15_k8qkb"]
-[ext_resource type="Script" path="res://scripts/state_management/spirit_spawner_state.gd" id="17_g68nj"]
 [ext_resource type="Script" path="res://scripts/ritual_dialog.gd" id="18_ipjmq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hr5hb"]
@@ -57,44 +56,55 @@ smoke_prefab = ExtResource("7_2b5v1")
 [node name="soul_jar" parent="pausable_area" instance=ExtResource("5_vd52m")]
 position = Vector2(92, 100)
 
-[node name="knife_handle" parent="pausable_area" node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
+[node name="spirit_spawner" parent="pausable_area" node_paths=PackedStringArray("spawn_guides") instance=ExtResource("9_kppwp")]
+spawn_guides = NodePath("spawn_area")
+
+[node name="spawn_area" type="Polygon2D" parent="pausable_area/spirit_spawner"]
+position = Vector2(-675, -750)
+scale = Vector2(1.41564, 1.65234)
+color = Color(1, 1, 1, 0.121569)
+polygon = PackedVector2Array(764.32, 543.47, 832.84, 485.371, 961.404, 481.74, 1044.76, 526.526, 1050.41, 703.244, 1008.98, 765.598, 968.012, 762.572, 947.526, 726.26, 861.346, 718.392, 850.044, 766.203, 815.43, 765.598, 761.038, 712.946)
+
+[node name="tool_kit" type="Node2D" parent="pausable_area"]
+
+[node name="knife_handle" parent="pausable_area/tool_kit" node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
 position = Vector2(1.19209e-07, 268)
 scale = Vector2(0.8, 0.8)
 _tool_texture = ExtResource("6_5lsyk")
 _tool_color = Color(0.290196, 0, 0.160784, 1)
 _tool_scale = Vector2(0.7, 0.7)
-_associated_state = NodePath("../tools_state/knife_state")
+_associated_state = NodePath("../../tools_state/knife_state")
 
-[node name="spirit_indicator" type="Sprite2D" parent="pausable_area/knife_handle"]
+[node name="spirit_indicator" type="Sprite2D" parent="pausable_area/tool_kit/knife_handle"]
 visible = false
 position = Vector2(119, 31)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("8_7i20c")
 script = ExtResource("9_iknfk")
 
-[node name="thurible_handle" parent="pausable_area" node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
+[node name="thurible_handle" parent="pausable_area/tool_kit" node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
 position = Vector2(1.19209e-07, 374)
 scale = Vector2(0.8, 0.8)
 _tool_texture = ExtResource("7_0q1gh")
 _tool_color = Color(0.290196, 0, 0.160784, 1)
 _tool_scale = Vector2(0.7, 0.7)
-_associated_state = NodePath("../tools_state/thurible_state")
+_associated_state = NodePath("../../tools_state/thurible_state")
 
-[node name="blue_pin_handle" parent="pausable_area" node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
+[node name="blue_pin_handle" parent="pausable_area/tool_kit" node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
 position = Vector2(-7.10543e-15, 480)
 scale = Vector2(0.8, 0.8)
 _tool_texture = ExtResource("2_a4dei")
 _tool_color = Color(0.196078, 0.223529, 1, 1)
 _tool_scale = Vector2(0.7, 0.7)
-_associated_state = NodePath("../tools_state/blue_pin_state")
+_associated_state = NodePath("../../tools_state/blue_pin_state")
 
-[node name="red_pin_handle" parent="pausable_area" node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
+[node name="red_pin_handle" parent="pausable_area/tool_kit" node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
 position = Vector2(-1, 586)
 scale = Vector2(0.8, 0.8)
 _tool_texture = ExtResource("2_a4dei")
 _tool_color = Color(0.901961, 0.321569, 0.180392, 1)
 _tool_scale = Vector2(0.7, 0.7)
-_associated_state = NodePath("../tools_state/red_pin_state")
+_associated_state = NodePath("../../tools_state/red_pin_state")
 
 [node name="Area2d" type="Area2D" parent="pausable_area"]
 position = Vector2(144, 6)
@@ -103,16 +113,6 @@ script = ExtResource("15_k8qkb")
 [node name="CollisionShape2d" type="CollisionShape2D" parent="pausable_area/Area2d"]
 position = Vector2(509, 319.5)
 shape = SubResource("RectangleShape2D_hr5hb")
-
-[node name="spirit_spawner" type="Node2D" parent="pausable_area"]
-script = ExtResource("17_g68nj")
-spirit_prefab = ExtResource("6_i004f")
-
-[node name="spawn_area" type="Polygon2D" parent="pausable_area/spirit_spawner"]
-position = Vector2(-675, -750)
-scale = Vector2(1.41564, 1.65234)
-color = Color(1, 1, 1, 0.121569)
-polygon = PackedVector2Array(764.32, 543.47, 832.84, 485.371, 961.404, 481.74, 1044.76, 526.526, 1050.41, 703.244, 1008.98, 765.598, 968.012, 762.572, 947.526, 726.26, 861.346, 718.392, 850.044, 766.203, 815.43, 765.598, 761.038, 712.946)
 
 [node name="dialogic" type="Node" parent="." node_paths=PackedStringArray("timer_label")]
 process_mode = 3
@@ -128,6 +128,7 @@ offset_right = 1153.0
 offset_bottom = 651.0
 
 [node name="Panel" type="Panel" parent="dialogic/Control"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -135,10 +136,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="dialogic/Control"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="Button" type="Button" parent="dialogic/Control"]
+layout_mode = 0
 offset_top = 43.0
 offset_right = 152.0
 offset_bottom = 74.0
