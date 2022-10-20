@@ -44,7 +44,7 @@ func _on_pin_head_gui_input(event: InputEvent) -> void:
 			queue_free()
 				
 	var mouse_motion_event = (event as InputEventMouseMotion)
-	if mouse_motion_event and _is_dragging and !is_set_complete:
+	if mouse_motion_event and _is_dragging and (is_exhausted || !is_set_complete):
 		position += (mouse_motion_event.relative * global_scale)
 
 
