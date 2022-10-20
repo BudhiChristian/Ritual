@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpdnm55pq5hue"
-path="res://.godot/imported/soul jar2.png-24d0e03176069f45af384c5431271cd0.ctex"
+uid="uid://b0anvgb62lv5f"
+path="res://.godot/imported/Soul_Jar_Partial_Fill.png-7ecd4352be5a6695b20d72f92a82046a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/soul jar2.png"
-dest_files=["res://.godot/imported/soul jar2.png-24d0e03176069f45af384c5431271cd0.ctex"]
+source_file="res://textures/Soul_Jar_Partial_Fill.png"
+dest_files=["res://.godot/imported/Soul_Jar_Partial_Fill.png-7ecd4352be5a6695b20d72f92a82046a.ctex"]
 
 [params]
 

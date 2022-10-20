@@ -21,5 +21,5 @@ func _draw() -> void:
 	var final_angle = 2 * PI * (remaining_time/spirit.max_jarred_time)
 	var segments = 360
 	draw_arc(center, radius, 0, 2 * PI, segments, Color.BLACK, 10)
-	draw_arc(center, radius, 0, 2 * PI, segments, Color.PLUM, 4)
+	draw_arc(center, radius, 0, 2 * PI, segments, Color8(177, 182, 195), 4)
 	draw_arc(center, radius, 0, final_angle, segments, spirit.spirit_color, 4)
