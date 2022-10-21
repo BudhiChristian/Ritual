@@ -7,13 +7,13 @@ func _ready() -> void:
 	play_intro()
 	
 func play_intro():
-	var dialog = preload("res://ritual_dialogues/00_tutorial/intro.dialogue")
+	var dialog = preload("res://ritual_dialogues/00_tutorial/00_0_intro.dialogue")
 	await progress_dialog(dialog, "start")
 	MessageBus.thurible_smoke_changed.connect(play_use_pins)
 
 func play_use_pins(_smoke_color):
 	MessageBus.thurible_smoke_changed.disconnect(play_use_pins)
-	var dialog = preload("res://ritual_dialogues/00_tutorial/use_pins.dialogue")
+	var dialog = preload("res://ritual_dialogues/00_tutorial/00_1_use_pins.dialogue")
 	await progress_dialog(dialog, "start")
 	MessageBus.spirit_revealed.connect(play_use_knife)
 	
