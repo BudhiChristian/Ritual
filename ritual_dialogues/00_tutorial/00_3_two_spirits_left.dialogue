@@ -1,0 +1,13 @@
+~ start
+Dr. Ecto\: Well done! Now, let's look for more spirits.
+YN\: More spirits?
+Dr. Ecto\: You see, spirits can only travel in groups of three. That means there are two more suckers floating around in our friend right now.
+Dr. Ecto\: Also... [wait=0.5]We can only completely excorise spirits when our soul jar is full and it just so happens that our soul jar fits three spirits.
+YN\: That seems arbitrary.
+Dr. Ecto\: Think of it as a match three game.
+YN\: Why not.
+Dr. Ecto\: Our spirit jar can only contain the little fella for so long, they will escape eventually. Find the other two spirits and then we can exorcise them.
+YN\: Will we get to chant.
+Dr. Ecto\: This is an automated exorcisim soul jar.
+YN\: Of course it is... [wait=1]Damn.
+(Find the other two spirits before the disciple of Belphegor escapes. When a spirit escapes it returns to the body and you will have to capture them again.)

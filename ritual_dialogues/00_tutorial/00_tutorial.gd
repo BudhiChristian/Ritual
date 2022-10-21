@@ -27,14 +27,15 @@ func play_use_knife():
 	
 func play_two_more(_spirit_in_jar):
 	MessageBus.put_spirit_in_jar.disconnect(play_two_more)
-	var dialog = preload("res://ritual_dialogues/00_tutorial/two_spirits_left.dialogue")
+	var dialog = preload("res://ritual_dialogues/00_tutorial/00_3_two_spirits_left.dialogue")
 	await progress_dialog(dialog, "start")
 	MessageBus.exorcise_spirits_in_jar.connect(play_finished)
 	
 func play_finished(_spirits_in_jar):
 	MessageBus.exorcise_spirits_in_jar.disconnect(play_finished)
-	var dialog = preload("res://ritual_dialogues/00_tutorial/finished.dialogue")
+	var dialog = preload("res://ritual_dialogues/00_tutorial/00_4_finished.dialogue")
 	await progress_dialog(dialog, "start")
 	# TODO: If we wanted to, we could emit a signal here to spawn another three ghosts or something.
 	
 	# TODO: retracting needles instructions (canceling triangle ritual also)
+	# TODO: Explain needle exhaustion
