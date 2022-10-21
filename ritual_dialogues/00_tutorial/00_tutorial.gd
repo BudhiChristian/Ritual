@@ -4,7 +4,7 @@ extends RitualDialogueHandler
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
-	# play_intro()
+	play_intro()
 	
 func play_intro():
 	var dialog = preload("res://ritual_dialogues/00_tutorial/intro.dialogue")
