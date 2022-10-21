@@ -2,7 +2,7 @@ extends BaseLevelScript
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.start()
+	super()
 	# for other levels we can spawn more spirits after a certain time or event
 	MessageBus.spawn_spirit_trio.emit(Color8(172, 91, 53))
 

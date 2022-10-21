@@ -1,7 +1,7 @@
 extends Node
 class_name BaseLevelScript
 
-func start():
+func _ready():
 	MessageBus.level_completed.connect(on_level_completed)
 	MessageBus.level_failed.connect(on_level_failed)
 	

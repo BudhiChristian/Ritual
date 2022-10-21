@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bn4m5kpawwy8m" path="res://prefabs/spirit/spirit.tscn" id="4_kdyc8"]
 [ext_resource type="PackedScene" uid="uid://dwn4x7y0esv0f" path="res://prefabs/tool_kit/tool_kit.tscn" id="6_b6o4i"]
 [ext_resource type="Texture2D" uid="uid://cxj1p4tiwjn6b" path="res://textures/spirit.png" id="8_7i20c"]
+[ext_resource type="PackedScene" uid="uid://ddgg34bdoo2e1" path="res://prefabs/dialog_box.tscn" id="9_3k1xu"]
 [ext_resource type="Script" path="res://ritual_dialogues/00_tutorial/00_tutorial.gd" id="19_5246u"]
 [ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/Background_WIP.png" id="19_omnay"]
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="20_s212j"]
 
 [node name="interactions_test" type="Node2D"]
 
@@ -23,13 +23,13 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("19_omnay")
 ignore_texture_size = true
 
-[node name="pausable_area" type="Node" parent="."]
+[node name="level" type="Node" parent="."]
 process_mode = 1
 script = ExtResource("2_p6vdp")
 
-[node name="spirit_host" parent="pausable_area" instance=ExtResource("1_6rnas")]
+[node name="spirit_host" parent="level" instance=ExtResource("1_6rnas")]
 
-[node name="host_sprite" type="Sprite2D" parent="pausable_area/spirit_host"]
+[node name="host_sprite" type="Sprite2D" parent="level/spirit_host"]
 modulate = Color(0.360784, 0.141176, 0.54902, 1)
 position = Vector2(572.48, 255.923)
 rotation = 1.5708
@@ -37,7 +37,7 @@ scale = Vector2(2, 2)
 z_index = -2
 texture = ExtResource("8_7i20c")
 
-[node name="spawn_area" type="Polygon2D" parent="pausable_area/spirit_host"]
+[node name="spawn_area" type="Polygon2D" parent="level/spirit_host"]
 position = Vector2(-622, -839)
 scale = Vector2(1.41564, 1.65234)
 color = Color(1, 1, 1, 0)
@@ -45,30 +45,10 @@ polygon = PackedVector2Array(700.037, 643.33, 719.109, 657.855, 784.098, 605.807
 script = ExtResource("3_oorg0")
 spirit_prefab = ExtResource("4_kdyc8")
 
-[node name="tool_kit" parent="pausable_area" instance=ExtResource("6_b6o4i")]
+[node name="tool_kit" parent="level" instance=ExtResource("6_b6o4i")]
 
 [node name="dialog_parent" type="Node" parent="."]
 process_mode = 3
 script = ExtResource("19_5246u")
 
-[node name="UI_parent" type="Control" parent="dialog_parent"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 158.0
-offset_top = 550.0
-offset_right = 1153.0
-offset_bottom = 651.0
-
-[node name="Panel" type="Panel" parent="dialog_parent/UI_parent"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="RichTextLabel" parent="dialog_parent/UI_parent"]
-layout_mode = 0
-offset_right = 996.0
-offset_bottom = 99.0
-script = ExtResource("20_s212j")
+[node name="dialog_box" parent="dialog_parent" instance=ExtResource("9_3k1xu")]

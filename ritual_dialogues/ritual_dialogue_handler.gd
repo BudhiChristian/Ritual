@@ -8,7 +8,7 @@ var dialogue_label:Control
 # and we can swap them out depending on what level the player is on
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	dialogue_label = get_node('UI_parent/Label') # it's not great to have this dependency so hardcoded, but it works well enough for now
+	dialogue_label = get_node('dialog_box/Label') # it's not great to have this dependency so hardcoded, but it works well enough for now
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

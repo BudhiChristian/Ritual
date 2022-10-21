@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://8ocwa15g1ndp"]
+[gd_scene load_steps=10 format=3 uid="uid://8ocwa15g1ndp"]
 
 [ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/Background_WIP.png" id="1_xjufn"]
 [ext_resource type="Script" path="res://scenes/00_tutorial.gd" id="2_jw435"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dwn4x7y0esv0f" path="res://prefabs/tool_kit/tool_kit.tscn" id="4_si5qh"]
 [ext_resource type="Script" path="res://scripts/spirit_spawner.gd" id="5_vkfdi"]
 [ext_resource type="PackedScene" uid="uid://bn4m5kpawwy8m" path="res://prefabs/spirit/spirit.tscn" id="6_qn2um"]
+[ext_resource type="Script" path="res://ritual_dialogues/00_tutorial/00_tutorial.gd" id="8_6g8x7"]
+[ext_resource type="PackedScene" uid="uid://ddgg34bdoo2e1" path="res://prefabs/dialog_box.tscn" id="9_n3tk6"]
 
 [node name="00_tutorial" type="Node2D"]
 
@@ -40,3 +42,9 @@ script = ExtResource("5_vkfdi")
 spirit_prefab = ExtResource("6_qn2um")
 
 [node name="tool_kit" parent="level" instance=ExtResource("4_si5qh")]
+
+[node name="dialog" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("8_6g8x7")
+
+[node name="dialog_box" parent="dialog" instance=ExtResource("9_n3tk6")]
