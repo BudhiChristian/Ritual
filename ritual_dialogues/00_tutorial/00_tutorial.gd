@@ -15,13 +15,14 @@ func play_use_pins(_smoke_color):
 	MessageBus.thurible_smoke_changed.disconnect(play_use_pins)
 	var dialog = preload("res://ritual_dialogues/00_tutorial/00_1a_use_pins.dialogue")
 	await progress_dialog(dialog, "start")
-	# This is for if the spirit is expose, we might need a branch for if the player misses with both pin sets.
+	# TODO: This is for if the spirit is expose, we might need a branch for if the player misses with both pin sets.
 	MessageBus.spirit_revealed.connect(play_use_knife)
 	
 func play_use_knife():
 	MessageBus.spirit_revealed.disconnect(play_use_knife)
 	var dialog = preload("res://ritual_dialogues/00_tutorial/00_2a_use_knife.dialogue")
 	await progress_dialog(dialog, "start")
+	# TODO: This should be unlikely but there's be another branch for if the player doesn't extract the spirit before the triangle expires
 	MessageBus.put_spirit_in_jar.connect(play_two_more)
 	
 func play_two_more(_spirit_in_jar):
@@ -35,3 +36,5 @@ func play_finished(_spirits_in_jar):
 	var dialog = preload("res://ritual_dialogues/00_tutorial/finished.dialogue")
 	await progress_dialog(dialog, "start")
 	# TODO: If we wanted to, we could emit a signal here to spawn another three ghosts or something.
+	
+	# TODO: retracting needles instructions (canceling triangle ritual also)
