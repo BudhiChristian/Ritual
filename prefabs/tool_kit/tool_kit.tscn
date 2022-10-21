@@ -1,0 +1,103 @@
+[gd_scene load_steps=17 format=3 uid="uid://dwn4x7y0esv0f"]
+
+[ext_resource type="Script" path="res://scripts/state_management/state_machine.gd" id="1_67c10"]
+[ext_resource type="Script" path="res://scripts/state_management/pin_state.gd" id="2_kqmh7"]
+[ext_resource type="PackedScene" uid="uid://njrrapejymsx" path="res://prefabs/pin/pin.tscn" id="3_rjx0w"]
+[ext_resource type="Script" path="res://scripts/state_management/knife_state.gd" id="4_q3p5q"]
+[ext_resource type="Script" path="res://scripts/state_management/no_tool_state.gd" id="5_o4285"]
+[ext_resource type="Script" path="res://scripts/state_management/thurible_state.gd" id="6_1pic3"]
+[ext_resource type="PackedScene" uid="uid://bl0a0cjknmcs8" path="res://prefabs/thurible_smoke/thurible_smoke.tscn" id="7_72ngk"]
+[ext_resource type="PackedScene" uid="uid://c3ooia7jreokc" path="res://prefabs/soul_jar/soul_jar.tscn" id="8_ck3wv"]
+[ext_resource type="PackedScene" uid="uid://dajucj1rg5jlu" path="res://prefabs/tool_handle/tool_handle.tscn" id="9_01d0v"]
+[ext_resource type="Texture2D" uid="uid://cv182d1q15aby" path="res://textures/knife.png" id="10_1vhdp"]
+[ext_resource type="Texture2D" uid="uid://cxj1p4tiwjn6b" path="res://textures/spirit.png" id="11_07u20"]
+[ext_resource type="Script" path="res://prefabs/tool_handle/spirit_indicator.gd" id="12_nbg02"]
+[ext_resource type="Texture2D" uid="uid://bdw6fqxsfhl81" path="res://textures/thurible.png" id="13_ohr4w"]
+[ext_resource type="Texture2D" uid="uid://igggnfhpwe22" path="res://textures/needle.png" id="14_g4cu5"]
+[ext_resource type="Script" path="res://scripts/operating_area.gd" id="15_go7js"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hr5hb"]
+size = Vector2(929, 535)
+
+[node name="tool_kit" type="Node2D"]
+
+[node name="tools_state" type="Node2D" parent="." node_paths=PackedStringArray("current_state", "interaction_area")]
+script = ExtResource("1_67c10")
+current_state = NodePath("no_tool_state")
+interaction_area = NodePath("../Area2d")
+
+[node name="blue_pin_state" type="Node2D" parent="tools_state"]
+script = ExtResource("2_kqmh7")
+state_name = "blue"
+pin_prefab = ExtResource("3_rjx0w")
+pin_color = Color(0.196078, 0.223529, 1, 1)
+
+[node name="red_pin_state" type="Node2D" parent="tools_state"]
+script = ExtResource("2_kqmh7")
+state_name = "red"
+pin_prefab = ExtResource("3_rjx0w")
+pin_color = Color(0.901961, 0.321569, 0.180392, 1)
+
+[node name="knife_state" type="Node2D" parent="tools_state"]
+script = ExtResource("4_q3p5q")
+
+[node name="no_tool_state" type="Node2D" parent="tools_state"]
+script = ExtResource("5_o4285")
+
+[node name="thurible_state" type="Node2D" parent="tools_state"]
+script = ExtResource("6_1pic3")
+smoke_prefab = ExtResource("7_72ngk")
+
+[node name="soul_jar" parent="." instance=ExtResource("8_ck3wv")]
+position = Vector2(91.9999, 100)
+
+[node name="tools" type="Node2D" parent="."]
+
+[node name="knife_handle" parent="tools" node_paths=PackedStringArray("_associated_state") instance=ExtResource("9_01d0v")]
+position = Vector2(1.19209e-07, 268)
+scale = Vector2(0.8, 0.8)
+_tool_texture = ExtResource("10_1vhdp")
+_tool_color = Color(0.290196, 0, 0.160784, 1)
+_tool_scale = Vector2(0.7, 0.7)
+_associated_state = NodePath("../../tools_state/knife_state")
+
+[node name="spirit_indicator" type="Sprite2D" parent="tools/knife_handle"]
+visible = false
+position = Vector2(119, 31)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("11_07u20")
+script = ExtResource("12_nbg02")
+
+[node name="thurible_handle" parent="tools" node_paths=PackedStringArray("_associated_state") instance=ExtResource("9_01d0v")]
+position = Vector2(1.19209e-07, 374)
+scale = Vector2(0.8, 0.8)
+_tool_texture = ExtResource("13_ohr4w")
+_tool_color = Color(0.290196, 0, 0.160784, 1)
+_tool_scale = Vector2(0.7, 0.7)
+_associated_state = NodePath("../../tools_state/thurible_state")
+
+[node name="blue_pin_handle" parent="tools" node_paths=PackedStringArray("_associated_state") instance=ExtResource("9_01d0v")]
+position = Vector2(-7.10543e-15, 480)
+scale = Vector2(0.8, 0.8)
+_tool_texture = ExtResource("14_g4cu5")
+_tool_color = Color(0.196078, 0.223529, 1, 1)
+_tool_scale = Vector2(0.7, 0.7)
+_associated_state = NodePath("../../tools_state/blue_pin_state")
+
+[node name="red_pin_handle" parent="tools" node_paths=PackedStringArray("_associated_state") instance=ExtResource("9_01d0v")]
+position = Vector2(-1, 586)
+scale = Vector2(0.8, 0.8)
+_tool_texture = ExtResource("14_g4cu5")
+_tool_color = Color(0.901961, 0.321569, 0.180392, 1)
+_tool_scale = Vector2(0.7, 0.7)
+_associated_state = NodePath("../../tools_state/red_pin_state")
+
+[node name="Area2d" type="Area2D" parent="."]
+position = Vector2(144, 6)
+script = ExtResource("15_go7js")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
+position = Vector2(480.5, 260.5)
+shape = SubResource("RectangleShape2D_hr5hb")
+
+[connection signal="input_event" from="Area2d" to="tools_state" method="_on_interaction_area_input"]

@@ -1,29 +1,14 @@
-[gd_scene load_steps=23 format=3 uid="uid://bbybe6tr8pqsp"]
+[gd_scene load_steps=10 format=3 uid="uid://bbybe6tr8pqsp"]
 
 [ext_resource type="PackedScene" uid="uid://bskq3yd4rancs" path="res://prefabs/spirit_host/spirit_host.tscn" id="1_6rnas"]
-[ext_resource type="PackedScene" uid="uid://dajucj1rg5jlu" path="res://prefabs/tool_handle/tool_handle.tscn" id="1_lkw5s"]
-[ext_resource type="Script" path="res://scripts/state_management/state_machine.gd" id="1_rstyf"]
-[ext_resource type="Script" path="res://scripts/state_management/pin_state.gd" id="2_5vang"]
-[ext_resource type="Texture2D" uid="uid://igggnfhpwe22" path="res://textures/needle.png" id="2_a4dei"]
-[ext_resource type="PackedScene" uid="uid://njrrapejymsx" path="res://prefabs/pin/pin.tscn" id="3_k7ahx"]
+[ext_resource type="Script" path="res://scenes/00_tutorial.gd" id="2_p6vdp"]
 [ext_resource type="Script" path="res://scripts/spirit_spawner.gd" id="3_oorg0"]
 [ext_resource type="PackedScene" uid="uid://bn4m5kpawwy8m" path="res://prefabs/spirit/spirit.tscn" id="4_kdyc8"]
-[ext_resource type="Script" path="res://scripts/state_management/knife_state.gd" id="4_ov75w"]
-[ext_resource type="Script" path="res://scripts/state_management/no_tool_state.gd" id="5_b0yfi"]
-[ext_resource type="PackedScene" uid="uid://c3ooia7jreokc" path="res://prefabs/soul_jar/soul_jar.tscn" id="5_vd52m"]
-[ext_resource type="Script" path="res://scripts/state_management/thurible_state.gd" id="6_0uwd2"]
-[ext_resource type="Texture2D" uid="uid://cv182d1q15aby" path="res://textures/knife.png" id="6_5lsyk"]
-[ext_resource type="Texture2D" uid="uid://bdw6fqxsfhl81" path="res://textures/thurible.png" id="7_0q1gh"]
-[ext_resource type="PackedScene" uid="uid://bl0a0cjknmcs8" path="res://prefabs/thurible_smoke/thurible_smoke.tscn" id="7_2b5v1"]
+[ext_resource type="PackedScene" uid="uid://dwn4x7y0esv0f" path="res://prefabs/tool_kit/tool_kit.tscn" id="6_b6o4i"]
 [ext_resource type="Texture2D" uid="uid://cxj1p4tiwjn6b" path="res://textures/spirit.png" id="8_7i20c"]
-[ext_resource type="Script" path="res://prefabs/tool_handle/spirit_indicator.gd" id="9_iknfk"]
-[ext_resource type="Script" path="res://scripts/operating_area.gd" id="15_k8qkb"]
+[ext_resource type="PackedScene" uid="uid://ddgg34bdoo2e1" path="res://prefabs/dialog_box.tscn" id="9_3k1xu"]
 [ext_resource type="Script" path="res://ritual_dialogues/00_tutorial/00_tutorial.gd" id="19_5246u"]
 [ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/Background_WIP.png" id="19_omnay"]
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="20_s212j"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hr5hb"]
-size = Vector2(996, 653)
 
 [node name="interactions_test" type="Node2D"]
 
@@ -38,21 +23,13 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("19_omnay")
 ignore_texture_size = true
 
-[node name="pausable_area" type="Node" parent="."]
+[node name="level" type="Node" parent="."]
 process_mode = 1
+script = ExtResource("2_p6vdp")
 
-[node name="spirit_host" parent="pausable_area" instance=ExtResource("1_6rnas")]
-aliments = [Color(0.67451, 0.356863, 0.207843, 1), Color(0.352941, 0.407843, 0.184314, 1)]
+[node name="spirit_host" parent="level" instance=ExtResource("1_6rnas")]
 
-[node name="spawn_area" type="Polygon2D" parent="pausable_area/spirit_host"]
-position = Vector2(-622, -839)
-scale = Vector2(1.41564, 1.65234)
-color = Color(1, 1, 1, 0)
-polygon = PackedVector2Array(700.037, 643.33, 719.109, 657.855, 784.098, 605.807, 834.958, 589.467, 900.653, 554.365, 895.002, 581.599, 968.467, 594.309, 1008.02, 630.621, 1016.5, 714.139, 981.888, 761.95, 933.853, 772.238, 892.176, 773.448, 878.754, 788.578, 839.196, 758.924, 806.702, 729.874, 752.31, 734.716, 708.513, 710.507, 681.67, 676.616, 674.607, 645.751)
-script = ExtResource("3_oorg0")
-spirit_prefab = ExtResource("4_kdyc8")
-
-[node name="host_sprite" type="Sprite2D" parent="pausable_area/spirit_host"]
+[node name="host_sprite" type="Sprite2D" parent="level/spirit_host"]
 modulate = Color(0.360784, 0.141176, 0.54902, 1)
 position = Vector2(572.48, 255.923)
 rotation = 1.5708
@@ -60,109 +37,18 @@ scale = Vector2(2, 2)
 z_index = -2
 texture = ExtResource("8_7i20c")
 
-[node name="soul_jar" parent="pausable_area" instance=ExtResource("5_vd52m")]
-position = Vector2(91.9999, 100)
+[node name="spawn_area" type="Polygon2D" parent="level/spirit_host"]
+position = Vector2(-622, -839)
+scale = Vector2(1.41564, 1.65234)
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(700.037, 643.33, 719.109, 657.855, 784.098, 605.807, 834.958, 589.467, 900.653, 554.365, 895.002, 581.599, 968.467, 594.309, 1008.02, 630.621, 1016.5, 714.139, 981.888, 761.95, 933.853, 772.238, 892.176, 773.448, 878.754, 788.578, 839.196, 758.924, 806.702, 729.874, 752.31, 734.716, 708.513, 710.507, 681.67, 676.616, 674.607, 645.751)
+script = ExtResource("3_oorg0")
+spirit_prefab = ExtResource("4_kdyc8")
 
-[node name="tools_state" type="Node2D" parent="pausable_area" node_paths=PackedStringArray("current_state", "interaction_area")]
-script = ExtResource("1_rstyf")
-current_state = NodePath("no_tool_state")
-interaction_area = NodePath("../Area2d")
-
-[node name="blue_pin_state" type="Node2D" parent="pausable_area/tools_state"]
-script = ExtResource("2_5vang")
-state_name = "blue"
-pin_prefab = ExtResource("3_k7ahx")
-pin_color = Color(0.196078, 0.223529, 1, 1)
-
-[node name="red_pin_state" type="Node2D" parent="pausable_area/tools_state"]
-script = ExtResource("2_5vang")
-state_name = "red"
-pin_prefab = ExtResource("3_k7ahx")
-pin_color = Color(0.901961, 0.321569, 0.180392, 1)
-
-[node name="knife_state" type="Node2D" parent="pausable_area/tools_state"]
-script = ExtResource("4_ov75w")
-
-[node name="no_tool_state" type="Node2D" parent="pausable_area/tools_state"]
-script = ExtResource("5_b0yfi")
-
-[node name="thurible_state" type="Node2D" parent="pausable_area/tools_state"]
-script = ExtResource("6_0uwd2")
-smoke_prefab = ExtResource("7_2b5v1")
-
-[node name="tool_kit" type="Node2D" parent="pausable_area"]
-
-[node name="knife_handle" parent="pausable_area/tool_kit" node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
-position = Vector2(1.19209e-07, 268)
-scale = Vector2(0.8, 0.8)
-_tool_texture = ExtResource("6_5lsyk")
-_tool_color = Color(0.290196, 0, 0.160784, 1)
-_tool_scale = Vector2(0.7, 0.7)
-_associated_state = NodePath("../../tools_state/knife_state")
-
-[node name="spirit_indicator" type="Sprite2D" parent="pausable_area/tool_kit/knife_handle"]
-visible = false
-position = Vector2(119, 31)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("8_7i20c")
-script = ExtResource("9_iknfk")
-
-[node name="thurible_handle" parent="pausable_area/tool_kit" node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
-position = Vector2(1.19209e-07, 374)
-scale = Vector2(0.8, 0.8)
-_tool_texture = ExtResource("7_0q1gh")
-_tool_color = Color(0.290196, 0, 0.160784, 1)
-_tool_scale = Vector2(0.7, 0.7)
-_associated_state = NodePath("../../tools_state/thurible_state")
-
-[node name="blue_pin_handle" parent="pausable_area/tool_kit" node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
-position = Vector2(-7.10543e-15, 480)
-scale = Vector2(0.8, 0.8)
-_tool_texture = ExtResource("2_a4dei")
-_tool_color = Color(0.196078, 0.223529, 1, 1)
-_tool_scale = Vector2(0.7, 0.7)
-_associated_state = NodePath("../../tools_state/blue_pin_state")
-
-[node name="red_pin_handle" parent="pausable_area/tool_kit" node_paths=PackedStringArray("_associated_state") instance=ExtResource("1_lkw5s")]
-position = Vector2(-1, 586)
-scale = Vector2(0.8, 0.8)
-_tool_texture = ExtResource("2_a4dei")
-_tool_color = Color(0.901961, 0.321569, 0.180392, 1)
-_tool_scale = Vector2(0.7, 0.7)
-_associated_state = NodePath("../../tools_state/red_pin_state")
-
-[node name="Area2d" type="Area2D" parent="pausable_area"]
-position = Vector2(144, 6)
-script = ExtResource("15_k8qkb")
-
-[node name="CollisionShape2d" type="CollisionShape2D" parent="pausable_area/Area2d"]
-position = Vector2(509, 319.5)
-shape = SubResource("RectangleShape2D_hr5hb")
+[node name="tool_kit" parent="level" instance=ExtResource("6_b6o4i")]
 
 [node name="dialog_parent" type="Node" parent="."]
 process_mode = 3
 script = ExtResource("19_5246u")
 
-[node name="UI_parent" type="Control" parent="dialog_parent"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 158.0
-offset_top = 550.0
-offset_right = 1153.0
-offset_bottom = 651.0
-
-[node name="Panel" type="Panel" parent="dialog_parent/UI_parent"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="RichTextLabel" parent="dialog_parent/UI_parent"]
-layout_mode = 0
-offset_right = 996.0
-offset_bottom = 99.0
-script = ExtResource("20_s212j")
-
-[connection signal="input_event" from="pausable_area/Area2d" to="pausable_area/tools_state" method="_on_interaction_area_input"]
+[node name="dialog_box" parent="dialog_parent" instance=ExtResource("9_3k1xu")]

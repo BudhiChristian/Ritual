@@ -19,3 +19,7 @@ signal set_spirit_stored(is_stored)
 
 signal pin_removed(pin)
 signal triangle_dispelled_early()
+
+# levels
+signal level_completed()
+signal level_failed()

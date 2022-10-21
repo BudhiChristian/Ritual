@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://8ocwa15g1ndp"]
+
+[ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/Background_WIP.png" id="1_xjufn"]
+[ext_resource type="Script" path="res://scenes/00_tutorial.gd" id="2_jw435"]
+[ext_resource type="PackedScene" uid="uid://bskq3yd4rancs" path="res://prefabs/spirit_host/spirit_host.tscn" id="2_qp2mm"]
+[ext_resource type="Texture2D" uid="uid://cxj1p4tiwjn6b" path="res://textures/spirit.png" id="3_huuiv"]
+[ext_resource type="PackedScene" uid="uid://dwn4x7y0esv0f" path="res://prefabs/tool_kit/tool_kit.tscn" id="4_si5qh"]
+[ext_resource type="Script" path="res://scripts/spirit_spawner.gd" id="5_vkfdi"]
+[ext_resource type="PackedScene" uid="uid://bn4m5kpawwy8m" path="res://prefabs/spirit/spirit.tscn" id="6_qn2um"]
+[ext_resource type="Script" path="res://ritual_dialogues/00_tutorial/00_tutorial.gd" id="8_6g8x7"]
+[ext_resource type="PackedScene" uid="uid://ddgg34bdoo2e1" path="res://prefabs/dialog_box.tscn" id="9_n3tk6"]
+
+[node name="00_tutorial" type="Node2D"]
+
+[node name="background" type="Node2D" parent="."]
+z_index = -2
+
+[node name="TextureRect" type="TextureRect" parent="background"]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_xjufn")
+ignore_texture_size = true
+
+[node name="level" type="Node" parent="."]
+process_mode = 1
+script = ExtResource("2_jw435")
+
+[node name="spirit_host" parent="level" instance=ExtResource("2_qp2mm")]
+
+[node name="host_sprite" type="Sprite2D" parent="level/spirit_host"]
+modulate = Color(0.501961, 0.32549, 0.662745, 1)
+position = Vector2(577, 234)
+rotation = 1.5708
+scale = Vector2(2, 2)
+z_index = -2
+texture = ExtResource("3_huuiv")
+
+[node name="spawn_area" type="Polygon2D" parent="level/spirit_host"]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(346, 212, 384, 218, 427, 211, 472, 168, 524, 133, 576, 116, 621, 102, 770, 136, 811, 204, 807, 321, 775, 385, 653, 412, 560, 350, 532, 329, 465, 349, 404, 322, 373, 272)
+script = ExtResource("5_vkfdi")
+spirit_prefab = ExtResource("6_qn2um")
+
+[node name="tool_kit" parent="level" instance=ExtResource("4_si5qh")]
+
+[node name="dialog" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("8_6g8x7")
+
+[node name="dialog_box" parent="dialog" instance=ExtResource("9_n3tk6")]
