@@ -2,8 +2,12 @@ extends Node2D
 @onready var click_handler: Control = %click_handler
 @onready var thurible_collider: Area2D = %thurible_collider
 
-var spirit_color: Color = Color.PURPLE
-var spirit_color_debug: Color = Color.PLUM
+
+var spirit_color_debug: Color = Color(Color.PURPLE, 0.5)
+var spirit_color: Color = Color.PURPLE:
+	set(value):
+		spirit_color = value
+		spirit_color_debug = Color(value, 0.5)
 var max_jarred_time: float = 60 # seconds
 
 var jarred_time: float = 0

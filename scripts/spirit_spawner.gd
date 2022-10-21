@@ -1,7 +1,6 @@
 extends Node
 
 @export var spirit_prefab: PackedScene
-@export var spawn_guides: Polygon2D
 
 var spirit_instances: Array = []
 
@@ -16,10 +15,11 @@ var spawn_weights: Array = []
 func _ready():
 	# Connect listeners
 	MessageBus.exorcise_spirits_in_jar.connect(_release_spirits)
+	MessageBus.spawn_spirit_trio.connect(_spawn_spirit_trio)
 	
 	# Calculate spawn areas
 	# extract polygon of spawn area and split into triangles
-	var spawn_area_polygon = spawn_guides.polygon
+	var spawn_area_polygon = self.polygon
 	var triangles = Geometry2D.triangulate_polygon(spawn_area_polygon)
 	# instantiate accumulated spawn weights
 	spawn_weights.resize(triangles.size()/3)
@@ -27,9 +27,9 @@ func _ready():
 	# for each group of three
 	for i in range(triangles.size()/3):
 		# place on global coordinates
-		var a = spawn_guides.to_global(spawn_area_polygon[triangles[3 * i]])
-		var b = spawn_guides.to_global(spawn_area_polygon[triangles[3 * i + 1]])
-		var c = spawn_guides.to_global(spawn_area_polygon[triangles[3 * i + 2]])
+		var a = self.to_global(spawn_area_polygon[triangles[3 * i]])
+		var b = self.to_global(spawn_area_polygon[triangles[3 * i + 1]])
+		var c = self.to_global(spawn_area_polygon[triangles[3 * i + 2]])
 		# accumulate spawn weights and append to spawn areas list
 		spawn_weights[i] = spawn_weights[i - 1] + _triangle_area(a, b, c)
 		spawn_areas.append([a, b, c])
@@ -37,21 +37,18 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# TODO just an example... we would want to call spawn_spirit_trio from some
-	# level logic
-	if len(spirit_instances) < 1:
-		spawn_spirit_trio(Color.ORANGE_RED, Color.ORANGE)
+	pass
 	
-func spawn_spirit_trio(color: Color, debug_color: Color) -> void:
+func _spawn_spirit_trio(color: Color) -> void:
 	for i in 3:
-		_spawn_spirit(color, debug_color, _get_random_position())
+		_spawn_spirit(color, _get_random_position())
 
-func _spawn_spirit(color: Color, debug_color: Color, position: Vector2) -> void:
+func _spawn_spirit(color: Color, position: Vector2) -> void:
 	var new_spirit = spirit_prefab.instantiate() as Node2D
 	new_spirit.position = position
 	new_spirit.spirit_color = color
-	new_spirit.spirit_color_debug = debug_color
 	new_spirit.visible = false
+	await get_tree().current_scene.ready
 	get_tree().current_scene.add_child(new_spirit)
 	spirit_instances.append(new_spirit)
 	return new_spirit
