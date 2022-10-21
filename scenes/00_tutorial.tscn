@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://8ocwa15g1ndp"]
+[gd_scene load_steps=8 format=3 uid="uid://8ocwa15g1ndp"]
 
 [ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/Background_WIP.png" id="1_xjufn"]
 [ext_resource type="PackedScene" uid="uid://bskq3yd4rancs" path="res://prefabs/spirit_host/spirit_host.tscn" id="2_qp2mm"]
 [ext_resource type="Texture2D" uid="uid://cxj1p4tiwjn6b" path="res://textures/spirit.png" id="3_huuiv"]
 [ext_resource type="PackedScene" uid="uid://dwn4x7y0esv0f" path="res://prefabs/tool_kit/tool_kit.tscn" id="4_si5qh"]
 [ext_resource type="Script" path="res://scripts/spirit_spawner.gd" id="5_vkfdi"]
-[ext_resource type="PackedScene" uid="uid://bn4m5kpawwy8m" path="res://prefabs/spirit/spirit.tscn" id="6_qn2um"]
 [ext_resource type="Script" path="res://ritual_dialogues/00_tutorial/00_tutorial.gd" id="8_6g8x7"]
 [ext_resource type="PackedScene" uid="uid://ddgg34bdoo2e1" path="res://prefabs/dialog_box.tscn" id="9_n3tk6"]
 
@@ -37,7 +36,6 @@ texture = ExtResource("3_huuiv")
 color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(346, 212, 384, 218, 427, 211, 472, 168, 524, 133, 576, 116, 621, 102, 770, 136, 811, 204, 807, 321, 775, 385, 653, 412, 560, 350, 532, 329, 465, 349, 404, 322, 373, 272)
 script = ExtResource("5_vkfdi")
-spirit_prefab = ExtResource("6_qn2um")
 
 [node name="tool_kit" parent="level" instance=ExtResource("4_si5qh")]
 

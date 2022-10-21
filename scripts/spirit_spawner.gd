@@ -1,6 +1,6 @@
 extends Node
 
-@export var spirit_prefab: PackedScene
+var spirit_prefab: PackedScene
 
 var spirit_instances: Array = []
 
@@ -13,6 +13,7 @@ var spawn_weights: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	spirit_prefab = preload("res://prefabs/spirit/spirit.tscn")
 	# Connect listeners
 	MessageBus.exorcise_spirits_in_jar.connect(_release_spirits)
 	MessageBus.spawn_spirit_trio.connect(_spawn_spirit_trio)
