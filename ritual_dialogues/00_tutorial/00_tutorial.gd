@@ -3,6 +3,7 @@ extends RitualDialogueHandler
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
+	# TODO since this is the tutorial we should probably disable tools until they're introdued
 	play_intro()
 	
 func play_intro():
