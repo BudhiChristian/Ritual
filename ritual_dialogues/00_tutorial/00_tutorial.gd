@@ -1,5 +1,9 @@
 extends RitualDialogueHandler
 
+# Other things we can subscribe to
+# MessageBus.host_completely_exorcised.connect(...)
+# MessageBus.host_is_possessed.connect(...)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
@@ -8,6 +12,7 @@ func _ready() -> void:
 	
 func play_intro():
 	var dialog = preload("res://ritual_dialogues/00_tutorial/00_0_intro.dialogue")
+	MessageBus.spawn_spirit_trio.emit(Color8(172, 91, 53))
 	await progress_dialog(dialog, "start")
 	MessageBus.thurible_smoke_changed.connect(play_use_pins)
 

@@ -26,7 +26,7 @@ func _process(delta):
 	var damage = spirits_in_body * spirit_damage_per_second * delta
 	current_health = max(0, current_health - damage)
 	if current_health == 0:
-		MessageBus.level_failed.emit()
+		MessageBus.host_is_possessed.emit()
 	
 	health_bar.material.set_shader_parameter("health", current_health / health)
 
@@ -38,7 +38,7 @@ func _on_exorcise_spirits_in_jar(spirits: Array):
 	total_spirits -= spirits.size()
 	current_health = min(health, current_health + spirit_exorcise_heal_amount)
 	if total_spirits < 1:
-		MessageBus.level_completed.emit()
+		MessageBus.host_completely_exorcised.emit()
 	
 func _on_put_spirit_in_jar(spirit):
 	spirits_in_body -= 1

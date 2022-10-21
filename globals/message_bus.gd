@@ -21,5 +21,5 @@ signal pin_removed(pin)
 signal triangle_dispelled_early()
 
 # levels
-signal level_completed()
-signal level_failed()
+signal host_completely_exorcised()
+signal host_is_possessed()
