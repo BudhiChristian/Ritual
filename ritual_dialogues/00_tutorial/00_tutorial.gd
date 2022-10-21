@@ -55,6 +55,9 @@ func play_use_knife():
 	await progress_dialog(_02_knife, "start")
 	# TODO: This should be unlikely but there's be another branch for if the player doesn't extract the spirit before the triangle expires
 	MessageBus.put_spirit_in_jar.connect(play_two_more)
+	if !learned_pin_removal:
+		# Subscribe to on pin expire?
+		pass # TODO teach pin removal
 	
 func play_two_more(_spirit_in_jar):
 	MessageBus.put_spirit_in_jar.disconnect(play_two_more)
@@ -65,5 +68,3 @@ func play_finished(_spirits_in_jar):
 	MessageBus.exorcise_spirits_in_jar.disconnect(play_finished)
 	await progress_dialog(_04_complete, "start")
 	# TODO next scene
-	
-	# TODO: Explain needle exhaustion
