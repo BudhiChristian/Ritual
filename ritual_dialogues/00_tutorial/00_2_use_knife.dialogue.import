@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://c7cwl1f0jihpg"
+path="res://.godot/imported/00_2_use_knife.dialogue-84ff26a4a80f581d737fa36a1e384dfd.tres"
+
+[deps]
+
+source_file="res://ritual_dialogues/00_tutorial/00_2_use_knife.dialogue"
+dest_files=["res://.godot/imported/00_2_use_knife.dialogue-84ff26a4a80f581d737fa36a1e384dfd.tres"]
+
+[params]
+
