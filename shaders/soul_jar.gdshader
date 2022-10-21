@@ -10,7 +10,5 @@ void fragment() {
 	// Jar contents color target is magenta RGB(1,0,1)
 	if (baseTexture.r == 1.0 && baseTexture.b == 1.0) {
 		COLOR = vec4(red, green, blue, baseTexture.a);
-	} else {
-		COLOR = baseTexture;
 	}
 }

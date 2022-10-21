@@ -34,11 +34,11 @@ func handle_input(event:InputEvent):
 
 func _remove_pin(pin):
 	if triangle_manager != null && pin in pin_instances:
-		# if we removed a pin while exposing ghosts
+		# if we removed a pin while exposing ghosts it dispells triangle
 		triangle_manager.queue_free()
 		triangle_manager = null
 		for pin_instance in pin_instances:
 			pin_instance.is_set_complete = false
 			pin_instance.is_exhausted = true
-		# TODO - I think this action should cause damage
+		MessageBus.triangle_dispelled_early.emit()
 	pin_instances = pin_instances.filter(func(p): return p != pin)

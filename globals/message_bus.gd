@@ -18,3 +18,4 @@ signal exorcise_spirits_in_jar(spirits)
 signal set_spirit_stored(is_stored)
 
 signal pin_removed(pin)
+signal triangle_dispelled_early()
