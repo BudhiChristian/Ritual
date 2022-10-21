@@ -15,6 +15,7 @@ func play_use_pins(_smoke_color):
 	MessageBus.thurible_smoke_changed.disconnect(play_use_pins)
 	var dialog = preload("res://ritual_dialogues/00_tutorial/00_1_use_pins.dialogue")
 	await progress_dialog(dialog, "start")
+	# This is for if the spirit is expose, we might need a branch for if the player misses with both pin sets.
 	MessageBus.spirit_revealed.connect(play_use_knife)
 	
 func play_use_knife():
