@@ -1,8 +1,9 @@
 extends RitualDialogueHandler
 
 # Other things we can subscribe to
-# MessageBus.host_completely_exorcised.connect(...)
-# MessageBus.host_is_possessed.connect(...)
+# MessageBus.host_completely_exorcised
+# MessageBus.host_is_possessed
+# MessageBus.exorcise_spirits_in_jar
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

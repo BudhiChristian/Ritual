@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://8ocwa15g1ndp"]
+[gd_scene load_steps=9 format=3 uid="uid://8ocwa15g1ndp"]
 
 [ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/Background_WIP.png" id="1_xjufn"]
-[ext_resource type="Script" path="res://scenes/00_tutorial.gd" id="2_jw435"]
 [ext_resource type="PackedScene" uid="uid://bskq3yd4rancs" path="res://prefabs/spirit_host/spirit_host.tscn" id="2_qp2mm"]
 [ext_resource type="Texture2D" uid="uid://cxj1p4tiwjn6b" path="res://textures/spirit.png" id="3_huuiv"]
 [ext_resource type="PackedScene" uid="uid://dwn4x7y0esv0f" path="res://prefabs/tool_kit/tool_kit.tscn" id="4_si5qh"]
@@ -23,7 +22,6 @@ ignore_texture_size = true
 
 [node name="level" type="Node" parent="."]
 process_mode = 1
-script = ExtResource("2_jw435")
 
 [node name="spirit_host" parent="level" instance=ExtResource("2_qp2mm")]
 
