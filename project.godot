@@ -10,6 +10,11 @@ config_version=5
 
 _global_script_classes=[{
 "base": "Node",
+"class": &"BaseLevelScript",
+"language": &"GDScript",
+"path": "res://scenes/level_script.gd"
+}, {
+"base": "Node",
 "class": &"BaseState",
 "language": &"GDScript",
 "path": "res://scripts/state_management/base_state.gd"
@@ -35,6 +40,7 @@ _global_script_classes=[{
 "path": "res://scripts/triangle_manager.gd"
 }]
 _global_script_class_icons={
+"BaseLevelScript": "",
 "BaseState": "",
 "RitualDialogueHandler": "",
 "SoulJarEscape": "",
