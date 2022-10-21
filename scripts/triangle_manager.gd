@@ -18,7 +18,7 @@ func _init(points):
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("triangles")
-	pass # Replace with function body.
+	MessageBus.triangle_created.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

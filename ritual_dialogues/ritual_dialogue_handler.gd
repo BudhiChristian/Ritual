@@ -31,3 +31,12 @@ func progress_dialog(resource, title):
 	
 func set_ritual_paused(is_paused):
 	get_tree().paused = is_paused
+	
+func wait(time_in_seconds: float):
+	var t = Timer.new()
+	t.set_wait_time(time_in_seconds)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	await t.timeout
+	t.queue_free()

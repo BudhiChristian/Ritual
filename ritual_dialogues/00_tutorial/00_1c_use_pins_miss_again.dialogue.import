@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://mnri3xx3vwxt"
+path="res://.godot/imported/00_1c_use_pins_miss_again.dialogue-efa4fc8a68586b7cefbe2e9c8a60355a.tres"
+
+[deps]
+
+source_file="res://ritual_dialogues/00_tutorial/00_1c_use_pins_miss_again.dialogue"
+dest_files=["res://.godot/imported/00_1c_use_pins_miss_again.dialogue-efa4fc8a68586b7cefbe2e9c8a60355a.tres"]
+
+[params]
+
