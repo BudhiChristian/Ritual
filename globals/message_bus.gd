@@ -20,6 +20,7 @@ signal set_spirit_stored(is_stored)
 signal pin_removed(pin)
 signal triangle_created()
 signal triangle_dispelled_early()
+signal triangle_expired()
 
 # levels
 signal host_completely_exorcised()

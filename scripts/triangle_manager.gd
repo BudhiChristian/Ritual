@@ -30,6 +30,7 @@ func _process(delta: float) -> void:
 func _exit_tree() -> void:
 	for pin in triangle_points:
 		pin.is_exhausted = true
+	MessageBus.triangle_expired.emit()
 	remove_from_group("triangles")
 
 func _draw():

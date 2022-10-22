@@ -16,7 +16,6 @@ func _ready() -> void:
 	tween.tween_property(self, "rotation", -0.05 * PI, 0.05)
 	tween.tween_property(self, "rotation", 0.05 * PI, 0.1)
 	tween.tween_property(self, "rotation", 0 * PI, 0.05)
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

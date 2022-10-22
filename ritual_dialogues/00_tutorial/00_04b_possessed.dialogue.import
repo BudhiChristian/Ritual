@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://bk5a5msctidui"
+path="res://.godot/imported/00_04b_possessed.dialogue-985f9697a8b6b054e390da2df97b089d.tres"
+
+[deps]
+
+source_file="res://ritual_dialogues/00_tutorial/00_04b_possessed.dialogue"
+dest_files=["res://.godot/imported/00_04b_possessed.dialogue-985f9697a8b6b054e390da2df97b089d.tres"]
+
+[params]
+

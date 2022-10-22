@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://bwbwo8subo7ui"
+path="res://.godot/imported/00_03_two_spirits_left.dialogue-5daa6d45ebcbcec760af0acba090d8a1.tres"
+
+[deps]
+
+source_file="res://ritual_dialogues/00_tutorial/00_03_two_spirits_left.dialogue"
+dest_files=["res://.godot/imported/00_03_two_spirits_left.dialogue-5daa6d45ebcbcec760af0acba090d8a1.tres"]
+
+[params]
+

@@ -8,22 +8,27 @@ var spirit_found: bool = false
 var learned_pin_removal: bool = false
 
 # dialog
-var _00_intro = preload("res://ritual_dialogues/00_tutorial/00_0_intro.dialogue")
-var _01a_pins = preload("res://ritual_dialogues/00_tutorial/00_1a_use_pins.dialogue")
-var _01b_pins_miss = preload("res://ritual_dialogues/00_tutorial/00_1b_use_pins_miss.dialogue")
-var _01c_pins_miss_again = preload("res://ritual_dialogues/00_tutorial/00_1c_use_pins_miss_again.dialogue")
-var _02_knife = preload("res://ritual_dialogues/00_tutorial/00_2_use_knife.dialogue")
-var _03_two_spirits = preload("res://ritual_dialogues/00_tutorial/00_3_two_spirits_left.dialogue")
-var _04_complete = preload("res://ritual_dialogues/00_tutorial/00_4_finished.dialogue")
+var _00_intro = preload("res://ritual_dialogues/00_tutorial/00_00_intro.dialogue")
+var _01a_pins = preload("res://ritual_dialogues/00_tutorial/00_01a_use_pins.dialogue")
+var _01b_pins_miss = preload("res://ritual_dialogues/00_tutorial/00_01b_use_pins_miss.dialogue")
+var _01c_pins_miss_again = preload("res://ritual_dialogues/00_tutorial/00_01c_use_pins_miss_again.dialogue")
+var _01d_pin_removing = preload("res://ritual_dialogues/00_tutorial/00_01d_use_pin_removing.dialogue")
+var _02_knife = preload("res://ritual_dialogues/00_tutorial/00_02_use_knife.dialogue")
+var _03_two_spirits = preload("res://ritual_dialogues/00_tutorial/00_03_two_spirits_left.dialogue")
+var _04a_complete = preload("res://ritual_dialogues/00_tutorial/00_04a_finished.dialogue")
+var _04b_possessed = preload("res://ritual_dialogues/00_tutorial/00_04b_possessed.dialogue")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
+	MessageBus.host_is_possessed.connect(possessed)
+
 	# TODO since this is the tutorial we should probably disable tools until they're introdued
+	MessageBus.spawn_spirit_trio.emit(spirit_color)
+
 	play_intro()
 	
 func play_intro():
-	MessageBus.spawn_spirit_trio.emit(spirit_color)
 	await progress_dialog(_00_intro, "start")
 	MessageBus.thurible_smoke_changed.connect(play_use_pins)
 
@@ -53,11 +58,13 @@ func play_use_knife():
 	MessageBus.triangle_created.disconnect(triangle_created_again)
 	spirit_found = true
 	await progress_dialog(_02_knife, "start")
-	# TODO: This should be unlikely but there's be another branch for if the player doesn't extract the spirit before the triangle expires
 	MessageBus.put_spirit_in_jar.connect(play_two_more)
 	if !learned_pin_removal:
-		# Subscribe to on pin expire?
-		pass # TODO teach pin removal
+		MessageBus.triangle_expired.connect(triangle_exhausted)
+
+func triangle_exhausted():
+	MessageBus.triangle_expired.disconnect(triangle_exhausted)
+	await progress_dialog(_01d_pin_removing, "start")
 	
 func play_two_more(_spirit_in_jar):
 	MessageBus.put_spirit_in_jar.disconnect(play_two_more)
@@ -66,5 +73,10 @@ func play_two_more(_spirit_in_jar):
 	
 func play_finished(_spirits_in_jar):
 	MessageBus.exorcise_spirits_in_jar.disconnect(play_finished)
-	await progress_dialog(_04_complete, "start")
+	await progress_dialog(_04a_complete, "start")
 	# TODO next scene
+	
+func possessed():
+	MessageBus.host_is_possessed.disconnect(possessed)
+	await progress_dialog(_04b_possessed, "start")
+	# TODO restart

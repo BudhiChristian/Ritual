@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://dpxi6tksdxbkd"
+path="res://.godot/imported/00_01d_use_pin_removing.dialogue-ba12c1ba32ce05f742bc7ed72620502c.tres"
+
+[deps]
+
+source_file="res://ritual_dialogues/00_tutorial/00_01d_use_pin_removing.dialogue"
+dest_files=["res://.godot/imported/00_01d_use_pin_removing.dialogue-ba12c1ba32ce05f742bc7ed72620502c.tres"]
+
+[params]
+

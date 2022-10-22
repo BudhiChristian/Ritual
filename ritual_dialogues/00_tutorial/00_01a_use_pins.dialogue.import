@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://ccv8waexaacem"
+path="res://.godot/imported/00_01a_use_pins.dialogue-dd0e147b3383cc758861d31fe506eafa.tres"
+
+[deps]
+
+source_file="res://ritual_dialogues/00_tutorial/00_01a_use_pins.dialogue"
+dest_files=["res://.godot/imported/00_01a_use_pins.dialogue-dd0e147b3383cc758861d31fe506eafa.tres"]
+
+[params]
+

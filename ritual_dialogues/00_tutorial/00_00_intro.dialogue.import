@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://camqhobl85n8t"
+path="res://.godot/imported/00_00_intro.dialogue-ba49e670971d9528cf7ed9160a52c62c.tres"
+
+[deps]
+
+source_file="res://ritual_dialogues/00_tutorial/00_00_intro.dialogue"
+dest_files=["res://.godot/imported/00_00_intro.dialogue-ba49e670971d9528cf7ed9160a52c62c.tres"]
+
+[params]
+
