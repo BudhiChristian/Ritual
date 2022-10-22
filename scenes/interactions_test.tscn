@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dwn4x7y0esv0f" path="res://prefabs/tool_kit/tool_kit.tscn" id="6_b6o4i"]
 [ext_resource type="Texture2D" uid="uid://cxj1p4tiwjn6b" path="res://textures/spirit.png" id="8_7i20c"]
 [ext_resource type="PackedScene" uid="uid://ddgg34bdoo2e1" path="res://prefabs/level_ui.tscn" id="9_3k1xu"]
-[ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/Background_WIP.png" id="19_omnay"]
+[ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/backgrounds/Background_WIP.png" id="19_omnay"]
 
 [node name="interactions_test" type="Node2D"]
 

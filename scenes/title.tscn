@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://g1jvvdd88585"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/Background_WIP.png" id="1_tmvb4"]
+[ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/backgrounds/Background_WIP.png" id="1_tmvb4"]
 [ext_resource type="Script" path="res://scenes/title.gd" id="1_y20d0"]
 
 [node name="title" type="Node2D"]
