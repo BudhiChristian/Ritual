@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://huhi1u6kmtk8"
+path="res://.godot/imported/02_01_but_wait_theres_more.dialogue-13b245a233c1168a4c924a2323288038.tres"
+
+[deps]
+
+source_file="res://ritual_dialogues/02_two_spirits/02_01_but_wait_theres_more.dialogue"
+dest_files=["res://.godot/imported/02_01_but_wait_theres_more.dialogue-13b245a233c1168a4c924a2323288038.tres"]
+
+[params]
+
