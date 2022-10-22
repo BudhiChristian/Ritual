@@ -1,19 +1,17 @@
 extends Node
 
-var spirit_prefab: PackedScene
-
 var spirit_instances: Array = []
+var spirit_prefabs: Dictionary = {
+	"normal": preload("res://prefabs/spirit/spirit.tscn")
+}
 
 # triangles that spritis can spawn
 var spawn_areas: Array = []
 # accumulated average in ascending order (last is the the complete total areas)
 var spawn_weights: Array = []
 
-# we could make these fit within the target depending on what the object is
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	spirit_prefab = preload("res://prefabs/spirit/spirit.tscn")
 	# Connect listeners
 	MessageBus.exorcise_spirits_in_jar.connect(_release_spirits)
 	MessageBus.spawn_spirit_trio.connect(_spawn_spirit_trio)
@@ -40,11 +38,12 @@ func _ready():
 func _process(delta):
 	pass
 	
-func _spawn_spirit_trio(color: Color) -> void:
-	for i in 3:
-		_spawn_spirit(color, _get_random_position())
+func _spawn_spirit_trio(color: Color, spirit_types: Array) -> void:
+	for spirit_type in spirit_types:
+		var spirit_prefab = spirit_prefabs.get(spirit_type)
+		_spawn_spirit(color, spirit_prefab, _get_random_position())
 
-func _spawn_spirit(color: Color, position: Vector2) -> void:
+func _spawn_spirit(color: Color, spirit_prefab: PackedScene, position: Vector2) -> void:
 	var new_spirit = spirit_prefab.instantiate() as Node2D
 	new_spirit.position = position
 	new_spirit.spirit_color = color

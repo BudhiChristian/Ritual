@@ -2,6 +2,7 @@ extends RitualDialogueHandler
 
 # level details
 var spirit_color = Color8(172, 91, 53)
+var spirit_types = ["normal", "normal", "normal"]
 
 # state
 var spirit_found: bool = false
@@ -28,7 +29,7 @@ func _ready() -> void:
 	MessageBus.disable_tool.emit("dagger")
 	MessageBus.disable_tool.emit("pins")
 	
-	MessageBus.spawn_spirit_trio.emit(spirit_color)
+	MessageBus.spawn_spirit_trio.emit(spirit_color, spirit_types)
 	play_intro()
 	
 func play_intro():
