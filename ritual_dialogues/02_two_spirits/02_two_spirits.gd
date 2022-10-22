@@ -55,6 +55,8 @@ func finished():
 	MessageBus.host_completely_exorcised.disconnect(finished)
 	await wait(3)
 	await progress_dialog(_04a_finished, "start")
+	var next_scene: PackedScene = preload("res://scenes/03_story2.tscn")
+	get_tree().change_scene_to_packed(next_scene)
 
 func possessed():
 	MessageBus.host_is_possessed.disconnect(possessed)
