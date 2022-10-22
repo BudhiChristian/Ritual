@@ -5,10 +5,19 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_45aei"]
 
 [node name="ectoplasm" type="Node2D"]
+z_index = 99
 
 [node name="ectoplasm_sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_eraxi")
+
+[node name="click_blocker" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 27.0
+offset_bottom = 26.0
 
 [node name="collision" type="Area2D" parent="."]
 
