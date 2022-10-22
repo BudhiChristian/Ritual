@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ba1sxeib33aln"]
+[gd_scene load_steps=7 format=3 uid="uid://ba1sxeib33aln"]
 
 [ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/backgrounds/Background_WIP.png" id="1_w626o"]
 [ext_resource type="PackedScene" uid="uid://bskq3yd4rancs" path="res://prefabs/spirit_host/spirit_host.tscn" id="2_120qv"]
 [ext_resource type="Texture2D" uid="uid://d1dg5p1hbir8i" path="res://textures/patients/panini.png" id="3_oofav"]
 [ext_resource type="Script" path="res://scripts/spirit_spawner.gd" id="4_xyxa5"]
 [ext_resource type="PackedScene" uid="uid://dwn4x7y0esv0f" path="res://prefabs/tool_kit/tool_kit.tscn" id="5_yiuei"]
-[ext_resource type="PackedScene" uid="uid://cyirykhptubln" path="res://prefabs/ectoplasm/ectoplasm.tscn" id="6_uiudu"]
 [ext_resource type="Script" path="res://ritual_dialogues/04_ectoplasm/04_ectoplasm.gd" id="7_x4lfv"]
 
 [node name="04_ectoplasm" type="Node2D"]
@@ -38,8 +37,6 @@ polygon = PackedVector2Array(336, 466, 708, 465, 777, 391, 793, 319, 807, 306, 7
 script = ExtResource("4_xyxa5")
 
 [node name="tool_kit" parent="play_area" instance=ExtResource("5_yiuei")]
-
-[node name="ectoplasm" parent="play_area/tool_kit" instance=ExtResource("6_uiudu")]
 
 [node name="level" type="Node" parent="."]
 process_mode = 3

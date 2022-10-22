@@ -3,7 +3,7 @@ extends Node
 var spirit_instances: Array = []
 var spirit_prefabs: Dictionary = {
 	"normal": preload("res://prefabs/spirit/spirit.tscn"),
-	"ectoplasm": preload("res://prefabs/spirit/spirit.tscn") # TODO make this actually ectoplasm
+	"ectoplasm": preload("res://prefabs/spirit/ectoplasm_spirit.tscn")
 }
 
 # triangles that spritis can spawn
@@ -54,8 +54,7 @@ func _spawn_spirit(color: Color, spirit_type: String, position: Vector2) -> void
 	
 	# custom args for different types
 	if spirit_type_parts[0] == "ectoplasm":
-		var num_to_spawn = spirit_type_parts[1]
-		# TODO set this to custom prefab
+		new_spirit.ectoplasm_to_spawn = spirit_type_parts[1].to_int()
 	
 	get_tree().current_scene.add_child(new_spirit)
 	spirit_instances.append(new_spirit)

@@ -1,4 +1,7 @@
 extends Node2D
+
+class_name BaseSpirit
+
 @onready var click_handler: Control = %click_handler
 @onready var thurible_collider: Area2D = %thurible_collider
 
