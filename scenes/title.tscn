@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://g1jvvdd88585"]
+
+[ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/Background_WIP.png" id="1_tmvb4"]
+[ext_resource type="Script" path="res://scenes/title.gd" id="1_y20d0"]
+
+[node name="title" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_tmvb4")
+ignore_texture_size = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_y20d0")
+
+[node name="Button" type="Button" parent="Control"]
+offset_left = 391.0
+offset_top = 386.0
+offset_right = 784.0
+offset_bottom = 475.0
+text = "Start"
+
+[node name="Label" type="Label" parent="Control"]
+offset_left = 383.0
+offset_top = 215.0
+offset_right = 798.0
+offset_bottom = 335.0
+text = "Game Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Control/Button" to="Control" method="go_to_game"]

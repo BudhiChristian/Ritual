@@ -35,7 +35,7 @@ func _on_spawn_spirit_trio(color):
 	total_spirits += 3
 
 func _on_exorcise_spirits_in_jar(spirits: Array):
-	total_spirits -= spirits.size()
+	total_spirits -= 3
 	current_health = min(health, current_health + spirit_exorcise_heal_amount)
 	if total_spirits < 1:
 		MessageBus.host_completely_exorcised.emit()

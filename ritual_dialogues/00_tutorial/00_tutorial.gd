@@ -79,9 +79,11 @@ func play_two_more(_spirit_in_jar):
 func play_finished(_spirits_in_jar):
 	MessageBus.exorcise_spirits_in_jar.disconnect(play_finished)
 	await progress_dialog(_04a_complete, "start")
-	# TODO next scene
+	var next_scene: PackedScene = preload("res://scenes/01_story01.tscn")
+	get_tree().change_scene_to_packed(next_scene)
 	
 func possessed():
 	MessageBus.host_is_possessed.disconnect(possessed)
 	await progress_dialog(_04b_possessed, "start")
-	# TODO restart
+	MessageBus.show_overlay_for.emit("retry")
+	

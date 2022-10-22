@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbybe6tr8pqsp"]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="PackedScene" uid="uid://bskq3yd4rancs" path="res://prefabs/spirit_host/spirit_host.tscn" id="1_6rnas"]
 [ext_resource type="Script" path="res://scripts/spirit_spawner.gd" id="3_oorg0"]
 [ext_resource type="PackedScene" uid="uid://dwn4x7y0esv0f" path="res://prefabs/tool_kit/tool_kit.tscn" id="6_b6o4i"]
 [ext_resource type="Texture2D" uid="uid://cxj1p4tiwjn6b" path="res://textures/spirit.png" id="8_7i20c"]
-[ext_resource type="PackedScene" uid="uid://ddgg34bdoo2e1" path="res://prefabs/dialog_box.tscn" id="9_3k1xu"]
+[ext_resource type="PackedScene" uid="uid://ddgg34bdoo2e1" path="res://prefabs/level_ui.tscn" id="9_3k1xu"]
 [ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/Background_WIP.png" id="19_omnay"]
 
 [node name="interactions_test" type="Node2D"]

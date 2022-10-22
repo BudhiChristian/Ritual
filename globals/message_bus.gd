@@ -27,3 +27,6 @@ signal triangle_expired()
 # levels
 signal host_completely_exorcised()
 signal host_is_possessed()
+
+# UI
+signal show_overlay_for(option)

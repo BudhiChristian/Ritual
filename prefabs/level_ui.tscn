@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddgg34bdoo2e1"]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="1_ce5xh"]
+[ext_resource type="Script" path="res://scripts/ui_actions.gd" id="2_jc7tj"]
+
+[node name="level_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 168.0
+offset_top = 541.0
+offset_right = 976.0
+offset_bottom = 642.0
+
+[node name="dialogue_box" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="dialogue_box"]
+offset_left = 6.0
+offset_top = 8.0
+offset_right = 800.0
+offset_bottom = 94.0
+script = ExtResource("1_ce5xh")
+
+[node name="overlay" type="Panel" parent="."]
+visible = false
+offset_left = -168.0
+offset_top = -541.0
+offset_right = 984.0
+offset_bottom = 107.0
+script = ExtResource("2_jc7tj")
+
+[node name="retry" type="Node2D" parent="overlay"]
+visible = false
+
+[node name="Button" type="Button" parent="overlay/retry"]
+offset_left = 389.0
+offset_top = 331.0
+offset_right = 782.0
+offset_bottom = 418.0
+text = "Retry"
+
+[node name="Label" type="Label" parent="overlay/retry"]
+offset_left = 418.0
+offset_top = 281.0
+offset_right = 758.0
+offset_bottom = 307.0
+text = "The patient has been completely possessed!"
+
+[connection signal="pressed" from="overlay/retry/Button" to="overlay" method="retry_level"]
