@@ -1,18 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccxgvb6q4evjb"]
+[gd_scene load_steps=2 format=3 uid="uid://ccxgvb6q4evjb"]
 
-[ext_resource type="Script" path="res://scripts/skip_to_next_level.gd" id="1_f0wxl"]
-[ext_resource type="PackedScene" uid="uid://cxgd15nr3v6ap" path="res://scenes/02_two_spirits.tscn" id="2_0qjht"]
+[ext_resource type="Script" path="res://ritual_dialogues/01_story1/01_story01.gd" id="1_2fu8l"]
 
 [node name="01_story01" type="Node2D"]
-
-[node name="Button" type="Button" parent="."]
-offset_left = 1040.0
-offset_top = 15.0
-offset_right = 1136.0
-offset_bottom = 52.0
-text = "Skip"
-script = ExtResource("1_f0wxl")
-next_scene = ExtResource("2_0qjht")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 468.0
@@ -22,4 +12,6 @@ offset_bottom = 248.0
 rotation = 0.314159
 text = "Imagine an office backgound for now..."
 
-[connection signal="pressed" from="Button" to="Button" method="go_to_next_scene"]
+[node name="dialog" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("1_2fu8l")

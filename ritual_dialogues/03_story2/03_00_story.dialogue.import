@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://ikor6lyp3r7r"
+path="res://.godot/imported/03_00_story.dialogue-91ad25ee26e01ee288ee45d965e00198.tres"
+
+[deps]
+
+source_file="res://ritual_dialogues/03_story2/03_00_story.dialogue"
+dest_files=["res://.godot/imported/03_00_story.dialogue-91ad25ee26e01ee288ee45d965e00198.tres"]
+
+[params]
+
