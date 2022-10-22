@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/Background_WIP.png" id="1_iss6s"]
 [ext_resource type="PackedScene" uid="uid://bskq3yd4rancs" path="res://prefabs/spirit_host/spirit_host.tscn" id="2_0evin"]
-[ext_resource type="Texture2D" uid="uid://cxj1p4tiwjn6b" path="res://textures/spirit.png" id="3_ys4d7"]
+[ext_resource type="Texture2D" uid="uid://d1dg5p1hbir8i" path="res://textures/patients/panini.png" id="3_q325o"]
 [ext_resource type="Script" path="res://scripts/spirit_spawner.gd" id="4_wc55g"]
 [ext_resource type="PackedScene" uid="uid://dwn4x7y0esv0f" path="res://prefabs/tool_kit/tool_kit.tscn" id="5_jnksy"]
 [ext_resource type="Script" path="res://ritual_dialogues/02_two_spirits/02_two_spirits.gd" id="6_7wv2o"]
@@ -24,17 +24,15 @@ process_mode = 1
 [node name="spirit_host" parent="play_area" instance=ExtResource("2_0evin")]
 
 [node name="host_sprite" type="Sprite2D" parent="play_area/spirit_host"]
-modulate = Color(0.501961, 0.32549, 0.662745, 1)
-position = Vector2(577, 319)
-rotation = 1.5708
-scale = Vector2(2, 2)
+position = Vector2(577, 444)
+scale = Vector2(0.8, 0.8)
 z_index = -2
-texture = ExtResource("3_ys4d7")
+texture = ExtResource("3_q325o")
 
 [node name="spawn_area" type="Polygon2D" parent="play_area/spirit_host"]
 position = Vector2(0, 89)
 color = Color(1, 1, 1, 0)
-polygon = PackedVector2Array(346, 212, 384, 218, 427, 211, 472, 168, 524, 133, 576, 116, 621, 102, 770, 136, 811, 204, 807, 321, 775, 385, 653, 412, 560, 350, 532, 329, 465, 349, 404, 322, 373, 272)
+polygon = PackedVector2Array(336, 466, 708, 465, 777, 391, 793, 319, 807, 306, 792, 186, 765, 122, 731, 42, 649, 26, 595, 46, 581, 96, 538, 135, 485, 186, 439, 211, 386, 276, 335, 356)
 script = ExtResource("4_wc55g")
 
 [node name="tool_kit" parent="play_area" instance=ExtResource("5_jnksy")]
