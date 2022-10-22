@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjto0k3psq0ua"]
+[gd_scene load_steps=3 format=3 uid="uid://cvgfjf3cfb1lo"]
 
-[ext_resource type="Script" path="res://ritual_dialogues/01_story1/01_story01.gd" id="1_2fu8l"]
-[ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/backgrounds/Background_WIP.png" id="1_2u4vl"]
+[ext_resource type="Script" path="res://ritual_dialogues/03_story2/03_story2.gd" id="1_0pf40"]
+[ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/backgrounds/Background_WIP.png" id="1_ujop8"]
 
-[node name="01_story01" type="Node2D"]
+[node name="03_story3" type="Node2D"]
 
 [node name="background" type="Node2D" parent="."]
 z_index = -2
@@ -11,7 +11,7 @@ z_index = -2
 [node name="TextureRect" type="TextureRect" parent="background"]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("1_2u4vl")
+texture = ExtResource("1_ujop8")
 ignore_texture_size = true
 
 [node name="Label" type="Label" parent="."]
@@ -24,4 +24,4 @@ text = "Imagine an office backgound instead of the back room for now..."
 
 [node name="dialog" type="Node" parent="."]
 process_mode = 3
-script = ExtResource("1_2fu8l")
+script = ExtResource("1_0pf40")

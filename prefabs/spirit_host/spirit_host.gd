@@ -28,6 +28,7 @@ func _process(delta):
 	if current_health == 0:
 		MessageBus.host_is_possessed.emit()
 	
+	health_bar.modulate = Color8(152, 49, 47) if total_spirits > 0 else Color8(49, 104, 47)
 	health_bar.material.set_shader_parameter("health", current_health / health)
 
 func _on_spawn_spirit_trio(color, spirit_types):

@@ -5,7 +5,7 @@ signal disable_tool(tool)
 signal enable_tool(tool)
 
 signal thurible_smoke_changed(color)
-signal spirit_revealed()
+signal spirit_revealed(color)
 signal spawn_spirit_trio(color, spirit_types)
 
 # knife actions

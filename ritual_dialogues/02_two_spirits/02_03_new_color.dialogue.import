@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://cd5ov1ftq6qwi"
+path="res://.godot/imported/02_03_new_color.dialogue-bf75437228e15b8e17bca61d7770e014.tres"
+
+[deps]
+
+source_file="res://ritual_dialogues/02_two_spirits/02_03_new_color.dialogue"
+dest_files=["res://.godot/imported/02_03_new_color.dialogue-bf75437228e15b8e17bca61d7770e014.tres"]
+
+[params]
+

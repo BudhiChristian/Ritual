@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxgd15nr3v6ap"]
+[gd_scene load_steps=7 format=3 uid="uid://b2iccrpgb0nuq"]
 
-[ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/Background_WIP.png" id="1_iss6s"]
+[ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/backgrounds/Background_WIP.png" id="1_jgf3w"]
 [ext_resource type="PackedScene" uid="uid://bskq3yd4rancs" path="res://prefabs/spirit_host/spirit_host.tscn" id="2_0evin"]
 [ext_resource type="Texture2D" uid="uid://d1dg5p1hbir8i" path="res://textures/patients/panini.png" id="3_q325o"]
 [ext_resource type="Script" path="res://scripts/spirit_spawner.gd" id="4_wc55g"]
@@ -15,13 +15,14 @@ z_index = -2
 [node name="TextureRect" type="TextureRect" parent="background"]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("1_iss6s")
+texture = ExtResource("1_jgf3w")
 ignore_texture_size = true
 
 [node name="play_area" type="Node" parent="."]
 process_mode = 1
 
 [node name="spirit_host" parent="play_area" instance=ExtResource("2_0evin")]
+health = 500.0
 
 [node name="host_sprite" type="Sprite2D" parent="play_area/spirit_host"]
 position = Vector2(577, 444)

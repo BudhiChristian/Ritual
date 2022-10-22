@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://ds6y544ilt17g"
+path="res://.godot/imported/02_04b_possessed.dialogue-87609e3e334b851783f418baefbda338.tres"
+
+[deps]
+
+source_file="res://ritual_dialogues/02_two_spirits/02_04b_possessed.dialogue"
+dest_files=["res://.godot/imported/02_04b_possessed.dialogue-87609e3e334b851783f418baefbda338.tres"]
+
+[params]
+
