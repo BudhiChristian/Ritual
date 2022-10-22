@@ -21,6 +21,7 @@ var _04b_possessed = preload("res://ritual_dialogues/00_tutorial/00_04b_possesse
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
+	await get_tree().current_scene.ready
 	MessageBus.host_is_possessed.connect(possessed)
 
 	MessageBus.disable_tool.emit("thurible")

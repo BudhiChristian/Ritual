@@ -49,7 +49,6 @@ func _spawn_spirit(color: Color, position: Vector2) -> void:
 	new_spirit.position = position
 	new_spirit.spirit_color = color
 	new_spirit.visible = false
-	await get_tree().current_scene.ready
 	get_tree().current_scene.add_child(new_spirit)
 	spirit_instances.append(new_spirit)
 	return new_spirit
