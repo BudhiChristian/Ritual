@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyirykhptubln"]
+
+[ext_resource type="Texture2D" uid="uid://bpdhy8sl1vfme" path="res://textures/circle.png" id="1_eraxi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_45aei"]
+
+[node name="ectoplasm" type="Node2D"]
+
+[node name="ectoplasm_sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_eraxi")
+
+[node name="collision" type="Area2D" parent="."]
+
+[node name="collision_shap" type="CollisionShape2D" parent="collision"]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_45aei")

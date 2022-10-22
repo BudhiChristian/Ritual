@@ -2,7 +2,8 @@ extends Node
 
 var spirit_instances: Array = []
 var spirit_prefabs: Dictionary = {
-	"normal": preload("res://prefabs/spirit/spirit.tscn")
+	"normal": preload("res://prefabs/spirit/spirit.tscn"),
+	"ectoplasm": preload("res://prefabs/spirit/spirit.tscn") # TODO make this actually ectoplasm
 }
 
 # triangles that spritis can spawn
@@ -40,14 +41,22 @@ func _process(delta):
 	
 func _spawn_spirit_trio(color: Color, spirit_types: Array) -> void:
 	for spirit_type in spirit_types:
-		var spirit_prefab = spirit_prefabs.get(spirit_type)
-		_spawn_spirit(color, spirit_prefab, _get_random_position())
+		_spawn_spirit(color, spirit_type, _get_random_position())
 
-func _spawn_spirit(color: Color, spirit_prefab: PackedScene, position: Vector2) -> void:
+func _spawn_spirit(color: Color, spirit_type: String, position: Vector2) -> void:
+	# for other configurations, let's separate them by underscore
+	var spirit_type_parts = spirit_type.split("_")
+	var spirit_prefab = spirit_prefabs.get(spirit_type_parts[0])
 	var new_spirit = spirit_prefab.instantiate() as Node2D
 	new_spirit.position = position
 	new_spirit.spirit_color = color
 	new_spirit.visible = false
+	
+	# custom args for different types
+	if spirit_type_parts[0] == "ectoplasm":
+		var num_to_spawn = spirit_type_parts[1]
+		# TODO set this to custom prefab
+	
 	get_tree().current_scene.add_child(new_spirit)
 	spirit_instances.append(new_spirit)
 	return new_spirit
