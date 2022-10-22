@@ -30,12 +30,12 @@ func _process(delta):
 	
 	health_bar.material.set_shader_parameter("health", current_health / health)
 
-func _on_spawn_spirit_trio(color):
+func _on_spawn_spirit_trio(color, spirit_types):
 	spirits_in_body += 3
 	total_spirits += 3
 
 func _on_exorcise_spirits_in_jar(spirits: Array):
-	total_spirits -= 3
+	total_spirits -= spirits.size()
 	current_health = min(health, current_health + spirit_exorcise_heal_amount)
 	if total_spirits < 1:
 		MessageBus.host_completely_exorcised.emit()
