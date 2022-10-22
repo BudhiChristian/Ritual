@@ -27,8 +27,9 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	click_handler.input_event.connect(_handle_click)
+	MessageBus.enable_tool.connect(enable_tool)
+	MessageBus.disable_tool.connect(disable_tool)
 	MessageBus.state_entered.connect(func(state):
-		print("state entered")
 		tool_frame.modulate = Color.SKY_BLUE if state == _associated_state else Color.WHITE
 	)
 	_update_tool_asset()
@@ -46,3 +47,9 @@ func _handle_click(_viewport, event: InputEvent, _shape_idx):
 			_associated_state.start()
 		else:
 			print("tool not available")
+func enable_tool(tool):
+	if tool == _associated_state.tool_name:
+		visible = true
+func disable_tool(tool):
+	if tool == _associated_state.tool_name:
+		visible = false

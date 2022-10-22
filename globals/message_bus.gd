@@ -1,6 +1,8 @@
 extends Node
 
 signal state_entered(state)
+signal disable_tool(tool)
+signal enable_tool(tool)
 
 signal thurible_smoke_changed(color)
 signal spirit_revealed()

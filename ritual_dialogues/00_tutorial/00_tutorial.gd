@@ -23,19 +23,23 @@ func _ready() -> void:
 	super()
 	MessageBus.host_is_possessed.connect(possessed)
 
-	# TODO since this is the tutorial we should probably disable tools until they're introdued
+	MessageBus.disable_tool.emit("thurible")
+	MessageBus.disable_tool.emit("dagger")
+	MessageBus.disable_tool.emit("pins")
+	
 	MessageBus.spawn_spirit_trio.emit(spirit_color)
-
 	play_intro()
 	
 func play_intro():
+	MessageBus.enable_tool.emit("thurible")
 	await progress_dialog(_00_intro, "start")
 	MessageBus.thurible_smoke_changed.connect(play_use_pins)
 
 func play_use_pins(_smoke_color):
 	MessageBus.thurible_smoke_changed.disconnect(play_use_pins)
+	MessageBus.enable_tool.emit("pins")
 	await progress_dialog(_01a_pins, "start")
-	MessageBus.spirit_revealed.connect(play_use_knife)
+	MessageBus.spirit_revealed.connect(play_use_dagger)
 	MessageBus.triangle_created.connect(triangle_created)
 	
 func triangle_created():
@@ -52,11 +56,12 @@ func triangle_created_again():
 		await progress_dialog(_01c_pins_miss_again, "start")
 		learned_pin_removal = true
 		
-func play_use_knife():
-	MessageBus.spirit_revealed.disconnect(play_use_knife)
+func play_use_dagger():
+	MessageBus.spirit_revealed.disconnect(play_use_dagger)
 	MessageBus.triangle_created.disconnect(triangle_created)
 	MessageBus.triangle_created.disconnect(triangle_created_again)
 	spirit_found = true
+	MessageBus.enable_tool.emit("dagger")
 	await progress_dialog(_02_knife, "start")
 	MessageBus.put_spirit_in_jar.connect(play_two_more)
 	if !learned_pin_removal:

@@ -2,9 +2,9 @@ extends BaseState
 
 @export var smoke_prefab:PackedScene
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	super()
+	self.tool_name = "thurible"
 
 func handle_input(event:InputEvent):
 	if event is InputEventMouseButton:

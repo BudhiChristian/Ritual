@@ -7,6 +7,8 @@ var pin_instances:Array = []
 var triangle_manager: TriangleManager = null
 
 func _ready() -> void:
+	super()
+	self.tool_name = "pins"
 	# it feels a bit odd to directly subscribe to a signal inside of a state-machine state.
 	# but I think it makes some sense in this case because we want to handle this event no matter what
 	MessageBus.pin_removed.connect(_remove_pin)
