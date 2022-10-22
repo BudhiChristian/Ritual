@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 	is_capturable = is_in_a_triangle
 	is_exposed = is_in_a_triangle
 	if !was_exposed and is_exposed:
-		MessageBus.spirit_revealed.emit()
+		MessageBus.spirit_revealed.emit(spirit_color)
 
 	modulate = spirit_color if is_in_a_triangle else spirit_color_debug
 	

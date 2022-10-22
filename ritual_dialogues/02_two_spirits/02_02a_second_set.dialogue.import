@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://b5qgqchwrnrf1"
+path="res://.godot/imported/02_02a_second_set.dialogue-45c72691b2869e9c561c4254d7fc0112.tres"
+
+[deps]
+
+source_file="res://ritual_dialogues/02_two_spirits/02_02a_second_set.dialogue"
+dest_files=["res://.godot/imported/02_02a_second_set.dialogue-45c72691b2869e9c561c4254d7fc0112.tres"]
+
+[params]
+

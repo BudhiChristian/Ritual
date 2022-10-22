@@ -22,6 +22,7 @@ ignore_texture_size = true
 process_mode = 1
 
 [node name="spirit_host" parent="play_area" instance=ExtResource("2_0evin")]
+health = 500.0
 
 [node name="host_sprite" type="Sprite2D" parent="play_area/spirit_host"]
 position = Vector2(577, 444)

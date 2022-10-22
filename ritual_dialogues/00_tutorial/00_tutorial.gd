@@ -58,7 +58,7 @@ func triangle_created_again():
 		await progress_dialog(_01c_pins_miss_again, "start")
 		learned_pin_removal = true
 		
-func play_use_dagger():
+func play_use_dagger(color):
 	MessageBus.spirit_revealed.disconnect(play_use_dagger)
 	MessageBus.triangle_created.disconnect(triangle_created)
 	MessageBus.triangle_created.disconnect(triangle_created_again)
