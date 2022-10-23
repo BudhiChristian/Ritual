@@ -7,7 +7,7 @@
 radius = 35.3553
 
 [node name="pin" type="Node2D"]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.25, 0.25)
 script = ExtResource("1_rcayb")
 
 [node name="sprite" type="Sprite2D" parent="."]
