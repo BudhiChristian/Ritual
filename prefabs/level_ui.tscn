@@ -20,13 +20,12 @@ offset_top = 5.0
 offset_right = 799.0
 offset_bottom = 91.0
 script = ExtResource("1_ce5xh")
+seconds_per_step = 0.013
 
 [node name="overlay" type="Panel" parent="."]
 visible = false
-offset_left = -168.0
-offset_top = -541.0
-offset_right = 984.0
-offset_bottom = 107.0
+offset_right = 1152.0
+offset_bottom = 648.0
 script = ExtResource("2_jc7tj")
 
 [node name="retry" type="Node2D" parent="overlay"]
