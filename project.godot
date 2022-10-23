@@ -50,9 +50,11 @@ _global_script_class_icons={
 
 [application]
 
-config/name="trauma spirit"
+config/name="Trauma Spirit"
 run/main_scene="res://scenes/title.tscn"
 config/features=PackedStringArray("4.0")
+boot_splash/image="res://textures/Mr_Froggy_Flat.png"
+boot_splash/bg_color=Color(0.184314, 0.0313726, 0.223529, 1)
 config/icon="res://icon.svg"
 
 [autoload]
