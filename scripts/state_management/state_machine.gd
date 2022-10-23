@@ -7,6 +7,7 @@ class_name StateMachine
 func _ready() -> void:
 	MessageBus.spirit_clicked.connect(_on_spirit_clicked)
 	MessageBus.soul_jar_clicked.connect(_on_soul_jar_clicked)
+	MessageBus.ectoplasm_clicked.connect(_on_ectoplasm_clicked)
 	for state in get_children():
 		if (state as BaseState):
 			(state as BaseState).state_machine = self
@@ -16,6 +17,9 @@ func _on_spirit_clicked(spirit):
 
 func _on_soul_jar_clicked():
 	current_state.handle_soul_jar_clicked()
+	
+func _on_ectoplasm_clicked(ectoplasm):
+	current_state.handle_ectoplasm_clicked(ectoplasm)
 
 func _on_interaction_area_input(viewport, event, shape):
 	current_state.handle_input(event)

@@ -4,6 +4,7 @@ extends Node2D
 @export var spirit_damage_per_second: float = 1
 @export var spirit_exorcise_heal_amount: float = 100
 @export var dispell_triangle_damage: float = 50
+@export var ectoplasm_manual_damage: float = 20
 
 var health_bar: Node2D
 var current_health: float = 100
@@ -17,6 +18,7 @@ func _ready():
 	MessageBus.spirit_escapes_jar.connect(_on_spirit_escapes_jar)
 	MessageBus.triangle_dispelled_early.connect(_on_triangle_dispelled_early)
 	MessageBus.spawn_spirit_trio.connect(_on_spawn_spirit_trio)
+	MessageBus.ectoplasm_manually_removed.connect(_on_ectoplasm_manually_removed)
 	
 	health_bar = get_node("health_bar/fill")
 	current_health = health
@@ -49,3 +51,6 @@ func _on_spirit_escapes_jar(spirit):
 
 func _on_triangle_dispelled_early():
 	current_health = max(0, current_health - dispell_triangle_damage)
+	
+func _on_ectoplasm_manually_removed(ectoplasm):
+	current_health = max(0, current_health - ectoplasm_manual_damage)

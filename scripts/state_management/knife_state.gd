@@ -20,6 +20,10 @@ func handle_soul_jar_clicked():
 	if held_spirit != null:
 		MessageBus.put_spirit_in_jar.emit(held_spirit)
 		held_spirit = null
+		
+func handle_ectoplasm_clicked(ectoplasm):
+	MessageBus.ectoplasm_manually_removed.emit(ectoplasm)
+	
 
 func on_exit():
 	if held_spirit != null:

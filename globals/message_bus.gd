@@ -28,6 +28,8 @@ signal triangle_expired()
 
 # ectoplasm
 signal ectoplasm_spawned()
+signal ectoplasm_clicked(ectoplasm)
+signal ectoplasm_manually_removed(ectoplasm)
 
 # levels
 signal host_completely_exorcised()

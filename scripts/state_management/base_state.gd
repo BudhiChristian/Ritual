@@ -18,6 +18,9 @@ func handle_spirit_clicked(spirit):
 func handle_soul_jar_clicked():
 	pass
 
+func handle_ectoplasm_clicked(ectoplasm):
+	pass
+
 func handle_input(event:InputEvent):
 	pass
 	
