@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://byoq0ivavqdsb"
+path="res://.godot/imported/06_01b_chains.dialogue-8b8b0677eeda221ff6ee177a2c5b6e44.tres"
+
+[deps]
+
+source_file="res://ritual_dialogues/06_chains/06_01b_chains.dialogue"
+dest_files=["res://.godot/imported/06_01b_chains.dialogue-8b8b0677eeda221ff6ee177a2c5b6e44.tres"]
+
+[params]
+

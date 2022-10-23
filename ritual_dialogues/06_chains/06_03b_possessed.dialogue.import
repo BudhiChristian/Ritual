@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://06tjljl10h2n"
+path="res://.godot/imported/06_03b_possessed.dialogue-24451d0f7c87547e13b0765adb94b01c.tres"
+
+[deps]
+
+source_file="res://ritual_dialogues/06_chains/06_03b_possessed.dialogue"
+dest_files=["res://.godot/imported/06_03b_possessed.dialogue-24451d0f7c87547e13b0765adb94b01c.tres"]
+
+[params]
+

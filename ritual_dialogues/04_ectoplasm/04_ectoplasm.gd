@@ -8,13 +8,13 @@ var spirit_types_1_2 = ["ectoplasm_2", "normal", "normal"]
 var spirit_types_2_1 = ["ectoplasm_2", "ectoplasm_3", "normal"]
 var spirit_types_2_2 = ["ectoplasm_2", "ectoplasm_3", "normal"]
 
-var _00_intro
-var _01a_ectoplasm
-var _01b_football
-var _02a_just_wait
-var _02b_of_course
-var _03a_finished
-var _03b_possessed
+var _00_intro = preload("res://ritual_dialogues/04_ectoplasm/04_00_intro.dialogue")
+var _01a_ectoplasm = preload("res://ritual_dialogues/04_ectoplasm/04_01a_ectoplasm.dialogue")
+var _01b_football = preload("res://ritual_dialogues/04_ectoplasm/04_01b_football.dialogue")
+var _02a_just_wait = preload("res://ritual_dialogues/04_ectoplasm/04_02a_just_wait.dialogue")
+var _02b_of_course = preload("res://ritual_dialogues/04_ectoplasm/04_02b_of_course.dialogue")
+var _03a_finished = preload("res://ritual_dialogues/04_ectoplasm/04_03a_finished.dialogue")
+var _03b_possessed = preload("res://ritual_dialogues/04_ectoplasm/04_03b_possessed.dialogue")
 
 func _ready():
 	super()
@@ -50,9 +50,8 @@ func finished():
 	MessageBus.host_completely_exorcised.disconnect(finished)
 	await wait(3)
 	await progress_dialog(_03a_finished, "start")
-	# TODO
-	# var next_scene: PackedScene = preload("res://scenes/05_chains.tscn")
-	# get_tree().change_scene_to_packed(next_scene)
+	var next_scene: PackedScene = preload("res://scenes/05_story3.tscn")
+	get_tree().change_scene_to_packed(next_scene)
 	
 func possessed():
 	MessageBus.host_is_possessed.disconnect(possessed)
