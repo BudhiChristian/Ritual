@@ -45,6 +45,7 @@ func second_set_of_spirits():
 	MessageBus.spawn_spirit_trio.emit(spirit_color_2, spirit_types_2_2)
 	await wait(3)
 	await progress_dialog(_02b_of_course, "start")
+	MessageBus.host_completely_exorcised.connect(finished)
 	
 func finished():
 	MessageBus.host_completely_exorcised.disconnect(finished)
