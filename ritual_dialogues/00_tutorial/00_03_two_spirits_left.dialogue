@@ -1,14 +1,14 @@
 ~ start
-Dr. Ecto\: Well done! Now, let's look for more spirits.
-YN\: More spirits?
-Dr. Ecto\: You see, spirits can only travel in groups of three. That means there are two more suckers floating around in our friend right now.
-Dr. Ecto\: Also... [wait=0.5]We can only completely excorise spirits when our soul jar is full and it just so happens that our soul jar fits three spirits.
-YN\: That seems arbitrary.
-Dr. Ecto\: Think of it as a match three game.
-YN\: Why not.
-Dr. Ecto\: Our spirit jar can only contain the little fella for so long, they will escape eventually. Find the other two spirits and then we can exorcise them.
-YN\: Will we get to chant.
-Dr. Ecto\: This is an automated exorcisim soul jar.
-YN\: Of course it is... [wait=1]Damn.
-Dr. Ecto\: Just remember to use the thurible to find the spirit, surround them by needles to expose them, then place them in the soul jar with the dagger.
+Dr. Gast Lee\: Well done! Now, let's look for more spirits.
+Yakisoba Nudol\: More spirits?
+Dr. Gast Lee\: You see, spirits can only travel in groups of three. That means there are two more suckers floating around in our friend right now.
+Dr. Gast Lee\: Also... [wait=0.5]We can only completely excorise spirits when our soul jar is full and it just so happens that our soul jar fits three spirits.
+Yakisoba Nudol\: That seems arbitrary.
+Dr. Gast Lee\: Think of it as a match three game.
+Yakisoba Nudol\: Why not.
+Dr. Gast Lee\: Our spirit jar can only contain the little fella for so long, they will escape eventually. Find the other two spirits and then we can exorcise them.
+Yakisoba Nudol\: Will we get to chant.
+Dr. Gast Lee\: This is an automated exorcisim soul jar.
+Yakisoba Nudol\: Of course it is... [wait=1]Damn.
+Dr. Gast Lee\: Just remember to use the thurible to find the spirit, surround them by needles to expose them, then place them in the soul jar with the dagger.
 (Find the other two spirits before the disciple of Belphegor escapes. When a spirit escapes it returns to the body and you will have to capture them again.)

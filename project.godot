@@ -82,6 +82,10 @@ variables={
 }
 editor_mode="text"
 
+[dialogue_manager]
+
+wrap_lines=true
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
