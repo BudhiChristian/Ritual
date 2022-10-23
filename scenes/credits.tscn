@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cokbfe3xcrq54"]
+[gd_scene load_steps=5 format=3 uid="uid://cokbfe3xcrq54"]
 
 [ext_resource type="Texture2D" uid="uid://bncx5m18d1j6h" path="res://textures/backgrounds/Operating_Room.png" id="1_yjfss"]
+[ext_resource type="Texture2D" uid="uid://d1dg5p1hbir8i" path="res://textures/patients/panini.png" id="2_kqyve"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8sc48"]
 font_size = 65
+font_color = Color(0.690196, 0, 0.184314, 1)
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 0.211765)
+shadow_offset = Vector2(-3, -1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ayw1d"]
+font_size = 19
 font_color = Color(0.690196, 0, 0.184314, 1)
 shadow_size = 6
 shadow_color = Color(0, 0, 0, 0.211765)
@@ -17,12 +25,28 @@ offset_bottom = 648.0
 texture = ExtResource("1_yjfss")
 ignore_texture_size = true
 
-[node name="Label2" type="Label" parent="."]
-offset_left = 271.0
-offset_top = 189.0
-offset_right = 868.0
-offset_bottom = 309.0
+[node name="ThankYou" type="Label" parent="."]
+offset_left = 279.0
+offset_top = 201.0
+offset_right = 876.0
+offset_bottom = 294.0
 text = "Thanks for playing!"
 label_settings = SubResource("LabelSettings_8sc48")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="names" type="Label" parent="."]
+offset_left = 270.0
+offset_top = 279.0
+offset_right = 867.0
+offset_bottom = 314.0
+text = "~ Nick, Adora, and Christian"
+label_settings = SubResource("LabelSettings_ayw1d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.709804, 0.709804, 0.647059, 1)
+position = Vector2(558, 527)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_kqyve")

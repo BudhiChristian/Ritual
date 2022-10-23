@@ -26,7 +26,6 @@ offset_bottom = 648.0
 script = ExtResource("1_y20d0")
 
 [node name="Button" type="Button" parent="Control"]
-layout_mode = 0
 offset_left = 478.0
 offset_top = 349.0
 offset_right = 675.0
@@ -34,7 +33,6 @@ offset_bottom = 408.0
 text = "Start"
 
 [node name="Label" type="Label" parent="Control"]
-layout_mode = 0
 offset_left = 366.0
 offset_top = 215.0
 offset_right = 794.0
