@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://m82v7ogviblo"]
 
-[ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/backgrounds/Background_WIP.png" id="1_4yq2n"]
+[ext_resource type="Texture2D" uid="uid://bncx5m18d1j6h" path="res://textures/backgrounds/Operating_Room.png" id="1_v7gkd"]
 [ext_resource type="PackedScene" uid="uid://bskq3yd4rancs" path="res://prefabs/spirit_host/spirit_host.tscn" id="2_qp2mm"]
-[ext_resource type="Texture2D" uid="uid://cxj1p4tiwjn6b" path="res://textures/spirit.png" id="3_huuiv"]
+[ext_resource type="Texture2D" uid="uid://buta1xs3w4mcd" path="res://textures/patients/Back_Tatto_Normal.png" id="3_j752o"]
 [ext_resource type="PackedScene" uid="uid://dwn4x7y0esv0f" path="res://prefabs/tool_kit/tool_kit.tscn" id="4_si5qh"]
 [ext_resource type="Script" path="res://scripts/spirit_spawner.gd" id="5_vkfdi"]
 [ext_resource type="Script" path="res://ritual_dialogues/00_tutorial/00_tutorial.gd" id="8_6g8x7"]
@@ -15,7 +15,7 @@ z_index = -2
 [node name="TextureRect" type="TextureRect" parent="background"]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("1_4yq2n")
+texture = ExtResource("1_v7gkd")
 ignore_texture_size = true
 
 [node name="play_area" type="Node" parent="."]
@@ -24,17 +24,15 @@ process_mode = 1
 [node name="spirit_host" parent="play_area" instance=ExtResource("2_qp2mm")]
 
 [node name="host_sprite" type="Sprite2D" parent="play_area/spirit_host"]
-modulate = Color(0.501961, 0.32549, 0.662745, 1)
-position = Vector2(577, 319)
-rotation = 1.5708
-scale = Vector2(2, 2)
+position = Vector2(581, 324)
+scale = Vector2(0.3, 0.3)
 z_index = -2
-texture = ExtResource("3_huuiv")
+texture = ExtResource("3_j752o")
 
 [node name="spawn_area" type="Polygon2D" parent="play_area/spirit_host"]
 position = Vector2(0, 89)
 color = Color(1, 1, 1, 0)
-polygon = PackedVector2Array(346, 212, 384, 218, 427, 211, 472, 168, 524, 133, 576, 116, 621, 102, 770, 136, 811, 204, 807, 321, 775, 385, 653, 412, 560, 350, 532, 329, 465, 349, 404, 322, 373, 272)
+polygon = PackedVector2Array(418, 234, 412, 120, 566, 99, 669, 113, 763, 149, 782, 224, 790, 307, 705, 486, 634, 493, 472, 478, 432, 437, 460, 376, 404, 322, 460, 289)
 script = ExtResource("5_vkfdi")
 
 [node name="tool_kit" parent="play_area" instance=ExtResource("4_si5qh")]

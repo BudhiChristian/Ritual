@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cvgfjf3cfb1lo"]
 
 [ext_resource type="Script" path="res://ritual_dialogues/03_story2/03_story2.gd" id="1_0pf40"]
-[ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/backgrounds/Background_WIP.png" id="1_ujop8"]
+[ext_resource type="Texture2D" uid="uid://bncx5m18d1j6h" path="res://textures/backgrounds/Operating_Room.png" id="1_4grq3"]
 
 [node name="03_story3" type="Node2D"]
 
@@ -11,16 +11,8 @@ z_index = -2
 [node name="TextureRect" type="TextureRect" parent="background"]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("1_ujop8")
+texture = ExtResource("1_4grq3")
 ignore_texture_size = true
-
-[node name="Label" type="Label" parent="."]
-offset_left = 468.0
-offset_top = 222.0
-offset_right = 768.0
-offset_bottom = 248.0
-rotation = 0.314159
-text = "Imagine an office backgound instead of the back room for now..."
 
 [node name="dialog" type="Node" parent="."]
 process_mode = 3
