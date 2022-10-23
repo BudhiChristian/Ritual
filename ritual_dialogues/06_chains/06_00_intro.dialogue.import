@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://bskrvymuvil6a"
+path="res://.godot/imported/06_00_intro.dialogue-bd4fcfd2422a18e219faa04038115ea4.tres"
+
+[deps]
+
+source_file="res://ritual_dialogues/06_chains/06_00_intro.dialogue"
+dest_files=["res://.godot/imported/06_00_intro.dialogue-bd4fcfd2422a18e219faa04038115ea4.tres"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://qc5smfpp40ic"
+path="res://.godot/imported/06_02_the_final_challenge.dialogue-f7ca4ee55bf3b7ab2913d84084ecaee4.tres"
+
+[deps]
+
+source_file="res://ritual_dialogues/06_chains/06_02_the_final_challenge.dialogue"
+dest_files=["res://.godot/imported/06_02_the_final_challenge.dialogue-f7ca4ee55bf3b7ab2913d84084ecaee4.tres"]
+
+[params]
+
