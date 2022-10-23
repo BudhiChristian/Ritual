@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://ba1sxeib33aln"]
 
-[ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/backgrounds/Background_WIP.png" id="1_w626o"]
+[ext_resource type="Texture2D" uid="uid://bncx5m18d1j6h" path="res://textures/backgrounds/Operating_Room.png" id="1_axe70"]
 [ext_resource type="PackedScene" uid="uid://bskq3yd4rancs" path="res://prefabs/spirit_host/spirit_host.tscn" id="2_120qv"]
-[ext_resource type="Texture2D" uid="uid://d1dg5p1hbir8i" path="res://textures/patients/panini.png" id="3_oofav"]
+[ext_resource type="Texture2D" uid="uid://0qvixyo13f0l" path="res://textures/patients/Back_Tattoo_Possesed.png" id="3_h2iur"]
 [ext_resource type="Script" path="res://scripts/spirit_spawner.gd" id="4_xyxa5"]
 [ext_resource type="PackedScene" uid="uid://dwn4x7y0esv0f" path="res://prefabs/tool_kit/tool_kit.tscn" id="5_yiuei"]
 [ext_resource type="Script" path="res://ritual_dialogues/04_ectoplasm/04_ectoplasm.gd" id="7_x4lfv"]
@@ -15,7 +15,7 @@ z_index = -2
 [node name="TextureRect" type="TextureRect" parent="background"]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("1_w626o")
+texture = ExtResource("1_axe70")
 ignore_texture_size = true
 
 [node name="play_area" type="Node" parent="."]
@@ -26,15 +26,15 @@ health = 750.0
 spirit_exorcise_heal_amount = 120.0
 
 [node name="host_sprite" type="Sprite2D" parent="play_area/spirit_host"]
-position = Vector2(577, 444)
-scale = Vector2(0.8, 0.8)
+position = Vector2(577, 324)
+scale = Vector2(0.3, 0.3)
 z_index = -2
-texture = ExtResource("3_oofav")
+texture = ExtResource("3_h2iur")
 
 [node name="spawn_area" type="Polygon2D" parent="play_area/spirit_host"]
 position = Vector2(0, 89)
 color = Color(1, 1, 1, 0)
-polygon = PackedVector2Array(336, 466, 708, 465, 777, 391, 793, 319, 807, 306, 792, 186, 765, 122, 731, 42, 649, 26, 595, 46, 581, 96, 538, 135, 485, 186, 439, 211, 386, 276, 335, 356)
+polygon = PackedVector2Array(454, 492, 722, 483, 777, 391, 793, 319, 821, 222, 862, 10, 702, -21, 484, -14, 340, 21, 356, 154, 371, 272, 397, 364)
 script = ExtResource("4_xyxa5")
 
 [node name="tool_kit" parent="play_area" instance=ExtResource("5_yiuei")]

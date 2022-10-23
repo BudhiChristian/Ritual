@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://doc62mgevlmk1"]
 
-[ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/backgrounds/Background_WIP.png" id="1_w626o"]
+[ext_resource type="Texture2D" uid="uid://bncx5m18d1j6h" path="res://textures/backgrounds/Operating_Room.png" id="1_4hsea"]
 [ext_resource type="PackedScene" uid="uid://bskq3yd4rancs" path="res://prefabs/spirit_host/spirit_host.tscn" id="2_120qv"]
 [ext_resource type="Texture2D" uid="uid://d1dg5p1hbir8i" path="res://textures/patients/panini.png" id="3_oofav"]
 [ext_resource type="Script" path="res://scripts/spirit_spawner.gd" id="4_xyxa5"]
@@ -15,7 +15,7 @@ z_index = -2
 [node name="TextureRect" type="TextureRect" parent="background"]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("1_w626o")
+texture = ExtResource("1_4hsea")
 ignore_texture_size = true
 
 [node name="play_area" type="Node" parent="."]
