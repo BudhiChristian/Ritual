@@ -1,9 +1,28 @@
-[gd_scene format=3 uid="uid://cokbfe3xcrq54"]
+[gd_scene load_steps=3 format=3 uid="uid://cokbfe3xcrq54"]
+
+[ext_resource type="Texture2D" uid="uid://bncx5m18d1j6h" path="res://textures/backgrounds/Operating_Room.png" id="1_yjfss"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8sc48"]
+font_size = 65
+font_color = Color(0.690196, 0, 0.184314, 1)
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 0.211765)
+shadow_offset = Vector2(-3, -1)
 
 [node name="credits" type="Node2D"]
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Credits go here
-Weeeeeeee!"
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_yjfss")
+ignore_texture_size = true
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 271.0
+offset_top = 189.0
+offset_right = 868.0
+offset_bottom = 309.0
+text = "Thanks for playing!"
+label_settings = SubResource("LabelSettings_8sc48")
+horizontal_alignment = 1
+vertical_alignment = 1
