@@ -20,6 +20,7 @@ offset_top = 5.0
 offset_right = 799.0
 offset_bottom = 91.0
 script = ExtResource("1_ce5xh")
+seconds_per_step = 0.013
 
 [node name="overlay" type="Panel" parent="."]
 visible = false
