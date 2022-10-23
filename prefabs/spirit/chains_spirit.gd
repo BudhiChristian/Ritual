@@ -14,6 +14,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if revealed_time_remaining > 0:
 		revealed_time_remaining -= delta
+		
+	for lock in locks:
+		if get_is_capturable():
+			lock.modulate = Color.YELLOW_GREEN
+		elif lock.is_unlocked:
+			lock.modulate = Color.YELLOW
+		else:
+			lock.modulate = Color.WHITE
+			
+	
 	super(delta)
 
 func get_is_exposed():
