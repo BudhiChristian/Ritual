@@ -31,7 +31,7 @@ func on_expose():
 		var p = position + (Vector2.RIGHT * 180).rotated(randf_range(0, PI*2))
 		# I had to hardcode this due to time constraints. Sorry :(
 		p.x = clamp(p.x, 250, 970)
-		p.y = clamp(p.y, 50, 650)
+		p.y = clamp(p.y, 80, 600)
 		new_chain.position = p
 		new_chain.base_position = position
 		get_tree().current_scene.add_child(new_chain)
