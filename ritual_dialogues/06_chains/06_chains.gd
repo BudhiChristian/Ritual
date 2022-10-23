@@ -43,9 +43,10 @@ func final_challenge():
 	MessageBus.host_completely_exorcised.disconnect(final_challenge)
 	
 	await wait(1)
-	await progress_dialog(_02_the_final_challenge, "start")
 	MessageBus.spawn_spirit_trio.emit(spirit_color_1, spirit_types_3a)
 	MessageBus.spawn_spirit_trio.emit(spirit_color_2, spirit_types_3b)
+	await wait(3)
+	await progress_dialog(_02_the_final_challenge, "start")
 	
 	MessageBus.host_completely_exorcised.connect(finished)
 	
@@ -53,8 +54,8 @@ func finished():
 	MessageBus.host_completely_exorcised.disconnect(finished)
 	await wait(3)
 	await progress_dialog(_03a_finished, "start")
-	#var next_scene: PackedScene = preload("res://scenes/05_story03.tscn")
-	#get_tree().change_scene_to_packed(next_scene)
+	var next_scene: PackedScene = preload("res://scenes/credits.tscn")
+	get_tree().change_scene_to_packed(next_scene)
 	
 func possessed():
 	MessageBus.host_is_possessed.disconnect(possessed)
