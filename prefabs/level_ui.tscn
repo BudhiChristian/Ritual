@@ -8,6 +8,7 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="dialogue_box" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = -1
 offset_left = 176.0
 offset_top = 534.0
@@ -15,6 +16,7 @@ offset_right = 981.0
 offset_bottom = 630.0
 
 [node name="Label" type="RichTextLabel" parent="dialogue_box"]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 799.0
@@ -23,6 +25,7 @@ script = ExtResource("1_ce5xh")
 
 [node name="overlay" type="Panel" parent="."]
 visible = false
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 script = ExtResource("2_jc7tj")
