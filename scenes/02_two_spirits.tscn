@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bncx5m18d1j6h" path="res://textures/backgrounds/Operating_Room.png" id="1_ef0co"]
 [ext_resource type="PackedScene" uid="uid://bskq3yd4rancs" path="res://prefabs/spirit_host/spirit_host.tscn" id="2_0evin"]
-[ext_resource type="Texture2D" uid="uid://d1dg5p1hbir8i" path="res://textures/patients/panini.png" id="3_q325o"]
+[ext_resource type="Texture2D" uid="uid://cklvbku01hugk" path="res://textures/patients/Girl.png" id="3_jar3m"]
 [ext_resource type="Script" path="res://scripts/spirit_spawner.gd" id="4_wc55g"]
 [ext_resource type="PackedScene" uid="uid://dwn4x7y0esv0f" path="res://prefabs/tool_kit/tool_kit.tscn" id="5_jnksy"]
 [ext_resource type="Script" path="res://ritual_dialogues/02_two_spirits/02_two_spirits.gd" id="6_7wv2o"]
@@ -26,15 +26,15 @@ health = 750.0
 spirit_exorcise_heal_amount = 120.0
 
 [node name="host_sprite" type="Sprite2D" parent="play_area/spirit_host"]
-position = Vector2(577, 444)
-scale = Vector2(0.8, 0.8)
+position = Vector2(577, 324)
+scale = Vector2(0.3, 0.3)
 z_index = -2
-texture = ExtResource("3_q325o")
+texture = ExtResource("3_jar3m")
 
 [node name="spawn_area" type="Polygon2D" parent="play_area/spirit_host"]
 position = Vector2(0, 89)
 color = Color(1, 1, 1, 0)
-polygon = PackedVector2Array(336, 466, 708, 465, 777, 391, 793, 319, 807, 306, 792, 186, 765, 122, 731, 42, 649, 26, 595, 46, 581, 96, 538, 135, 485, 186, 439, 211, 386, 276, 335, 356)
+polygon = PackedVector2Array(357, 450, 791, 465, 807, 306, 778, 170, 754, 112, 698, 58, 578, 19, 474, 43, 406, 92, 368, 180, 350, 301)
 script = ExtResource("4_wc55g")
 
 [node name="tool_kit" parent="play_area" instance=ExtResource("5_jnksy")]
