@@ -10,3 +10,8 @@ func _ready():
 	await get_tree().current_scene.ready
 	
 	MessageBus.spawn_spirit_trio.emit(spirit_color_1, spirit_types)
+	MessageBus.ectoplasm_spawned.connect(ectoplasm_spawned)
+	
+func ectoplasm_spawned():
+	MessageBus.ectoplasm_spawned.disconnect(ectoplasm_spawned)
+	print("eww")

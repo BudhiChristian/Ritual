@@ -20,10 +20,14 @@ signal exorcise_spirits_in_jar(spirits)
 # spirit indicator
 signal set_spirit_stored(is_stored)
 
+# pins
 signal pin_removed(pin)
 signal triangle_created()
 signal triangle_dispelled_early()
 signal triangle_expired()
+
+# ectoplasm
+signal ectoplasm_spawned()
 
 # levels
 signal host_completely_exorcised()

@@ -12,6 +12,8 @@ func _ready():
 	else:
 		var tween = create_tween()
 		tween.tween_property(self, "scale", Vector2(1, 1), 0.8).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+		await tween.finished
+		MessageBus.ectoplasm_spawned.emit()
 
 func _process(delta):
 	if !was_in_triangle && get_is_in_triangle():
