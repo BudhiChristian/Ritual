@@ -15,6 +15,8 @@ func handle_spirit_clicked(spirit:Node2D):
 	if held_spirit == null:
 		spirit.is_captured = true
 		held_spirit = spirit
+		if spirit.spawns_ectoplasm:
+			spirit.spawn_ectoplasm()
 	
 func handle_soul_jar_clicked():
 	if held_spirit != null:

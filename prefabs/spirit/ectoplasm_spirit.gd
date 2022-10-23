@@ -4,14 +4,14 @@ var ectoplasm_prefab: PackedScene = preload("res://prefabs/ectoplasm/ectoplasm.t
 var ectoplasm_to_spawn: int = 0
 
 func _ready():
-	MessageBus.spirit_clicked.connect(on_spirit_clicked)
+	spawns_ectoplasm = true
+	#MessageBus.spirit_clicked.connect(on_spirit_clicked)
 
-func on_spirit_clicked(spirit):
-	if spirit == self:
-		for i in ectoplasm_to_spawn:
-			spawn_ectoplasm()
-		
 func spawn_ectoplasm():
+	for i in ectoplasm_to_spawn:
+		_spawn_single_ectoplasm()
+		
+func _spawn_single_ectoplasm():
 	var ectoplasm = ectoplasm_prefab.instantiate() as Node2D
 	ectoplasm.modulate = Color(spirit_color, 0.9)
 	ectoplasm.rotation = randf() * 2 * PI

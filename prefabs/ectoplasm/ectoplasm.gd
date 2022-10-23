@@ -2,7 +2,6 @@ extends Node2D
 
 var was_in_triangle: bool = false
 
-
 func _ready():
 	MessageBus.ectoplasm_manually_removed.connect(_on_ectoplasm_manually_removed)
 	scale.x = 0

@@ -34,6 +34,8 @@ var is_exposed = false:
 		is_exposed = value
 		_update_node_visibility()
 
+var spawns_ectoplasm: bool = false
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var was_exposed = is_exposed
