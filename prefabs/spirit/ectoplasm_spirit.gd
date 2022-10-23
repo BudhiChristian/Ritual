@@ -15,8 +15,9 @@ func spawn_ectoplasm():
 	var ectoplasm = ectoplasm_prefab.instantiate() as Node2D
 	ectoplasm.modulate = Color(spirit_color, 0.9)
 	ectoplasm.rotation = randf() * 2 * PI
+	# Get random point within a radius of spirit
 	var random_angle = randf() * 2 * PI
-	var random_distance = 30 + (50 * sqrt(randf())) 
+	var random_distance = 50 + (50 * sqrt(randf())) # add 50 so it's less likely to spawn inside of triangle 
 	var x = random_distance * cos(random_angle)
 	var y = random_distance * sin(random_angle)
 	ectoplasm.position = Vector2(position.x + x, position.y + y)
