@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://futw13kon3y2"]
+
+[ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/backgrounds/Background_WIP.png" id="1_w626o"]
+[ext_resource type="PackedScene" uid="uid://bskq3yd4rancs" path="res://prefabs/spirit_host/spirit_host.tscn" id="2_120qv"]
+[ext_resource type="Texture2D" uid="uid://d1dg5p1hbir8i" path="res://textures/patients/panini.png" id="3_oofav"]
+[ext_resource type="Script" path="res://scripts/spirit_spawner.gd" id="4_xyxa5"]
+[ext_resource type="PackedScene" uid="uid://dwn4x7y0esv0f" path="res://prefabs/tool_kit/tool_kit.tscn" id="5_yiuei"]
+[ext_resource type="Script" path="res://ritual_dialogues/05_chains/05_chains.gd" id="6_jhakw"]
+
+[node name="05_chains" type="Node2D"]
+
+[node name="background" type="Node2D" parent="."]
+z_index = -2
+
+[node name="TextureRect" type="TextureRect" parent="background"]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_w626o")
+ignore_texture_size = true
+
+[node name="play_area" type="Node" parent="."]
+process_mode = 1
+
+[node name="spirit_host" parent="play_area" instance=ExtResource("2_120qv")]
+health = 500.0
+
+[node name="host_sprite" type="Sprite2D" parent="play_area/spirit_host"]
+position = Vector2(577, 444)
+scale = Vector2(0.8, 0.8)
+z_index = -2
+texture = ExtResource("3_oofav")
+
+[node name="spawn_area" type="Polygon2D" parent="play_area/spirit_host"]
+position = Vector2(0, 89)
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(336, 466, 708, 465, 777, 391, 793, 319, 807, 306, 792, 186, 765, 122, 731, 42, 649, 26, 595, 46, 581, 96, 538, 135, 485, 186, 439, 211, 386, 276, 335, 356)
+script = ExtResource("4_xyxa5")
+
+[node name="tool_kit" parent="play_area" instance=ExtResource("5_yiuei")]
+
+[node name="level" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("6_jhakw")

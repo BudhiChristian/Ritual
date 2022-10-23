@@ -101,4 +101,5 @@ dialogic_default_action={
 [layer_names]
 
 2d_physics/layer_1="default"
-2d_physics/layer_2="thurible smoke"
+2d_physics/layer_2="ghosts"
+2d_physics/layer_3="smoke"

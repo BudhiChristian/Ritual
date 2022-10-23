@@ -24,6 +24,8 @@ var is_capturable = false
 
 var is_captured = false:
 	set(value):
+		if !is_captured and value:
+			on_capture()
 		is_captured = value
 		_update_node_visibility()
 
@@ -35,21 +37,37 @@ var is_exposed = false:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var was_exposed = is_exposed
-	var pin_groups = get_tree().get_nodes_in_group("triangles")
-	var is_in_a_triangle = pin_groups.any(func(group): return group.is_active && Geometry2D.is_point_in_polygon(position, group.vector_points))
-
-	is_capturable = is_in_a_triangle
-	is_exposed = is_in_a_triangle
+	is_exposed = get_is_exposed()
+	is_capturable = get_is_capturable()
 	if !was_exposed and is_exposed:
-		MessageBus.spirit_revealed.emit(spirit_color)
+		on_expose()
+		
+	if was_exposed and !is_exposed:
+		on_hide()
 
-	modulate = spirit_color if is_in_a_triangle else spirit_color_debug
+	modulate = spirit_color if is_exposed else spirit_color_debug
 	
 	if is_jarred:
 		jarred_time += delta
 		if jarred_time > max_jarred_time:
 			_spirit_escapes()
 
+func get_is_exposed():
+	var pin_groups = get_tree().get_nodes_in_group("triangles")
+	var is_in_a_triangle = pin_groups.any(func(group): return group.is_active && Geometry2D.is_point_in_polygon(position, group.vector_points))
+	return is_in_a_triangle
+	
+func get_is_capturable():
+	return is_exposed
+	
+func on_expose():
+	MessageBus.spirit_revealed.emit(spirit_color)
+	
+func on_hide():
+	pass
+	
+func on_capture():
+	pass
 
 # TODO: we should disable the click handler if the ghost is not visible,
 # because it blocks other interactions

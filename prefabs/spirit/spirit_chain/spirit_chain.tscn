@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8e6o7ds8vw74"]
+
+[ext_resource type="Texture2D" uid="uid://dnyj70g48gcwf" path="res://textures/spirit_chain.png" id="1_ivs10"]
+[ext_resource type="Script" path="res://prefabs/spirit/spirit_chain/spirit_chain.gd" id="1_rqmaj"]
+[ext_resource type="Texture2D" uid="uid://dgu0jy6ih6lmh" path="res://textures/spirit_lock.png" id="2_p8wy8"]
+[ext_resource type="Texture2D" uid="uid://bswtjjil75p2k" path="res://textures/spirit_unlocked.png" id="3_edhw7"]
+
+[node name="spirit_chain" type="Node2D"]
+script = ExtResource("1_rqmaj")
+locked_texture = ExtResource("2_p8wy8")
+unlocked_texture = ExtResource("3_edhw7")
+
+[node name="chain_line" type="Line2D" parent="."]
+unique_name_in_owner = true
+texture_repeat = 2
+points = PackedVector2Array(0, 0, 0, 0)
+width = 30.0
+texture = ExtResource("1_ivs10")
+texture_mode = 1
+
+[node name="lock_sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -4)
+scale = Vector2(0.4, 0.374)
+texture = ExtResource("2_p8wy8")

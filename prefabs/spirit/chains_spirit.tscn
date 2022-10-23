@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://chwyyeuayb8cb"]
+
+[ext_resource type="Script" path="res://prefabs/spirit/chains_spirit.gd" id="1_olgsp"]
+[ext_resource type="Shader" path="res://shaders/spirit.gdshader" id="2_30woi"]
+[ext_resource type="PackedScene" uid="uid://b8e6o7ds8vw74" path="res://prefabs/spirit/spirit_chain/spirit_chain.tscn" id="2_62ww7"]
+[ext_resource type="Texture2D" uid="uid://bnlp8tiitig2t" path="res://noise.tres" id="3_3ed8y"]
+[ext_resource type="Texture2D" uid="uid://cxj1p4tiwjn6b" path="res://textures/spirit.png" id="4_uhn8b"]
+
+[sub_resource type="Gradient" id="Gradient_pikqi"]
+offsets = PackedFloat32Array(0.665605, 0.882166, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.308824, 0.308824, 0.308824, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o120p"]
+gradient = SubResource("Gradient_pikqi")
+fill = 1
+fill_from = Vector2(0.5, 0.4)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oruvu"]
+shader = ExtResource("2_30woi")
+shader_parameter/opacity = SubResource("GradientTexture2D_o120p")
+shader_parameter/smoke = ExtResource("3_3ed8y")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwcg0"]
+size = Vector2(31, 27)
+
+[node name="spirit" type="Node2D"]
+script = ExtResource("1_olgsp")
+chain_prefab = ExtResource("2_62ww7")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+texture_repeat = 1
+material = SubResource("ShaderMaterial_oruvu")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_uhn8b")
+
+[node name="click_handler" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -29.0
+offset_top = -34.0
+offset_right = 33.0
+offset_bottom = 34.0
+
+[node name="thurible_collider" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="thurible_collider"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_jwcg0")
+
+[connection signal="gui_input" from="click_handler" to="." method="_on_click_handler_gui_input"]
+[connection signal="area_entered" from="thurible_collider" to="." method="_on_thurible_collider_area_entered"]

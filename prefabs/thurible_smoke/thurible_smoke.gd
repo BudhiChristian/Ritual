@@ -6,7 +6,6 @@ func _ready() -> void:
 	var rotation = randf_range(0, PI)
 	var possible_directions = [-1, 1]
 	possible_directions.shuffle()
-	print(possible_directions.front())
 	var final_rotation = rotation + (
 		randf_range(PI / 10, PI / 12) * possible_directions.front()
 	)

@@ -3,7 +3,8 @@ extends Node
 var spirit_instances: Array = []
 var spirit_prefabs: Dictionary = {
 	"normal": preload("res://prefabs/spirit/spirit.tscn"),
-	"ectoplasm": preload("res://prefabs/spirit/ectoplasm_spirit.tscn")
+	"ectoplasm": preload("res://prefabs/spirit/ectoplasm_spirit.tscn"),
+	"chains": preload("res://prefabs/spirit/chains_spirit.tscn"),
 }
 
 # triangles that spritis can spawn
