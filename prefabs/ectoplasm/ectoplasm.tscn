@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cyirykhptubln"]
 
 [ext_resource type="Script" path="res://prefabs/ectoplasm/ectoplasm.gd" id="1_3388n"]
-[ext_resource type="Texture2D" uid="uid://bpdhy8sl1vfme" path="res://textures/circle.png" id="1_eraxi"]
+[ext_resource type="Texture2D" uid="uid://di24jl5vwrgr8" path="res://textures/ectoplasm.png" id="2_c2tl0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_45aei"]
 
@@ -10,8 +10,8 @@ z_index = 99
 script = ExtResource("1_3388n")
 
 [node name="ectoplasm_sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_eraxi")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_c2tl0")
 
 [node name="click_blocker" type="Control" parent="."]
 layout_mode = 3
@@ -22,27 +22,27 @@ offset_right = 26.0
 offset_bottom = 10.0
 
 [node name="more_hitbox" type="Control" parent="click_blocker"]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
-offset_left = -12.0
-offset_top = -12.0
-offset_right = 64.0
-offset_bottom = 30.0
+offset_left = -17.0
+offset_top = -16.0
+offset_right = 69.0
+offset_bottom = 33.0
 
 [node name="collision" type="Area2D" parent="click_blocker"]
 position = Vector2(26, 8)
 
 [node name="collision_shap" type="CollisionShape2D" parent="click_blocker/collision"]
-scale = Vector2(3.5, 3.5)
+scale = Vector2(4.1, 4.1)
 shape = SubResource("CircleShape2D_45aei")
 
 [node name="more_hitbox2" type="Control" parent="click_blocker"]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
-offset_left = 4.0
-offset_top = -30.0
-offset_right = 48.0
-offset_bottom = 45.0
+offset_left = -1.0
+offset_top = -34.0
+offset_right = 54.0
+offset_bottom = 51.0
 
 [connection signal="gui_input" from="click_blocker" to="." method="_on_click_blocker_gui_input"]
 [connection signal="gui_input" from="click_blocker/more_hitbox" to="." method="_on_click_blocker_gui_input"]
