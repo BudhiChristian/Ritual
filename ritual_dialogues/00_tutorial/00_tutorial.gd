@@ -1,7 +1,7 @@
 extends RitualDialogueHandler
 
 # level details
-var spirit_color = Color8(172, 91, 53)
+var spirit_color = Color8(140, 42, 134)
 var spirit_types = ["normal", "normal", "normal"]
 
 # state

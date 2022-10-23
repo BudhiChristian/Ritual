@@ -2,7 +2,7 @@ extends RitualDialogueHandler
 
 # level details
 var spirit_color_1 = Color8(55, 120, 81) # green
-var spirit_color_2 = Color8(172, 91, 53) # orange
+var spirit_color_2 = Color8(140, 42, 134) # purple
 var spirit_types_1 = ["normal", "normal", "ectoplasm_2"]
 var spirit_types_2 = ["chains", "chains", "chains"]
 var spirit_types_3a = ["chains", "chains", "ectoplasm_2"]
