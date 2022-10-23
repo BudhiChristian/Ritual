@@ -1,13 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://futw13kon3y2"]
+[gd_scene load_steps=7 format=3 uid="uid://doc62mgevlmk1"]
 
 [ext_resource type="Texture2D" uid="uid://didpkr4kqvaqm" path="res://textures/backgrounds/Background_WIP.png" id="1_w626o"]
 [ext_resource type="PackedScene" uid="uid://bskq3yd4rancs" path="res://prefabs/spirit_host/spirit_host.tscn" id="2_120qv"]
 [ext_resource type="Texture2D" uid="uid://d1dg5p1hbir8i" path="res://textures/patients/panini.png" id="3_oofav"]
 [ext_resource type="Script" path="res://scripts/spirit_spawner.gd" id="4_xyxa5"]
 [ext_resource type="PackedScene" uid="uid://dwn4x7y0esv0f" path="res://prefabs/tool_kit/tool_kit.tscn" id="5_yiuei"]
-[ext_resource type="Script" path="res://ritual_dialogues/05_chains/05_chains.gd" id="6_jhakw"]
+[ext_resource type="Script" path="res://ritual_dialogues/06_chains/06_chains.gd" id="6_jhakw"]
 
-[node name="05_chains" type="Node2D"]
+[node name="06_chains" type="Node2D"]
 
 [node name="background" type="Node2D" parent="."]
 z_index = -2

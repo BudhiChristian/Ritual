@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://c3tbim4pxsc4i"
+path="res://.godot/imported/04_03b_possessed.dialogue-4bafe1c64eabc2eea3b5970dc809f75c.tres"
+
+[deps]
+
+source_file="res://ritual_dialogues/04_ectoplasm/04_03b_possessed.dialogue"
+dest_files=["res://.godot/imported/04_03b_possessed.dialogue-4bafe1c64eabc2eea3b5970dc809f75c.tres"]
+
+[params]
+

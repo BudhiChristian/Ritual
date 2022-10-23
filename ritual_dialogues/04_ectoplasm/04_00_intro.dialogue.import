@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://b2qqumy46a6m3"
+path="res://.godot/imported/04_00_intro.dialogue-a482f3afbd7b1b947044b3a22c03101d.tres"
+
+[deps]
+
+source_file="res://ritual_dialogues/04_ectoplasm/04_00_intro.dialogue"
+dest_files=["res://.godot/imported/04_00_intro.dialogue-a482f3afbd7b1b947044b3a22c03101d.tres"]
+
+[params]
+

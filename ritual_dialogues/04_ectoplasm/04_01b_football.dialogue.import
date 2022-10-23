@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://clmddomqdl5r1"
+path="res://.godot/imported/04_01b_football.dialogue-d705f873d25cf1688f58f2aa797270c3.tres"
+
+[deps]
+
+source_file="res://ritual_dialogues/04_ectoplasm/04_01b_football.dialogue"
+dest_files=["res://.godot/imported/04_01b_football.dialogue-d705f873d25cf1688f58f2aa797270c3.tres"]
+
+[params]
+

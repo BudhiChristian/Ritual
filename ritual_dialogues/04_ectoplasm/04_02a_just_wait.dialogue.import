@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_3"
+type="Resource"
+uid="uid://wq23lt4it8st"
+path="res://.godot/imported/04_02a_just_wait.dialogue-77ceaa24285171b1cee7140996d7f8bf.tres"
+
+[deps]
+
+source_file="res://ritual_dialogues/04_ectoplasm/04_02a_just_wait.dialogue"
+dest_files=["res://.godot/imported/04_02a_just_wait.dialogue-77ceaa24285171b1cee7140996d7f8bf.tres"]
+
+[params]
+
