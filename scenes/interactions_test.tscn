@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://cnnah31drmh7a"]
 
 [ext_resource type="PackedScene" uid="uid://bskq3yd4rancs" path="res://prefabs/spirit_host/spirit_host.tscn" id="1_6rnas"]
 [ext_resource type="Script" path="res://scripts/spirit_spawner.gd" id="3_oorg0"]

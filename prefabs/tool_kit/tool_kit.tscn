@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cv182d1q15aby" path="res://textures/knife.png" id="10_1vhdp"]
 [ext_resource type="Texture2D" uid="uid://cxj1p4tiwjn6b" path="res://textures/spirit.png" id="11_07u20"]
 [ext_resource type="Script" path="res://prefabs/tool_handle/spirit_indicator.gd" id="12_nbg02"]
-[ext_resource type="Texture2D" uid="uid://bdw6fqxsfhl81" path="res://textures/thurible.png" id="13_ohr4w"]
+[ext_resource type="Texture2D" uid="uid://cveivted0r08c" path="res://textures/Mr_Froggy_No_Smoke.png" id="13_osemd"]
 [ext_resource type="Texture2D" uid="uid://igggnfhpwe22" path="res://textures/needle.png" id="14_g4cu5"]
 [ext_resource type="Script" path="res://scripts/operating_area.gd" id="15_go7js"]
 
@@ -69,11 +69,10 @@ texture = ExtResource("11_07u20")
 script = ExtResource("12_nbg02")
 
 [node name="thurible_handle" parent="tools" node_paths=PackedStringArray("_associated_state") instance=ExtResource("9_01d0v")]
-position = Vector2(1.19209e-07, 374)
+position = Vector2(0, 373)
 scale = Vector2(0.8, 0.8)
-_tool_texture = ExtResource("13_ohr4w")
-_tool_color = Color(0.290196, 0, 0.160784, 1)
-_tool_scale = Vector2(0.7, 0.7)
+_tool_texture = ExtResource("13_osemd")
+_tool_scale = Vector2(0.25, 0.25)
 _associated_state = NodePath("../../tools_state/thurible_state")
 
 [node name="blue_pin_handle" parent="tools" node_paths=PackedStringArray("_associated_state") instance=ExtResource("9_01d0v")]
