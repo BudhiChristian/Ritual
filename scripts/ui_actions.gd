@@ -10,3 +10,5 @@ func retry_level():
 func show_overlay_for(option):
 	visible = true
 	get_node(option).visible = true
+	if option == "retry":
+		get_tree().reload_current_scene()
