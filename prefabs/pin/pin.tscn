@@ -18,10 +18,11 @@ offset = Vector2(0, -240)
 [node name="pin_head" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 15.0
+offset_left = -36.0
 offset_top = -245.0
 offset_right = 105.0
-offset_bottom = -160.0
+offset_bottom = 28.0
+mouse_filter = 1
 
 [node name="collision_checker" type="Area2D" parent="."]
 

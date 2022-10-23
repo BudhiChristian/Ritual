@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://scripts/operating_area.gd" id="15_go7js"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hr5hb"]
-size = Vector2(929, 643)
+size = Vector2(929, 615)
 
 [node name="tool_kit" type="Node2D"]
 
@@ -97,7 +97,7 @@ position = Vector2(144, 6)
 script = ExtResource("15_go7js")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
-position = Vector2(480.5, 314.5)
+position = Vector2(480.5, 328.5)
 shape = SubResource("RectangleShape2D_hr5hb")
 
 [connection signal="input_event" from="Area2d" to="tools_state" method="_on_interaction_area_input"]
