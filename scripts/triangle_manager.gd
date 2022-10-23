@@ -1,11 +1,11 @@
 extends Node2D
 class_name TriangleManager
 
-var max_duration = 12.0
+var max_duration = 6.5
 var duration = max_duration
 var triangle_points
 
-var max_distance_for_points = 240
+var max_distance_for_points = 280
 var is_active = false
 
 var vector_points:
@@ -18,7 +18,20 @@ func _init(points):
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("triangles")
-	MessageBus.triangle_created.emit()
+	var is_valid = true
+	for i in triangle_points.size():
+		var line_start = triangle_points[i].position
+		var j = (i+1) % triangle_points.size()
+		var line_end = triangle_points[j].position
+		var current_line_length = line_start.distance_to(line_end)
+		
+		if current_line_length > max_distance_for_points:
+			is_valid = false
+
+	if is_valid:
+		MessageBus.triangle_created.emit()
+	else:
+		queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -70,4 +83,4 @@ func _draw():
 			draw_line(line_start, countdown_line_end, Color(Color.BLUE, 0.4), countdown_line_width, true)
 		
 		length_of_lines_so_far += current_line_length
-	is_active = is_valid
+		is_active = is_valid

@@ -56,7 +56,11 @@ func _process(delta: float) -> void:
 
 func get_is_exposed():
 	var pin_groups = get_tree().get_nodes_in_group("triangles")
-	var is_in_a_triangle = pin_groups.any(func(group): return group.is_active && Geometry2D.is_point_in_polygon(position, group.vector_points))
+	var is_in_a_triangle = pin_groups.any(func(group):
+		# expand the polygon a little to catch ghosts that are _just_ on the border
+		var polygon_to_check = Geometry2D.offset_polygon(group.vector_points, 35)[0]
+		return group.is_active && Geometry2D.is_point_in_polygon(position, polygon_to_check)
+	)
 	return is_in_a_triangle
 	
 func get_is_capturable():
