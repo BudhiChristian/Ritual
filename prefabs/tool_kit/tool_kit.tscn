@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dwn4x7y0esv0f"]
+[gd_scene load_steps=17 format=3 uid="uid://dwn4x7y0esv0f"]
 
 [ext_resource type="Script" path="res://scripts/state_management/state_machine.gd" id="1_67c10"]
 [ext_resource type="Script" path="res://scripts/state_management/pin_state.gd" id="2_kqmh7"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bl0a0cjknmcs8" path="res://prefabs/thurible_smoke/thurible_smoke.tscn" id="7_72ngk"]
 [ext_resource type="PackedScene" uid="uid://c3ooia7jreokc" path="res://prefabs/soul_jar/soul_jar.tscn" id="8_ck3wv"]
 [ext_resource type="PackedScene" uid="uid://dajucj1rg5jlu" path="res://prefabs/tool_handle/tool_handle.tscn" id="9_01d0v"]
-[ext_resource type="Texture2D" uid="uid://cso2g6qiqq5si" path="res://textures/Soul_Jar_Partially_Filled.png" id="9_oxq3c"]
 [ext_resource type="Texture2D" uid="uid://cxj1p4tiwjn6b" path="res://textures/spirit.png" id="11_07u20"]
 [ext_resource type="Texture2D" uid="uid://dau51dr0q8c76" path="res://textures/Tacky_Dagger.png" id="11_f5omj"]
 [ext_resource type="Script" path="res://prefabs/tool_handle/spirit_indicator.gd" id="12_nbg02"]
@@ -51,7 +50,6 @@ smoke_prefab = ExtResource("7_72ngk")
 
 [node name="soul_jar" parent="." instance=ExtResource("8_ck3wv")]
 position = Vector2(91.9999, 100)
-partially_filled_jar_texture = ExtResource("9_oxq3c")
 
 [node name="tools" type="Node2D" parent="."]
 
