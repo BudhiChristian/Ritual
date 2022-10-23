@@ -3,7 +3,7 @@ extends RitualDialogueHandler
 # level details
 var spirit_color_1 = Color8(55, 120, 81) # green
 var spirit_color_2 = Color8(172, 91, 53) # orange
-var spirit_types = ["ectoplasm_2", "ectoplasm_3", "normal"]
+var spirit_types = ["ectoplasm_2", "ectoplasm_3", "ectoplasm_3"]
 
 func _ready():
 	super()

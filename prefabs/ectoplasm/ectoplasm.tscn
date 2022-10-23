@@ -1,14 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyirykhptubln"]
+[gd_scene load_steps=4 format=3 uid="uid://cyirykhptubln"]
 
+[ext_resource type="Script" path="res://prefabs/ectoplasm/ectoplasm.gd" id="1_3388n"]
 [ext_resource type="Texture2D" uid="uid://bpdhy8sl1vfme" path="res://textures/circle.png" id="1_eraxi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_45aei"]
 
 [node name="ectoplasm" type="Node2D"]
 z_index = 99
+script = ExtResource("1_3388n")
 
 [node name="ectoplasm_sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_eraxi")
 
 [node name="click_blocker" type="Control" parent="."]
@@ -20,23 +22,24 @@ offset_right = 26.0
 offset_bottom = 10.0
 
 [node name="more_hitbox" type="Control" parent="click_blocker"]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
-offset_left = 6.0
+offset_left = -11.0
 offset_top = -9.0
-offset_right = 46.0
+offset_right = 64.0
 offset_bottom = 24.0
 
+[node name="collision" type="Area2D" parent="click_blocker"]
+position = Vector2(26, 8)
+
+[node name="collision_shap" type="CollisionShape2D" parent="click_blocker/collision"]
+scale = Vector2(3.5, 3.5)
+shape = SubResource("CircleShape2D_45aei")
+
 [node name="more_hitbox2" type="Control" parent="click_blocker"]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 offset_left = 12.0
-offset_top = -16.0
+offset_top = -28.0
 offset_right = 40.0
-offset_bottom = 32.0
-
-[node name="collision" type="Area2D" parent="."]
-
-[node name="collision_shap" type="CollisionShape2D" parent="collision"]
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_45aei")
+offset_bottom = 43.0
